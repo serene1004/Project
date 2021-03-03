@@ -352,9 +352,9 @@
                     txt += icon;
                     $sub5Btn.eq(i).html(txt);
                     txt = '';
-
-                    if(i == 0){
-                        for(var j in lithoNav.sub5[i].subsub){
+                    
+                    if(i==0){
+                        for(j in lithoNav.sub5[i].subsub){
                             if(j < 9){
                                 txt += '<li><a href="#" class="sub-sub-btn">'+ lithoNav.sub5[i].subsub[j] +'</a></li>';
                             }
@@ -365,15 +365,15 @@
                         $sub5Sub.eq(i).html(txt);
                         txt = '';
                     }
-                    else{
-                        for(var j in lithoNav.sub5[i].subsub){
+                    else if(i>0 && i<5){
+                        for(j in lithoNav.sub5[i].subsub){
                             txt += '<li><a href="#" class="sub-sub-btn">'+ lithoNav.sub5[i].subsub[j] +'</a></li>';
+                        }
+                        $sub5Sub.eq(i).html(txt);
+                        txt = '';
                     }
-                    $sub5Sub.eq(i).html(txt);
-                    txt = '';
-                    }
+                    
                 }
-
 
                 // txt = lithoNav.sub5[0].sub;
                 // icon = $sub5Btn.eq(0).html();
@@ -381,53 +381,55 @@
                 // $sub5Btn.eq(0).html(txt);
                 // txt = '';
 
-                // for(var i in lithoNav.sub5){
-                //     if(i<5){
-                //         txt += lithoNav.sub5[i].sub+'<i class="fas fa-angle-right"></i>';
-                //     }
-                //     else{
-                //         txt += lithoNav.sub5[i].sub;
-                //     }
-                //     $sub5Btn.eq(i).html(txt);
-                //     txt = '';
-                // }
-                
-                // txt += lithoNav.sub5[0].sub;
-                // $sub5Btn.eq(0).html(txt);
-                // txt = '';
 
-
-                // for(var i in lithoNav.sub5){
-                //     for(var j in lithoNav.sub5[i].subsub){
-                //         txt += '<li><a href="#">'+ lithoNav.sub5[i].subsub[j] +'</a></li>';
-                //     }
-                //     $sub5Sub.eq(i).html(txt);
-                //     txt = '';
-                // }
-
-
-
-                // for(var j in lithoNav.sub5[0].subsub){
+                // for(j in lithoNav.sub5[0].subsub){
                 //     if(j < 9){
-                //         txt += '<li><a href="#">'+ lithoNav.sub5[0].subsub[j] +'</a></li>';
+                //         txt += '<li><a href="#" class="sub-sub-btn">'+ lithoNav.sub5[0].subsub[j] +'</a></li>';
                 //     }
                 //     else{
-                //         txt += '<li><a href="#">'+ lithoNav.sub5[0].subsub[j] +'<i class="fas fa-angle-right"></i></a></li>';
+                //         txt += '<li><a href="#" class="sub-sub-btn">'+ lithoNav.sub5[0].subsub[j] +'<i class="fas fa-angle-right"></i></a></li>';
                 //     }
                 // }
                 // $sub5Sub.eq(0).html(txt);
                 // txt = '';
 
                 // for(var j in lithoNav.sub5[1].subsub){
-                //         txt += '<li><a href="#">'+ lithoNav.sub5[1].subsub[j] +'</a></li>';
+                //     txt += '<li><a href="#" class="sub-sub-btn">'+ lithoNav.sub5[1].subsub[j] +'</a></li>';
                 // }
                 // $sub5Sub.eq(1).html(txt);
                 // txt = '';
-
-                // txt += '<li><a href="#">'+ lithoNav.sub5[0].subsub[0] +'</a></li>';
-                // txt += '<li><a href="#">'+ lithoNav.sub5[0].subsub[9] +'<i class="fas fa-angle-right"></i></a></li>';
+                
+                // txt += '<li><a href="#" class="sub-sub-btn">'+ lithoNav.sub5[0].subsub[0] +'</a></li>';
+                // txt += '<li><a href="#" class="sub-sub-btn">'+ lithoNav.sub5[0].subsub[1] +'</a></li>';
+                // txt += '<li><a href="#" class="sub-sub-btn">'+ lithoNav.sub5[0].subsub[2] +'</a></li>';
+                // txt += '<li><a href="#" class="sub-sub-btn">'+ lithoNav.sub5[0].subsub[3] +'</a></li>';
+                // txt += '<li><a href="#" class="sub-sub-btn">'+ lithoNav.sub5[0].subsub[4] +'</a></li>';
+                // txt += '<li><a href="#" class="sub-sub-btn">'+ lithoNav.sub5[0].subsub[5] +'</a></li>';
+                // txt += '<li><a href="#" class="sub-sub-btn">'+ lithoNav.sub5[0].subsub[6] +'</a></li>';
+                // txt += '<li><a href="#" class="sub-sub-btn">'+ lithoNav.sub5[0].subsub[7] +'</a></li>';
+                // txt += '<li><a href="#" class="sub-sub-btn">'+ lithoNav.sub5[0].subsub[8] +'</a></li>';
+                // txt += '<li><a href="#" class="sub-sub-btn">'+ lithoNav.sub5[0].subsub[9] +'<i class="fas fa-angle-right"></i></a></li>';
+                // txt += '<li><a href="#" class="sub-sub-btn">'+ lithoNav.sub5[0].subsub[10] +'<i class="fas fa-angle-right"></i></a></li>';
+                // txt += '<li><a href="#" class="sub-sub-btn">'+ lithoNav.sub5[0].subsub[11] +'<i class="fas fa-angle-right"></i></a></li>';
+                // txt += '<li><a href="#" class="sub-sub-btn">'+ lithoNav.sub5[0].subsub[12] +'<i class="fas fa-angle-right"></i></a></li>';
                 // $sub5Sub.eq(0).html(txt);
                 // txt = '';
+
+                // txt += '<li><a href="#" class="sub-sub-btn">'+ lithoNav.sub5[1].subsub[0] +'</a></li>';
+                // txt += '<li><a href="#" class="sub-sub-btn">'+ lithoNav.sub5[1].subsub[1] +'</a></li>';
+                // txt += '<li><a href="#" class="sub-sub-btn">'+ lithoNav.sub5[1].subsub[2] +'</a></li>';
+                // txt += '<li><a href="#" class="sub-sub-btn">'+ lithoNav.sub5[1].subsub[3] +'</a></li>';
+                // txt += '<li><a href="#" class="sub-sub-btn">'+ lithoNav.sub5[1].subsub[4] +'</a></li>';
+                // txt += '<li><a href="#" class="sub-sub-btn">'+ lithoNav.sub5[1].subsub[5] +'</a></li>';
+                // txt += '<li><a href="#" class="sub-sub-btn">'+ lithoNav.sub5[1].subsub[6] +'</a></li>';
+                // txt += '<li><a href="#" class="sub-sub-btn">'+ lithoNav.sub5[1].subsub[7] +'</a></li>';
+                // txt += '<li><a href="#" class="sub-sub-btn">'+ lithoNav.sub5[1].subsub[8] +'</a></li>';
+                // txt += '<li><a href="#" class="sub-sub-btn">'+ lithoNav.sub5[1].subsub[9] +'</a></li>';
+                // txt += '<li><a href="#" class="sub-sub-btn">'+ lithoNav.sub5[1].subsub[10] +'</a></li>';
+                // txt += '<li><a href="#" class="sub-sub-btn">'+ lithoNav.sub5[1].subsub[11] +'</a></li>';
+                // $sub5Sub.eq(1).html(txt);
+                // txt = '';
+
 
                 // 서브5 서브서브
                 txt = $('.sub5-sub1 > div > ul > li').eq(9).html();
@@ -480,17 +482,7 @@
                 txt += '</div>';
                 txt += '</div>';
                 $('.sub5-sub1 > div > ul > li').eq(12).html(txt);
-                txt = '';
-
-                // <div class="sub-sub-sub sub5-sub1-sub10">
-                //     <div class="sub-sub-sub-gap">
-                //         <ul>
-                //             <li><a href="#">Hamburger menu</a></li>
-                //             <li><a href="#">Hamburger menu modern</a></li>
-                //             <li><a href="#">Hamburger menu half</a></li>
-                //         </ul>
-                //     </div>
-                // </div>
+                txt = '';   // 서브 5-1 끝
 
 
                 // 서브6
@@ -514,18 +506,17 @@
 
                 for(var i in lithoNav.sub6){
                     if(i<11){
-                        txt += lithoNav.sub6[i].sub;
+                        txt = lithoNav.sub6[i].sub;
+                        $sub6Btn.eq(i).html(txt);
                     }
                     else{
-                        txt += lithoNav.sub6[i].sub+'<i class="fas fa-angle-right"></i>';
+                        txt = lithoNav.sub6[i].sub+'<i class="fas fa-angle-right"></i>';
+                        $sub6Btn.eq(i).html(txt);
                     }
-                    $sub6Btn.eq(i).html(txt);
-                    txt = '';
                 }
+                txt = '';
+
                 
-                // txt += lithoNav.sub6[0].sub;
-                // $sub6Btn.eq(0).html(txt);
-                // txt = '';
 
                 for(var j in lithoNav.sub6[11].subsub){
                     txt += '<li><a href="#">'+ lithoNav.sub6[11].subsub[j] +'</a></li>';
@@ -539,38 +530,42 @@
                 $sub6Sub.eq(1).html(txt);
                 txt = '';
 
-                // txt += '<li><a href="#">'+ lithoNav.sub6[11].subsub[0] +'</a></li>';
+                // txt = '<li><a href="#">'+ lithoNav.sub6[11].subsub[0] +'</a></li>';
                 // $sub6Sub.html(txt);
                 // txt = '';
 
-                
+
                 // 서브7
-                var $sub7dl = $('.sub7 dl').eq(0);
-                var $sub7Img = $('.sub7 dl img')
+                var $sub7Dl1 = $('.sub7 dl').eq(0);
+                var $sub7Img = $('.sub7 dl img');    // 이미지2개
+            
 
                 for(var i in lithoNav.sub7[0].sub){
-                    if(i==0 || i==6){
-                        txt += '<dt>'+ lithoNav.sub7[0].sub[i] +'</dt>';
+                    if(i==0 || i==6){   // || = or(또는)
+                        txt += '<dt>'+ lithoNav.sub7[0].sub[i] + '</dt>';
                     }
                     else{
-                        txt += '<dd><a href="#">'+ lithoNav.sub7[0].sub[i] +'</a></dd>';
+                        txt += '<dd><a href="#">'+ lithoNav.sub7[0].sub[i] + '</a></dd>';
                     }
                 }
-                $sub7dl.html(txt);
+                $sub7Dl1.html(txt);
                 txt = '';
 
-                // txt += '<dt>'+ lithoNav.sub7[0].sub[0] +'</dt>';
-                // txt += '<dd><a href="#">'+ lithoNav.sub7[0].sub[1] +'</a></dd>';
-                // txt += '<dd><a href="#">'+ lithoNav.sub7[0].sub[2] +'</a></dd>';
-                // txt += '<dd><a href="#">'+ lithoNav.sub7[0].sub[3] +'</a></dd>';
-                // txt += '<dd><a href="#">'+ lithoNav.sub7[0].sub[4] +'</a></dd>';
-                // txt += '<dd><a href="#">'+ lithoNav.sub7[0].sub[5] +'</a></dd>';
-                // txt += '<dt>'+ lithoNav.sub7[0].sub[6] +'</dt>';
-                // txt += '<dd><a href="#">'+ lithoNav.sub7[0].sub[7] +'</a></dd>';
-                // txt += '<dd><a href="#">'+ lithoNav.sub7[0].sub[8] +'</a></dd>';
-                // txt += '<dd><a href="#">'+ lithoNav.sub7[0].sub[9] +'</a></dd>';
-                // $sub7dl.html(txt);
+                // txt += '<dt>'+lithoNav.sub7[0].sub[0]+'</dt>';
+                // txt += '<dd><a href="#">'+lithoNav.sub7[0].sub[1]+'</a></dd>';
+                // txt += '<dd><a href="#">'+lithoNav.sub7[0].sub[2]+'</a></dd>';
+                // txt += '<dd><a href="#">'+lithoNav.sub7[0].sub[3]+'</a></dd>';
+                // txt += '<dd><a href="#">'+lithoNav.sub7[0].sub[4]+'</a></dd>';
+                // txt += '<dd><a href="#">'+lithoNav.sub7[0].sub[5]+'</a></dd>';
+                // txt += '<dt>'+lithoNav.sub7[0].sub[6]+'</dt>';
+                // txt += '<dd><a href="#">'+lithoNav.sub7[0].sub[7]+'</a></dd>';
+                // txt += '<dd><a href="#">'+lithoNav.sub7[0].sub[8]+'</a></dd>';
+                // txt += '<dd><a href="#">'+lithoNav.sub7[0].sub[9]+'</a></dd>';
+                // $sub7Dl1.html(txt);
                 // txt = '';
+
+
+                // 이미지 경로정보 가져와서 객체 배열 이미지 추가
 
                 for(var i=0; i<$sub7Img.length; i++){
                     txt = $sub7Img.eq(i).attr('src');
@@ -579,22 +574,24 @@
                     txt = '';
                 }
 
-
-                // console.log($sub7Img.length);
-
-                // txt = $sub7Img.eq(0).attr('src');
+                // txt = $sub7Img.eq(0).attr('src');   // 속성가져오기
+                // // txt = $sub7Img.eq(0).porp('src');    // 속성 가져오기
                 // txt += lithoNav.sub7[1].sub[0];
                 // $sub7Img.eq(0).attr('src', txt);
                 // txt = '';
 
-                // txt = $sub7Img.eq(1).attr('src');
-                // txt += lithoNav.sub7[2].sub[0];
-                // $sub7Img.eq(1).attr('src', txt);
+                // txt = $sub7Img.eq(1).attr('src');   // ./img/
+                // txt += lithoNav.sub7[2].sub[0];     // menu-banner-01.jpg
+                // $sub7Img.eq(1).attr('src', txt);    // ./img/menu-banner-01.jpg
                 // txt = '';
-                
 
 
-            // 버튼이벤트
+             
+
+
+
+
+            ////// 버튼이벤트
             // 네비게이션
             // 메인버튼(메뉴)
             // 서브메뉴
@@ -653,7 +650,7 @@
                 mouseleave:function(){
                     $subSubSub.stop().hide(0);
                 }
-            });                
+            });
 
 
 
