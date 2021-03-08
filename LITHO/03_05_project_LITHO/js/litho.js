@@ -842,13 +842,16 @@
                 },
             });
 
-            $slideViewEnter.on({
-                mouseenter:function(){
-                    timerFn();
-                }
-            });
-
-
+            // 마우스가 슬라이드 박스 안에있을때는 이벤트 x
+            // 마우스가 슬라이드 박스 밖으로 나가면 이벤트 실행
+            // $slideViewEnter.on({
+            //     mouseenter:function(){
+            //         clearInterval(setId);
+            //     },
+            //     mouseleave:function(){
+            //         autoPlay();
+            //     }
+            // });
 
             function autoPlay(){
                 // console.log('할당된 메모리 번지 번호 ',setId); // 할당 전
@@ -861,7 +864,6 @@
             // 이벤트(클릭, 터치) 발생 시 애니메이션 일시정지
             // 사용자에의한 이벤트(클릭, 터치)가 없을경우 자동타이머 재샐행
             // 다음 슬라이드 함수 즉시실행 이후 자동타이머 실행
-            
             var t = 0;
             var setId2 = null;
             function timerFn(){
@@ -870,7 +872,7 @@
                 clearInterval(setId2);
                 setId2 = setInterval(function(){
                     t++;
-                    // console.log(t);
+                    console.log(t);
                     if(t>=4){
                         clearInterval(setId);
                         clearInterval(setId2);
