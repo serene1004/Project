@@ -13,11 +13,13 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/response.css">
 
     <!-- script -->
     <script src="./js/lib/jquery-1.12.4.min.js"></script>
     <script src="./js/lib/jquery.touchSwipe.js"></script>
     <script src="./js/lib/jquery.easing.1.3.js"></script>
+    <script src="./js/lib/prefixfree.min.js"></script>
 
 </head>
 <body>
@@ -601,6 +603,14 @@
                                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                             </ul>
                         </aside>
+                        <div class="mobile-btn-wrap">
+                            <a href="javascript:" class="mobile-btn">
+                                <i class="bar bar1"></i>
+                                <i class="bar bar2"></i>
+                                <i class="bar bar3"></i>
+                                <i class="bar bar4"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -615,14 +625,14 @@
                                     <ul class="slide-wrap clearfix">
                                         <li class="slide slide2">
                                             <div class="text-box">
-                                                <div class="text-wrap">
-                                                    <div class="text-gap">
-                                                        <div class="text-title">
+                                                <div class="text-gap">
+                                                    <div class="text-wrap">
+                                                        <div class="title1">
                                                             <h3><span>03</span><span><i></i></span><span>Resident interior</span></h3>
                                                         </div>
-                                                        <div class="text-content clearfix">
+                                                        <div class="title2">
                                                             <h2>Comfort<br>seating</h2>
-                                                            <div class="text-box-btn"><a href="#"><i class="fas fa-arrow-right"></i></a></div>
+                                                            <span><a href="#"><i class="fas fa-arrow-right"></i></a></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -630,14 +640,14 @@
                                         </li>       
                                         <li class="slide slide0">
                                             <div class="text-box">
-                                                <div class="text-wrap">
-                                                    <div class="text-gap">
-                                                        <div class="text-title">
+                                                <div class="text-gap">
+                                                    <div class="text-wrap">
+                                                        <div class="title1">
                                                             <h3><span>01</span><span><i></i></span><span>Resident interior</span></h3>
                                                         </div>
-                                                        <div class="text-content clearfix">
+                                                        <div class="title2 clearfix">
                                                             <h2>Concrete<br>pent house</h2>
-                                                            <div class="text-box-btn"><a href="#"><i class="fas fa-arrow-right"></i></a></div>
+                                                            <span><a href="#"><i class="fas fa-arrow-right"></i></a></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -645,14 +655,14 @@
                                         </li>
                                         <li class="slide slide1">
                                             <div class="text-box">
-                                                <div class="text-wrap">
-                                                    <div class="text-gap">
-                                                        <div class="text-title">
+                                                <div class="text-gap">
+                                                    <div class="text-wrap">
+                                                        <div class="title1">
                                                             <h3><span>02</span><span><i></i></span><span>Product design</span></h3>
                                                         </div>
-                                                        <div class="text-content clearfix">
+                                                        <div class="title2">
                                                             <h2>Modernism<br>table pots</h2>
-                                                            <div class="text-box-btn"><a href="#"><i class="fas fa-arrow-right"></i></a></div>
+                                                            <span><a href="#"><i class="fas fa-arrow-right"></i></a></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -660,14 +670,14 @@
                                         </li>
                                         <li class="slide slide2">
                                             <div class="text-box">
-                                                <div class="text-wrap">
-                                                    <div class="text-gap">
-                                                        <div class="text-title">
+                                                <div class="text-gap">
+                                                    <div class="text-wrap">
+                                                        <div class="title1">
                                                             <h3><span>03</span><span><i></i></span><span>Resident interior</span></h3>
                                                         </div>
-                                                        <div class="text-content clearfix">
+                                                        <div class="title2">
                                                             <h2>Comfort<br>seating</h2>
-                                                            <div class="text-box-btn"><a href="#"><i class="fas fa-arrow-right"></i></a></div>
+                                                            <span><a href="#"><i class="fas fa-arrow-right"></i></a></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -675,28 +685,26 @@
                                         </li>
                                         <li class="slide slide0">
                                             <div class="text-box">
-                                                <div class="text-wrap">
-                                                    <div class="text-gap">
-                                                        <div class="text-title">
+                                                <div class="text-gap">
+                                                    <div class="text-wrap">
+                                                        <div class="title1">
                                                             <h3><span>01</span><span><i></i></span><span>Resident interior</span></h3>
                                                         </div>
-                                                        <div class="text-content clearfix">
+                                                        <div class="title2 clearfix">
                                                             <h2>Concrete<br>pent house</h2>
-                                                            <div class="text-box-btn"><a href="#"><i class="fas fa-arrow-right"></i></a></div>
+                                                            <span><a href="#"><i class="fas fa-arrow-right"></i></a></span>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </li>
                                     </ul>
-                                    <span class="slide-prev-btn"><a href="javascript:" class="prev-btn"><i class="fas fa-long-arrow-alt-left"></i></a></span>
-                                    <span class="slide-next-btn"><a href="javascript:" class="next-btn"><i class="fas fa-long-arrow-alt-right"></i></a></span>
-                                    <ul class="page-btn-wrap">
-                                        <li><a href="javascript:" class="page-btn"></a></li>
-                                        <li><a href="javascript:" class="page-btn"></a></li>
-                                        <li><a href="javascript:" class="page-btn"></a></li>
-                                    </ul>
                                 </div>
+                                <span class="arrow-prev"><a href="#" class="prev-btn"><i class="fas fa-long-arrow-alt-left"></i></a></span>
+                                <span class="arrow-next"><a href="#" class="next-btn"><i class="fas fa-long-arrow-alt-right"></i></a></span>
+                                <ul class="page-btn-wrap">
+                                    <li><a href="javascript:" class="page-btn"></a></li><li><a href="javascript:" class="page-btn"></a></li><li><a href="javascript:" class="page-btn"></a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -710,7 +718,7 @@
                                 <li>
                                     <div class="content-gap">
                                         <div class="content">
-                                            <h2>We are interior design team based on new york</h2>
+                                            <h2>We are interior<br>design team based<br> on new york</h2>
                                             <span><a href="mailto:hello@domain.com">hello@domain.com</a></span>
                                             <span><button>About Company</button></span>
                                         </div>
@@ -729,18 +737,18 @@
                                     <div class="content-gap">
                                         <div class="content">
                                             <div class="img-box">
-                                                <img src="./img/home-interior-design-about-img01.jpg" alt="">
-                                                <div class="link-box">
+                                                <img src="./img/home-interior-design-about-img01.jpg" alt="화분과 도자기 이미지">
+                                                <span>
                                                     <a href="javascript:">
                                                         <span class="link-gap clearfix">
-                                                            <span>
+                                                            <span class="arrow-btn">
                                                                 <i>▷</i>
                                                                 <span class="animation-zoom"></span>
                                                             </span>
                                                             <span>company<br>achievements</span>
                                                         </span>
                                                     </a>
-                                                </div>
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
@@ -754,186 +762,184 @@
                 <div class="wrap">
                     <div class="gap">
                         <div class="container">
-                            <div class="top-text"><h2>achievements</h2></div>
-                            <div class="text-box">
-                                <div class="text-box-wrap">
-                                    <div class="text-box-gap">
-                                        <h3>HOME DECORATION SERVICES</h3>
-                                        <h2>SIMPLE IS GOOD, WE TURN IDEAS INTO WORKS OF DESIGN ART</h2>
-                                    </div>
-                                </div>
+                            <div class="deco-title">
+                                <h2>achievements</h2>
                             </div>
-                            <div class="content-box">
-                                <ul class="clearfix">
-                                    <li class="left-box">
-                                        <div class="box-gap">
-                                            <div class="content-text">
-                                                <h4>EXPERT SERVICES</h4>
-                                                <h3>WE LIKE TO MAKE YOU FEEL MORE ON YOUR HOME</h3>
-                                                <div>
-                                                    <span class="prev-btn-wrap"><a href="javascript:" class="prev-btn"><i class="fas fa-long-arrow-alt-left"></i></a></span>
-                                                    <span class="next-btn-wrap"><a href="javascript:" class="next-btn"><i class="fas fa-long-arrow-alt-right"></i></a></span>
+                            <div class="content">
+                                <h5>HOME DECORATION SERVICES</h5>
+                                <h3>SIMPLE IS GOOD, WE TURN IDEAS<br>INTO WORKS OF DESIGN ART</h3>
+                                <div class="slide-box">
+                                    <ul class="clearfix">
+                                        <li class="left-box">
+                                            <div class="box-gap">
+                                                <div class="content-box">
+                                                    <h4>EXPERT SERVICES</h4>
+                                                    <h2>WE LIKE TO MAKE YOU FEEL MORE ON YOUR HOME</h2>
+                                                    <div >
+                                                        <span class="prev-btn-box"><a href="javascript:" class="prev-btn"><i class="fas fa-long-arrow-alt-left"></i></a></span>
+                                                        <span class="next-btn-box"><a href="javascript:" class="next-btn"><i class="fas fa-long-arrow-alt-right"></i></a></span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </li>
-                                    <li class="right-box">
-                                        <div class="box-gap">
-                                            <div class="content-box">
-                                                <div class="slide-container">
-                                                    <div class="slide-view">
-                                                        <ul class="slide-wrap clearfix">
-                                                            <li class="slide slide0">
-                                                                <div class="slide-gap">
-                                                                    <div class="slide-content-box">
-                                                                        <div class="slide-content-box-gap">
-                                                                            <h3>01</h3>
-                                                                            <h4>Interior design</h4>
-                                                                            <p>Lorem ipsum dolor sit consectetur adipiscing elit eiusmod incididunt</p>
-                                                                            <span><a href="javascript:">read more</a></span>
+                                        </li>
+                                        <li class="right-box">
+                                            <div class="box-gap">
+                                                <div class="content-box">
+                                                    <div class="slide-container">
+                                                        <div class="slide-view">
+                                                            <ul class="slide-wrap">
+                                                                <li class="slide slide0">
+                                                                    <div class="slide-gap">
+                                                                        <div class="slide-content-box">
+                                                                            <div class="slide-content-box-gap">
+                                                                                <h3>01</h3>
+                                                                                <h4>Interior design</h4>
+                                                                                <p>Lorem ipsum dolor sit consectetur adipiscing elit eiusmod incididunt</p>
+                                                                                <span><a href="javascript:">read more</a></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="slide slide1">
-                                                                <div class="slide-gap">
-                                                                    <div class="slide-content-box">
-                                                                        <div class="slide-content-box-gap">
-                                                                            <h3>02</h3>
-                                                                            <h4>Interior decoration</h4>
-                                                                            <p>Lorem ipsum dolor sit consectetur adipiscing elit eiusmod incididunt</p>
-                                                                            <span><a href="javascript:">read more</a></span>
+                                                                </li>
+                                                                <li class="slide slide1">
+                                                                    <div class="slide-gap">
+                                                                        <div class="slide-content-box">
+                                                                            <div class="slide-content-box-gap">
+                                                                                <h3>02</h3>
+                                                                                <h4>Interior decoration</h4>
+                                                                                <p>Lorem ipsum dolor sit consectetur adipiscing elit eiusmod incididunt</p>
+                                                                                <span><a href="javascript:">read more</a></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="slide slide2">
-                                                                <div class="slide-gap">
-                                                                    <div class="slide-content-box">
-                                                                        <div class="slide-content-box-gap">
-                                                                            <h3>03</h3>
-                                                                            <h4>Interior design</h4>
-                                                                            <p>Lorem ipsum dolor sit consectetur adipiscing elit eiusmod incididunt</p>
-                                                                            <span><a href="javascript:">read more</a></span>
+                                                                </li>
+                                                                <li class="slide slide2">
+                                                                    <div class="slide-gap">
+                                                                        <div class="slide-content-box">
+                                                                            <div class="slide-content-box-gap">
+                                                                                <h3>03</h3>
+                                                                                <h4>Interior design</h4>
+                                                                                <p>Lorem ipsum dolor sit consectetur adipiscing elit eiusmod incididunt</p>
+                                                                                <span><a href="javascript:">read more</a></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="slide slide3">
-                                                                <div class="slide-gap">
-                                                                    <div class="slide-content-box">
-                                                                        <div class="slide-content-box-gap">
-                                                                            <h3>04</h3>
-                                                                            <h4>Interior design</h4>
-                                                                            <p>Lorem ipsum dolor sit consectetur adipiscing elit eiusmod incididunt</p>
-                                                                            <span><a href="javascript:">read more</a></span>
+                                                                </li>
+                                                                <li class="slide slide3">
+                                                                    <div class="slide-gap">
+                                                                        <div class="slide-content-box">
+                                                                            <div class="slide-content-box-gap">
+                                                                                <h3>04</h3>
+                                                                                <h4>Interior design</h4>
+                                                                                <p>Lorem ipsum dolor sit consectetur adipiscing elit eiusmod incididunt</p>
+                                                                                <span><a href="javascript:">read more</a></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="slide slide0">
-                                                                <div class="slide-gap">
-                                                                    <div class="slide-content-box">
-                                                                        <div class="slide-content-box-gap">
-                                                                            <h3>01</h3>
-                                                                            <h4>Interior design</h4>
-                                                                            <p>Lorem ipsum dolor sit consectetur adipiscing elit eiusmod incididunt</p>
-                                                                            <span><a href="javascript:">read more</a></span>
+                                                                </li>
+                                                                <li class="slide slide0">
+                                                                    <div class="slide-gap">
+                                                                        <div class="slide-content-box">
+                                                                            <div class="slide-content-box-gap">
+                                                                                <h3>01</h3>
+                                                                                <h4>Interior design</h4>
+                                                                                <p>Lorem ipsum dolor sit consectetur adipiscing elit eiusmod incididunt</p>
+                                                                                <span><a href="javascript:">read more</a></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="slide slide1">
-                                                                <div class="slide-gap">
-                                                                    <div class="slide-content-box">
-                                                                        <div class="slide-content-box-gap">
-                                                                            <h3>02</h3>
-                                                                            <h4>Interior decoration</h4>
-                                                                            <p>Lorem ipsum dolor sit consectetur adipiscing elit eiusmod incididunt</p>
-                                                                            <span><a href="javascript:">read more</a></span>
+                                                                </li>
+                                                                <li class="slide slide1">
+                                                                    <div class="slide-gap">
+                                                                        <div class="slide-content-box">
+                                                                            <div class="slide-content-box-gap">
+                                                                                <h3>02</h3>
+                                                                                <h4>Interior decoration</h4>
+                                                                                <p>Lorem ipsum dolor sit consectetur adipiscing elit eiusmod incididunt</p>
+                                                                                <span><a href="javascript:">read more</a></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="slide slide2">
-                                                                <div class="slide-gap">
-                                                                    <div class="slide-content-box">
-                                                                        <div class="slide-content-box-gap">
-                                                                            <h3>03</h3>
-                                                                            <h4>Interior design</h4>
-                                                                            <p>Lorem ipsum dolor sit consectetur adipiscing elit eiusmod incididunt</p>
-                                                                            <span><a href="javascript:">read more</a></span>
+                                                                </li>
+                                                                <li class="slide slide2">
+                                                                    <div class="slide-gap">
+                                                                        <div class="slide-content-box">
+                                                                            <div class="slide-content-box-gap">
+                                                                                <h3>03</h3>
+                                                                                <h4>Interior design</h4>
+                                                                                <p>Lorem ipsum dolor sit consectetur adipiscing elit eiusmod incididunt</p>
+                                                                                <span><a href="javascript:">read more</a></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="slide slide3">
-                                                                <div class="slide-gap">
-                                                                    <div class="slide-content-box">
-                                                                        <div class="slide-content-box-gap">
-                                                                            <h3>04</h3>
-                                                                            <h4>Interior design</h4>
-                                                                            <p>Lorem ipsum dolor sit consectetur adipiscing elit eiusmod incididunt</p>
-                                                                            <span><a href="javascript:">read more</a></span>
+                                                                </li>
+                                                                <li class="slide slide3">
+                                                                    <div class="slide-gap">
+                                                                        <div class="slide-content-box">
+                                                                            <div class="slide-content-box-gap">
+                                                                                <h3>04</h3>
+                                                                                <h4>Interior design</h4>
+                                                                                <p>Lorem ipsum dolor sit consectetur adipiscing elit eiusmod incididunt</p>
+                                                                                <span><a href="javascript:">read more</a></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="slide slide0">
-                                                                <div class="slide-gap">
-                                                                    <div class="slide-content-box">
-                                                                        <div class="slide-content-box-gap">
-                                                                            <h3>01</h3>
-                                                                            <h4>Interior design</h4>
-                                                                            <p>Lorem ipsum dolor sit consectetur adipiscing elit eiusmod incididunt</p>
-                                                                            <span><a href="javascript:">read more</a></span>
+                                                                </li>
+                                                                <li class="slide slide0">
+                                                                    <div class="slide-gap">
+                                                                        <div class="slide-content-box">
+                                                                            <div class="slide-content-box-gap">
+                                                                                <h3>01</h3>
+                                                                                <h4>Interior design</h4>
+                                                                                <p>Lorem ipsum dolor sit consectetur adipiscing elit eiusmod incididunt</p>
+                                                                                <span><a href="javascript:">read more</a></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="slide slide1">
-                                                                <div class="slide-gap">
-                                                                    <div class="slide-content-box">
-                                                                        <div class="slide-content-box-gap">
-                                                                            <h3>02</h3>
-                                                                            <h4>Interior decoration</h4>
-                                                                            <p>Lorem ipsum dolor sit consectetur adipiscing elit eiusmod incididunt</p>
-                                                                            <span><a href="javascript:">read more</a></span>
+                                                                </li>
+                                                                <li class="slide slide1">
+                                                                    <div class="slide-gap">
+                                                                        <div class="slide-content-box">
+                                                                            <div class="slide-content-box-gap">
+                                                                                <h3>02</h3>
+                                                                                <h4>Interior decoration</h4>
+                                                                                <p>Lorem ipsum dolor sit consectetur adipiscing elit eiusmod incididunt</p>
+                                                                                <span><a href="javascript:">read more</a></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="slide slide2">
-                                                                <div class="slide-gap">
-                                                                    <div class="slide-content-box">
-                                                                        <div class="slide-content-box-gap">
-                                                                            <h3>03</h3>
-                                                                            <h4>Interior design</h4>
-                                                                            <p>Lorem ipsum dolor sit consectetur adipiscing elit eiusmod incididunt</p>
-                                                                            <span><a href="javascript:">read more</a></span>
+                                                                </li>
+                                                                <li class="slide slide2">
+                                                                    <div class="slide-gap">
+                                                                        <div class="slide-content-box">
+                                                                            <div class="slide-content-box-gap">
+                                                                                <h3>03</h3>
+                                                                                <h4>Interior design</h4>
+                                                                                <p>Lorem ipsum dolor sit consectetur adipiscing elit eiusmod incididunt</p>
+                                                                                <span><a href="javascript:">read more</a></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="slide slide3">
-                                                                <div class="slide-gap">
-                                                                    <div class="slide-content-box">
-                                                                        <div class="slide-content-box-gap">
-                                                                            <h3>04</h3>
-                                                                            <h4>Interior design</h4>
-                                                                            <p>Lorem ipsum dolor sit consectetur adipiscing elit eiusmod incididunt</p>
-                                                                            <span><a href="javascript:">read more</a></span>
+                                                                </li>
+                                                                <li class="slide slide3">
+                                                                    <div class="slide-gap">
+                                                                        <div class="slide-content-box">
+                                                                            <div class="slide-content-box-gap">
+                                                                                <h3>04</h3>
+                                                                                <h4>Interior design</h4>
+                                                                                <p>Lorem ipsum dolor sit consectetur adipiscing elit eiusmod incididunt</p>
+                                                                                <span><a href="javascript:">read more</a></span>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
                                                     </div>
-                                                </div> 
-                                            </div> 
-                                        </div>                  
-                                    </li>
-                                </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>

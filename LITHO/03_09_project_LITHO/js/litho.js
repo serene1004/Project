@@ -586,10 +586,6 @@
                 // txt = '';
 
 
-             
-
-
-
 
             ////// 버튼이벤트
             // 네비게이션
@@ -653,6 +649,18 @@
             });
 
 
+            // 모바일메뉴 이벤트
+            var $mobileBtn = $('#header .mobile-btn');
+            var $bar = $('#header .mobile-btn .bar')
+            var $nav = $('#header #nav')
+            
+            $mobileBtn.on({
+                click:function(){
+                    $bar.toggleClass('addMobile');
+                    $nav.stop().slideToggle(300);
+                }
+            });
+
 
         },
         section1Fn:function(){
@@ -675,6 +683,7 @@
             var setId = null;
 
 
+
                 // 슬라이드의 너비 높이 설정 완료  // 로딩시 설정
                 function resizeFn(){
                     $winW = $(window).width();
@@ -695,7 +704,8 @@
                     $slideWrap.stop().animate({left:-$winW*cnt}, 0);    // 즉시실행 0의 속도
                     mainSlideFn();   // 메인슬라이드함수 전체를 가져오기때문에 300의 속도가 있음
                 }
-                resizeFn(); // 로딩시 실행
+                // resizeFn(); // 로딩시 실행
+                setTimeout(resizeFn, 10);  // 0.1초 뒤에 강제실행 (반응형 너비설정 resizeFn 이 즉각 실행되도록)
 
                 // 화면의 크기가(너비와높이) 1픽셀만 변경되어도 동작되는 반응형메서드
                 // $window.resize();
@@ -727,7 +737,9 @@
 
                 // 화살버튼
                 $prevBtn.on({
-                    click:function(){
+                    click:function(e){
+                        e.preventDefault();
+                        puaseTimerFn();
                         if (!$slideWrap.is(':animated')) {
                             prevSlideCountFn();
                         }
@@ -735,7 +747,9 @@
                 })
 
                 $nextBtn.on({
-                    click:function(){
+                    click:function(e){
+                        e.preventDefault();
+                        puaseTimerFn();
                         if (!$slideWrap.is(':animated')) {
                             nextSlideCountFn();
                         }
@@ -778,17 +792,47 @@
                 // 슬라이드를 오른쪽에서 왼쪽으로 터치시 다음슬라이드 카운트 함수호출
                 // 슬라이드를 왼쪽에서 오른쪽으로 터치시 이전슬라이드 카운트 함수호출
                 $slideView.swipe({
-                    swipeLeft:function(){
+                    swipeLeft:function(e){
+                        e.preventDefault();
+                        puaseTimerFn();
                         if (!$slideWrap.is(':animated')) {
                             nextSlideCountFn()
                         }
                     },
-                    swipeRight:function(){
+                    swipeRight:function(e){
+                        e.preventDefault();
+                        puaseTimerFn();
                         if (!$slideWrap.is(':animated')) {
                             prevSlideCountFn()
                         }
                     }
                 });
+
+                // 자동타이머 함수 4초에 한번씩 반복
+                function autoTimerFn(){
+                    setId = setInterval(nextSlideCountFn, 4000);
+                }
+                autoTimerFn();
+
+                // 슬라이드에서 이벤트 발생시 자동 타이머를 일시중지
+                var setId2 = null;
+                function puaseTimerFn(){
+                    var t = 0;
+                    clearInterval(setId);
+                    clearInterval(setId2);
+                    // 5초동안 아무이벤트가 없으면 다시 자동타이머 실행
+                    setId2 = setInterval(function(){
+                        t ++;
+                        console.log(t);
+                        if(t >= 4){
+                            clearInterval(setId);
+                            clearInterval(setId2);
+                            nextSlideCountFn();
+                            autoTimerFn();
+                        }
+                    }, 1000)
+                }
+
 
 
 
@@ -820,6 +864,7 @@
                 section3SlideFn();
             }
             reponseFn();    // <<< 로딩시 실행
+            setTimeout(reponseFn, 100);  // 0.1초 뒤에 강제실행 (반응형 너비설정 reponseFn 이 즉각 실행되도록)
 
             // 2. 윈도우(window) 리사이즈(resize()) 메서드
             $window.resize(function(){

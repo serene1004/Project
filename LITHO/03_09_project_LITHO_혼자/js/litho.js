@@ -235,7 +235,16 @@
             //     console.log('///////////////////////////////');
             // }
 
-
+            // 모바일메뉴 버튼
+            var $mobileBtn = $('#header .mobile-btn');
+            var $bar = $('#header .mobile-btn .bar')
+            var $nav = $('#header #nav')
+            
+            $mobileBtn.on({
+                click:function(){
+                    $bar.toggleClass('addMobile');
+                }
+            });
 
         },
         section1Fn:function(){
@@ -249,12 +258,12 @@
             var $prevBtn = $('#section1 .prev-btn');
             var $nextBtn = $('#section1 .next-btn');
             var $pageBtn = $('#section1 .page-btn');
+            var $section1 = $('#section1');
             var $slideView = $('#section1 .slide-view');
             var cnt = 0;
             var n = $('#section1 .slide').length-2;
             
             // 자동실행, 타이머함수 관련변수
-            var timecount = 0;
             var setMainSlide = null;
             var setMainSlide2 = null;
 
@@ -263,7 +272,18 @@
                 function resizeFn(){
                     $winW = $(window).width();
                     $winH = $(window).height();
-                    $slide.css({width:$winW,height:$winH}); // 즉시 변환 너비 높이 적용 실행
+                    $slide.css({width:$winW});
+
+                    // 가로형모드 반응형
+                    if(window.orientation == 0 || window.orientation == 180){
+                        $winH = $(window).height();
+                    }
+                    // 세로형모드 반응형
+                    else if (window.orientation == 90 || window.orientation == -90){
+                        $winH = 600;
+                    }
+                    
+                    $section1.css({width:$winW,height:$winH}); // 즉시 변환 너비 높이 적용 실행
                     $slideWrap.stop().animate({left:-$winW*cnt}, 0)
                 }
                 resizeFn(); // 로딩시 실행
@@ -378,7 +398,7 @@
 
                 // 타이머
                 function timerFn(){
-                    timecount = 0;
+                    var timecount = 0;
                     clearInterval(setMainSlide);
                     clearInterval(setMainSlide2);
                     setMainSlide2 = setInterval(function(){
@@ -409,13 +429,27 @@
             var cnt = 0;
             var setS3Slide = null;
 
+            var $slideW = $('#section3 .slide').innerWidth();
+            var $window = $(window);
+
+            function reponseFn(){
+                $slideW = $('#section3 .slide').innerWidth();
+                section3SlideFn();
+            }
+            reponseFn();
+
+            $window.resize(function(){
+                reponseFn();
+            });
+
             function section3SlideFn(){
-                $section3SlideWrap.stop().animate({left:-390*cnt}, 500, 'easeInOutCubic',function(){
+                $section3SlideWrap.stop().animate({left:-$slideW*cnt}, 500, 'easeInOutCubic',function(){
                     if(cnt>3){cnt=0;}
                     if(cnt<0){cnt=3;}
-                    $section3SlideWrap.stop().animate({left:-390*cnt}, 0)
-                })
+                    $section3SlideWrap.stop().animate({left:-$slideW*cnt}, 0);
+                });
             }
+
 
             function $prevBtncountFn(){
                 cnt --;
