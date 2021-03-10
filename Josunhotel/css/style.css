@@ -71,7 +71,8 @@
 
 /* header side-box */
 #wrap #header .side-btn-box {z-index: 5;position: fixed;top: 70px;right: 50px;width: 60px;height: 60px;background: #ba998c;}
-#wrap #header .side-btn-box a {display: block;width: 100%;height: 100%;}
+#wrap #header .side-btn-box .side-btn {display: block;width: 100%;height: 100%;}
+#wrap #header .side-btn-box .side-btn span {}
 
 
 /* main */

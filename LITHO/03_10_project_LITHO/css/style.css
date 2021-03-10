@@ -12,10 +12,14 @@
 #wrap {z-index: 1;position: relative;}
 
 /* 헤더 */
-#wrap #header {z-index: 3;position: fixed;top: 0;left: 0;width: 100%;height: 80px;background: #000;}
+#wrap #header {z-index: 3;position: fixed;top: 0;left: 0;width: 100%;height: 80px;background: rgba(0, 0, 0, 0);transition: top .3s ease-in-out;}
 #wrap #header .wrap {width: 100%;}
 #wrap #header .wrap .gap {margin: 0 35px;}
 #wrap #header .wrap .gap .container {text-align: center;width: 100%;padding: 0 15px;}
+
+/* 헤더 스크롤 */
+#wrap #header.addUp {top:-80px;}
+#wrap #header.addDown {top:0px;background: rgba(0, 0, 0, 1);}
 
 /* 로고 */
 #wrap #header .wrap .gap .container #logo {float: left;width: 111px;height: 36px;padding: 22px 0;}
@@ -146,14 +150,14 @@
 #wrap #header .wrap .gap .container .mobile-btn-wrap a.mobile-btn {position: relative;display: block;width: 100%;height: 100%;}
 #wrap #header .wrap .gap .container .mobile-btn-wrap a.mobile-btn i.bar {position: absolute;display: block;width: 100%;height: 2px;background: #fff;left: 50%;transition: all .3s;}
 #wrap #header .wrap .gap .container .mobile-btn-wrap a.mobile-btn i.bar1 {top: 0;width: 14px;margin-left: -7px;opacity: 1;}
-#wrap #header .wrap .gap .container .mobile-btn-wrap a.mobile-btn i.bar2 {top: 50%;width: 22px;margin-left: -11px;margin-top: -1px;transform: rotate(0);}
-#wrap #header .wrap .gap .container .mobile-btn-wrap a.mobile-btn i.bar3 {top: 50%;width: 22px;margin-left: -11px;margin-top: -1px;transform: rotate(0);}
+#wrap #header .wrap .gap .container .mobile-btn-wrap a.mobile-btn i.bar2 {top: 50%;width: 22px;margin-left: -11px;margin-top: -1px;transform: rotate(0);transition: all .5s;}
+#wrap #header .wrap .gap .container .mobile-btn-wrap a.mobile-btn i.bar3 {top: 50%;width: 22px;margin-left: -11px;margin-top: -1px;transform: rotate(0);transition: all .5s;}
 #wrap #header .wrap .gap .container .mobile-btn-wrap a.mobile-btn i.bar4 {bottom: 0;width: 14px;margin-left: -7px;opacity: 1;}
 
-#wrap #header .wrap .gap .container .mobile-btn-wrap a.mobile-btn i.bar1.addMobile {opacity: 0;animation: ani1 1s;}
-#wrap #header .wrap .gap .container .mobile-btn-wrap a.mobile-btn i.bar2.addMobile {top: 50%;width: 22px;margin-left: -11px;margin-top: -1px;transform: rotate(945deg);animation: ani2 1s;}
-#wrap #header .wrap .gap .container .mobile-btn-wrap a.mobile-btn i.bar3.addMobile {top: 50%;width: 22px;margin-left: -11px;margin-top: -1px;transform: rotate(855deg);animation: ani3 1s;}
-#wrap #header .wrap .gap .container .mobile-btn-wrap a.mobile-btn i.bar4.addMobile {opacity: 0;animation: ani4 1s;}
+#wrap #header .wrap .gap .container .mobile-btn-wrap a.mobile-btn i.bar1.addMobile {opacity: 0;animation: ani1 .5s;}
+#wrap #header .wrap .gap .container .mobile-btn-wrap a.mobile-btn i.bar2.addMobile {top: 50%;width: 22px;margin-left: -11px;margin-top: -1px;transform: rotate(135deg);animation: ani2 .5s;}
+#wrap #header .wrap .gap .container .mobile-btn-wrap a.mobile-btn i.bar3.addMobile {top: 50%;width: 22px;margin-left: -11px;margin-top: -1px;transform: rotate(-135deg);animation: ani3 .5s;}
+#wrap #header .wrap .gap .container .mobile-btn-wrap a.mobile-btn i.bar4.addMobile {opacity: 0;animation: ani4 .5s;}
 
 @keyframes ani1{
     0% {opacity: 1;}
@@ -164,31 +168,13 @@
 }
 
 @keyframes ani2{
-    0%   {transform: rotate(90deg);}
-    10%  {transform: rotate(180deg);}
-    20%  {transform: rotate(270deg);}
-    30%  {transform: rotate(360deg);}
-    40%  {transform: rotate(450deg);}
-    50%  {transform: rotate(540deg);}
-    60%  {transform: rotate(630deg);}
-    70%  {transform: rotate(720deg);}
-    80%  {transform: rotate(810deg);}
-    90%  {transform: rotate(900deg);}
-    100% {transform: rotate(990deg);}
+    0%   {transform: rotate(0deg);}
+    100% {transform: rotate(135deg);}
 }
 
 @keyframes ani3{
     0%   {transform: rotate(0);}
-    10%  {transform: rotate(90deg);}
-    20%  {transform: rotate(180deg);}
-    30%  {transform: rotate(270deg);}
-    40%  {transform: rotate(360deg);}
-    50%  {transform: rotate(450deg);}
-    60%  {transform: rotate(540deg);}
-    70%  {transform: rotate(630deg);}
-    80%  {transform: rotate(720deg);}
-    90%  {transform: rotate(810deg);}
-    100% {transform: rotate(900deg);}
+    100% {transform: rotate(-135deg);}
 }
 
 @keyframes ani4{
