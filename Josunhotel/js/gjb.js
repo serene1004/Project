@@ -23,7 +23,15 @@
             var $window = $(window);
             var $winW = $(window).width;
             var $winH = $(window).height;
-            var $mainBgSlide = $('#section1 .mainBg-slide') 
+            var $mainBgSlide = $('#section1 .mainBg-slide');
+            var $mainBgSlideWrap = $('#section1 .mainBg-slide-wrap');
+            var $mainBgSlide = $('#section1 .mainBg-slide');
+            var $prevBtn = $('#section1 .prev-btn');
+            var $nextBtn = $('#section1 .next-btn');
+            var $stopBtn = $('#section1 .stop-btn');
+            var $mainBgSlideView = $('#section1 .mainBg-slide-view');
+            var slideCnt = 0;
+            
 
             function resizeFn(){
                 $winW = $(window).width();
@@ -36,6 +44,52 @@
                 resizeFn();
             });
 
+            // Background slide event
+            function bgSlideFn(){
+                $mainBgSlideWrap.stop().animate({left:-$winW*slideCnt}, 500, 'easeOutCubic',function(){
+                    if ( slideCnt > 2 ) { slideCnt = 0; }
+                    if ( slideCnt < 0 ) { slideCnt = 2; }
+                    console.log(slideCnt);
+                    $mainBgSlideWrap.stop().animate({left:-$winW*slideCnt}, 0)
+                })
+            }
+
+            function bgPrevCountFn(){
+                slideCnt--;
+                bgSlideFn();
+            }
+            function bgNextCountFn(){
+                slideCnt++;
+                bgSlideFn();
+            }
+
+            $prevBtn.on({
+                click:function(){
+                    if (!$mainBgSlideWrap.is(':animated')) {
+                        bgPrevCountFn();
+                    }
+                }
+            });
+            $nextBtn.on({
+                click:function(){
+                    if (!$mainBgSlideWrap.is(':animated')) {
+                        bgNextCountFn();
+                    }
+                }
+            });
+
+            $mainBgSlideView.swipe({
+                swipeLeft:function(){
+                    if (!$mainBgSlideWrap.is(':animated')) {
+                        bgNextCountFn();
+                    }
+                },
+                swipeRight:function(){
+                    if (!$mainBgSlideWrap.is(':animated')) {
+                        bgPrevCountFn();
+                    }
+                }
+            });
             
         },
 

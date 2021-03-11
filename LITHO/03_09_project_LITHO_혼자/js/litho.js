@@ -291,7 +291,6 @@
                 // 화면의 크기가(너비와높이) 1픽셀만 변경되어도 동작되는 반응형메서드
                 // $window.resize();
                 $window.resize(function(){
-
                     resizeFn();
                 });
 

@@ -586,44 +586,54 @@
                 // txt = '';
 
 
+            // 변수
+            var $nav = $('#header #nav');
+            var $mainBtn = $('.main-btn');
+            var $sub = $('.sub');
+            var $navUlLi = $('#nav > ul > li')
+           
+            var $subBtn = $('.sub-btn')
+            var $subSub = $('.sub-sub')
+            
+            var $subSubBtn = $('.sub-sub-btn')
+            var $subSubSub = $('.sub-sub-sub')
 
+            var $mobileBtn = $('#header .mobile-btn');
+            var $bar = $('#header .mobile-btn .bar');
+                
             // 화면 크기를 확인해서 width가 980이하일때 버튼이벤트가 마우스엔터에서 클릭으로 변경
             // 리사이즈를 할때마다 버튼의 이벤트를 분기해서 넣는방법
             // 버튼의 이벤트에서 분기를하는방법
             var $window = $(window);
             var $winW = $(window).width();
             var $winH = $(window).height();
+            
 
             function resizeFn(){
                 $winW = $(window).width();
                 $winH = $(window).height();
-                console.log('리사이즈'+$winW);
+                // console.log('리사이즈'+$winW);
             }
             resizeFn();
             
+
+
             $window.resize(function(){
                 resizeFn();
-                console.log('윈도우.리사이즈'+$winW);
+                // console.log('윈도우.리사이즈'+$winW);
+                if( $winW > 980 ){
+                    $nav.css({display:'inline-block'});
+                    $sub.css({display:'none'});
+                }
+                else{
+                    $nav.css({display:'none'});
+                    $sub.css({display:'none'});
+                }
             });
 
 
-            ////// 버튼이벤트
-            // 네비게이션
-            // 메인버튼(메뉴)
-            // 서브메뉴
-            var $mainBtn = $('.main-btn');
-            var $sub = $('.sub');
-            var $navUlLi = $('#nav > ul > li')  // 마우스가 떠나면 sub를 숨겨지게끔 하기위한 영역설정(메인버튼과 서브메뉴들을 감싸주는 li)
-           
-            // 서브-서브
-            // 서브메뉴버튼에 마우스오버시 서브-서브메뉴가 보이도록
-            var $subBtn = $('.sub-btn')
-            var $subSub = $('.sub-sub')
-            
-            // 서브서브서브
-            var $subSubBtn = $('.sub-sub-btn')
-            var $subSubSub = $('.sub-sub-sub')
 
+            // 네비게이션 메인버튼(메뉴) 서브메뉴
             // 메뉴 보이기
             $mainBtn.on({
                 click:function(){
@@ -685,12 +695,7 @@
                 }
             });
 
-
             // 모바일메뉴 이벤트
-            var $mobileBtn = $('#header .mobile-btn');
-            var $bar = $('#header .mobile-btn .bar')
-            var $nav = $('#header #nav')
-            
             $mobileBtn.on({
                 click:function(){
                     $bar.toggleClass('addMobile');
@@ -698,10 +703,6 @@
                 }
             });
             
-            
-
-
-
         },
         section1Fn:function(){
             // 슬라이드의 너비와 높이를 창높이 창너비로 설정한다.(반응형)

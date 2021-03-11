@@ -564,7 +564,7 @@
             $mainBtn.on({
                 click:function(){
                     if(mobile == 1){
-                        $subSub.stop().slideUp(300);
+                        $sub.stop().slideUp(300);
                         $(this).next().stop().slideToggle(300);
                     }
                 }   

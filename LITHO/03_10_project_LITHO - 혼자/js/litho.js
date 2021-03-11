@@ -88,17 +88,17 @@
 
             // 변수설정
             var txt = '';
-            var $col = $('#header #nav .col')
-            var $sub2Btn = $('#header .sub2 .sub-btn')
-            var $sub2Sub = $('#header .sub2 .subsub')
-            var $sub3Btn = $('#header .sub3 .sub-btn')
-            var $sub3sub = $('#header .sub3 .subsub')
+            var $col = $('#header #nav .col');
+            var $sub2Btn = $('#header .sub2 .sub-btn');
+            var $sub2Sub = $('#header .sub2 .subsub');
+            var $sub3Btn = $('#header .sub3 .sub-btn');
+            var $sub3sub = $('#header .sub3 .subsub');
             var icon = '';
-            var $col4 = $('#header .sub4 .col')
+            var $col4 = $('#header .sub4 .col');
             var $sub5Btn = $('#header .sub5 .sub-btn');
             var $sub5Sub = $('#header .sub5 .subsub');
-            var $sub6Btn = $('#header .sub6 .sub-btn')
-            var $sub6Sub = $('#header .sub6 .subsub')
+            var $sub6Btn = $('#header .sub6 .sub-btn');
+            var $sub6Sub = $('#header .sub6 .subsub');
             var $sub7Dl1 = $('#header .sub7 dl').eq(0);
             var $sub7Img = $('#header .sub7 dl img');    // 이미지2개
 
@@ -336,10 +336,23 @@
             }
             resizeFn();
             
+            var resizeTimer;
             $window.resize(function(){
                 resizeFn();
+                isChanged = true;
                 // console.log('윈도우.리사이즈'+$winW);
-                pcMobileFn();
+                if (resizeTimer) {
+                    clearTimeout(resizeTimer)
+                }
+                /**
+                 * [디바운싱] : 연속으로 발생되는 이벤트를 가장 마지막에만 발생시키게 하는 이벤트 컨트롤? 기법 => 이 기법은 퍼블리셔면 대부분이 아는 기법
+                 * 페이스북에 스크롤 내리면 요소들 받아올때도 사용되는 개념 (스크롤 이벤트로 오지게 발생하는데, 데이터는 1번만 딱 받아와지는거랑 같음)
+                 * resize 이벤트가 얼마나 발생하든지 마지막에 발생한 순간부터 0.1s 뒤에 pcMobileFn 실행
+                 */
+                 resizeTimer = setTimeout(function () {
+                    pcMobileFn();
+                    isChanged = false;
+                }, 100);
             });
 
 
@@ -350,44 +363,45 @@
             var $navUlLi = $('#nav > ul > li')  // 마우스가 떠나면 sub를 숨겨지게끔 하기위한 영역설정(메인버튼과 서브메뉴들을 감싸주는 li)
            
             // 서브서브
-            var $subBtn = $('.sub-btn')
-            var $subSub = $('.sub-sub')
+            var $subBtn = $('.sub-btn');
+            var $subSub = $('.sub-sub');
             
             // 서브서브서브
-            var $subSubBtn = $('.sub-sub-btn')
-            var $subSubSub = $('.sub-sub-sub')
+            var $subSubBtn = $('.sub-sub-btn');
+            var $subSubSub = $('.sub-sub-sub');
 
             // 모바일버튼
             var $mobileBtn = $('#header .mobile-btn');
-            var $bar = $('#header .mobile-btn .bar')
-            var $nav = $('#header #nav')
+            var $bar = $('#header .mobile-btn .bar');
+            var $nav = $('#header #nav');
 
-
+            /**
+             * isChanged, currentDevice 이건 뭐 하드코딩이라 할말이 없는데 ㅎ
+             * 미디어쿼리 & jQuery 혼용 issue
+             */
+            var isChanged = true;
+            var currentDevice = "";
             function pcMobileFn(){
+                if (!isChanged) return;
                 if($winW > 980){
-                    // $mainBtn.off('click');
-
-                    $nav.stop().show();
-                    $sub.stop().hide();
-                    $subSub.stop().hide();
-                    $subSubSub.stop().hide();
+                    if (currentDevice === 'pc') return;
+                    $mainBtn.off('click');
+                    $nav.css({display:'inline-block'});
 
                     pcFn();
-                }
-                else{
+                    currentDevice = 'pc';
+                } else {
+                    if (currentDevice === 'mobile') return;
                     $mainBtn.off('mouseenter');
                     $subBtn.off('mouseenter');
                     $subSubBtn.off('mouseenter');
                     $navUlLi.off('mouseleave');
                     $subSub.off('mouseleave');
-
-                    $sub.stop().hide();
-                    $subSub.stop().show();
-                    $subSubSub.stop().show();
                     $bar.removeClass('addMobile');
-                    $nav.stop().slideUp(0);
+                    $nav.stop().slideUp(0);     // pc에서 모바일로 넘어갈때 nav 숨기기
 
                     mobileFn();
+                    currentDevice = 'mobile';
                 }
             }
             pcMobileFn();
@@ -510,7 +524,6 @@
                 }
             });
 
-
         },
         section1Fn:function(){
             // 슬라이드의 너비와 높이를 창높이 창너비로 설정한다.(반응형)
@@ -533,159 +546,153 @@
 
 
 
-                // 슬라이드의 너비 높이 설정 완료  // 로딩시 설정
-                function resizeFn(){
-                    $winW = $(window).width();
-                    // $winH = $(window).height(); // 높이설정을 가로, 세로모드 반응형으로 하기위해 아래로 내림.
-                    $slide.css({width:$winW});
+            // 슬라이드의 너비 높이 설정 완료  // 로딩시 설정
+            function resizeFn(){
+                $winW = $(window).width();
+                // $winH = $(window).height(); // 높이설정을 가로, 세로모드 반응형으로 하기위해 아래로 내림.
+                $slide.css({width:$winW});
 
-                    // 가로형모드 반응형
-                    if(window.orientation == 0 || window.orientation == 180){
-                        $winH = $(window).height();
-                    }
-                    // 세로형모드 반응형
-                    else if (window.orientation == 90 || window.orientation == -90){
-                        $winH = 600;
-                    }
-
-
-                    $section1.css({width:$winW,height:$winH}); // 즉시 변환 너비 높이 적용 실행
-                    $slideWrap.stop().animate({left:-$winW*cnt}, 0);    // 즉시실행 0의 속도
-                    mainSlideFn();   // 메인슬라이드함수 전체를 가져오기때문에 300의 속도가 있음
+                // 가로형모드 반응형
+                if(window.orientation == 0 || window.orientation == 180){
+                    $winH = $(window).height();
                 }
-                // resizeFn(); // 로딩시 실행
-                setTimeout(resizeFn, 10);  // 0.1초 뒤에 강제실행 (반응형 너비설정 resizeFn 이 즉각 실행되도록)
+                // 세로형모드 반응형
+                else if (window.orientation == 90 || window.orientation == -90){
+                    $winH = 600;
+                }
 
-                // 화면의 크기가(너비와높이) 1픽셀만 변경되어도 동작되는 반응형메서드
-                // $window.resize();
-                $window.resize(function(){
-                    resizeFn();
+
+                $section1.css({width:$winW,height:$winH}); // 즉시 변환 너비 높이 적용 실행
+                $slideWrap.stop().animate({left:-$winW*cnt}, 0);    // 즉시실행 0의 속도
+                mainSlideFn();   // 메인슬라이드함수 전체를 가져오기때문에 300의 속도가 있음
+            }
+            // resizeFn(); // 로딩시 실행
+            setTimeout(resizeFn, 10);  // 0.1초 뒤에 강제실행 (반응형 너비설정 resizeFn 이 즉각 실행되도록)
+
+            // 화면의 크기가(너비와높이) 1픽셀만 변경되어도 동작되는 반응형메서드
+            // $window.resize();
+            $window.resize(function(){
+                resizeFn();
+            });
+            
+
+            // 메인슬라이드
+            function mainSlideFn(){
+                $slideWrap.stop().animate({left:-$winW*cnt}, 600, 'easeInOutCubic',function(){
+                    if(cnt>n-1){cnt=0}  // n의 값은 3이지만, 인덱스값은 0부터 시작하기때문에 -1을 해주어야함.
+                    if(cnt<0){cnt=n-1}
+                    $slideWrap.stop().animate({left:-$winW*cnt}, 0);
                 });
-                
+                pageBtnColorEnvetFn();  // 페이지버튼 이벤트함수 호출
+            }
 
-                // 메인슬라이드
-                function mainSlideFn(){
-                    $slideWrap.stop().animate({left:-$winW*cnt}, 600, 'easeInOutCubic',function(){
-                        if(cnt>n-1){cnt=0}  // n의 값은 3이지만, 인덱스값은 0부터 시작하기때문에 -1을 해주어야함.
-                        if(cnt<0){cnt=n-1}
-                        $slideWrap.stop().animate({left:-$winW*cnt}, 0);
-                    });
-                    pageBtnColorEnvetFn();  // 페이지버튼 이벤트함수 호출
-                }
+            // 슬라이드함수
+            function prevSlideCountFn(){
+                cnt --;
+                mainSlideFn();
+            }
 
-                // 슬라이드함수
-                function prevSlideCountFn(){
-                    cnt --;
-                    mainSlideFn();
-                }
+            function nextSlideCountFn(){
+                cnt ++;
+                mainSlideFn();
+            }
 
-                function nextSlideCountFn(){
-                    cnt ++;
-                    mainSlideFn();
-                }
-
-                // 화살버튼
-                $prevBtn.on({
-                    click:function(e){
-                        e.preventDefault();
-                        puaseTimerFn();
-                        if (!$slideWrap.is(':animated')) {
-                            prevSlideCountFn();
-                        }
+            // 화살버튼
+            $prevBtn.on({
+                click:function(e){
+                    e.preventDefault();
+                    puaseTimerFn();
+                    if (!$slideWrap.is(':animated')) {
+                        prevSlideCountFn();
                     }
-                })
-
-                $nextBtn.on({
-                    click:function(e){
-                        e.preventDefault();
-                        puaseTimerFn();
-                        if (!$slideWrap.is(':animated')) {
-                            nextSlideCountFn();
-                        }
-                    }
-                })
-
-
-                // 페이지버튼
-                // 해당 슬라이드 버튼색상 변경
-                function pageBtnColorEnvetFn(){
-                    var z = cnt;
-                    if(z>n-1){
-                        z=0;
-                    }
-                    // console.log(z); // 0,1,2,0,1,2...
-                    $pageBtn.removeClass('addPage');
-                    $pageBtn.eq(z).addClass('addPage');
                 }
-                pageBtnColorEnvetFn();  // 로딩시 페이지함수 실행!
+            })
 
-                // 페이지버튼 클릭시 해당 페이지로 이동
-                $pageBtn.each(function(idx){
-                    $(this).on({        // $pageBtn.eq(idx)=$(this)
-                        click:function(){
-                            cnt = idx;  // 클릭한 버튼 인덱스 번호가 슬라이드 번호
-                            mainSlideFn();
-                        }
-                    });
-                });
-
-                // $pageBtn.eq(0).on({
-                //     click:function(){
-                //         cnt = 0;
-                //         mainSlideFn();
-                //     }
-                // });
+            $nextBtn.on({
+                click:function(e){
+                    e.preventDefault();
+                    puaseTimerFn();
+                    if (!$slideWrap.is(':animated')) {
+                        nextSlideCountFn();
+                    }
+                }
+            })
 
 
-                // 터치 스와이프
-                // 슬라이드를 오른쪽에서 왼쪽으로 터치시 다음슬라이드 카운트 함수호출
-                // 슬라이드를 왼쪽에서 오른쪽으로 터치시 이전슬라이드 카운트 함수호출
-                $slideView.swipe({
-                    swipeLeft:function(e){
-                        e.preventDefault();
-                        puaseTimerFn();
-                        if (!$slideWrap.is(':animated')) {
-                            nextSlideCountFn()
-                        }
-                    },
-                    swipeRight:function(e){
-                        e.preventDefault();
-                        puaseTimerFn();
-                        if (!$slideWrap.is(':animated')) {
-                            prevSlideCountFn()
-                        }
+            // 페이지버튼
+            // 해당 슬라이드 버튼색상 변경
+            function pageBtnColorEnvetFn(){
+                var z = cnt;
+                if(z>n-1){
+                    z=0;
+                }
+                // console.log(z); // 0,1,2,0,1,2...
+                $pageBtn.removeClass('addPage');
+                $pageBtn.eq(z).addClass('addPage');
+            }
+            pageBtnColorEnvetFn();  // 로딩시 페이지함수 실행!
+
+            // 페이지버튼 클릭시 해당 페이지로 이동
+            $pageBtn.each(function(idx){
+                $(this).on({        // $pageBtn.eq(idx)=$(this)
+                    click:function(){
+                        cnt = idx;  // 클릭한 버튼 인덱스 번호가 슬라이드 번호
+                        mainSlideFn();
                     }
                 });
+            });
 
-                // 자동타이머 함수 4초에 한번씩 반복
-                function autoTimerFn(){
-                    setId = setInterval(nextSlideCountFn, 4000);
+            // $pageBtn.eq(0).on({
+            //     click:function(){
+            //         cnt = 0;
+            //         mainSlideFn();
+            //     }
+            // });
+
+
+            // 터치 스와이프
+            // 슬라이드를 오른쪽에서 왼쪽으로 터치시 다음슬라이드 카운트 함수호출
+            // 슬라이드를 왼쪽에서 오른쪽으로 터치시 이전슬라이드 카운트 함수호출
+            $slideView.swipe({
+                swipeLeft:function(e){
+                    e.preventDefault();
+                    puaseTimerFn();
+                    if (!$slideWrap.is(':animated')) {
+                        nextSlideCountFn()
+                    }
+                },
+                swipeRight:function(e){
+                    e.preventDefault();
+                    puaseTimerFn();
+                    if (!$slideWrap.is(':animated')) {
+                        prevSlideCountFn()
+                    }
                 }
-                autoTimerFn();
+            });
 
-                // 슬라이드에서 이벤트 발생시 자동 타이머를 일시중지
-                var setId2 = null;
-                function puaseTimerFn(){
-                    var t = 0;
-                    clearInterval(setId);
-                    clearInterval(setId2);
-                    // 5초동안 아무이벤트가 없으면 다시 자동타이머 실행
-                    setId2 = setInterval(function(){
-                        t ++;
-                        console.log(t);
-                        if(t >= 4){
-                            clearInterval(setId);
-                            clearInterval(setId2);
-                            nextSlideCountFn();
-                            autoTimerFn();
-                        }
-                    }, 1000)
-                }
+            // 자동타이머 함수 4초에 한번씩 반복
+            function autoTimerFn(){
+                setId = setInterval(nextSlideCountFn, 4000);
+            }
+            autoTimerFn();
 
-
-
-
-
+            // 슬라이드에서 이벤트 발생시 자동 타이머를 일시중지
+            var setId2 = null;
+            function puaseTimerFn(){
+                var t = 0;
+                clearInterval(setId);
+                clearInterval(setId2);
+                // 5초동안 아무이벤트가 없으면 다시 자동타이머 실행
+                setId2 = setInterval(function(){
+                    t++;
+                    if(t >= 4){
+                        clearInterval(setId);
+                        clearInterval(setId2);
+                        nextSlideCountFn();
+                        autoTimerFn();
+                    }
+                }, 1000)
+            }
         },
         section2Fn:function(){
 
@@ -693,8 +700,8 @@
         section3Fn:function(){
             
             var $slideWrap = $('#section3 .slide-wrap');
-            var $nextBtn = $('#section3 .next-btn')
-            var $prevBtn = $('#section3 .prev-btn')
+            var $nextBtn = $('#section3 .next-btn');
+            var $prevBtn = $('#section3 .prev-btn');
             var $slideView = $('#section3 .slide-view');
             var $slideViewEnter = $('#section3 .slide-view');
            
@@ -703,7 +710,7 @@
             
             var cnt = 0;
             var setId = null;
-            var n = $('#section3 .slide').length-(4+4)-1;
+            var n = $('#section3 .slide').length - ( 4 + 4 ) - 1;
 
             
             // 반응형 슬라이드
@@ -718,8 +725,7 @@
             // 2. 윈도우(window) 리사이즈(resize()) 메서드
             $window.resize(function(){
                 reponseFn();    // <<< 반응형 (크기가 조절이될때)
-            });
-
+            })
 
             function section3SlideFn(){
                 $slideWrap.stop().animate({left:-$slideW*cnt}, 300, 'easeInOutCubic',function(){
@@ -730,11 +736,11 @@
             }
 
             function prevSlideCountFn(){
-                cnt --;
+                cnt--;
                 section3SlideFn();
             }
             function nextSlideCountFn(){
-                cnt ++;
+                cnt++;
                 section3SlideFn();
             }
 
@@ -797,7 +803,7 @@
             var t = 0;
             var setId2 = null;
             function timerFn(){
-                t=0;
+                t = 0;
                 clearInterval(setId);
                 clearInterval(setId2);
                 setId2 = setInterval(function(){
@@ -830,11 +836,6 @@
             //         }
             //     }, 1000);
             // }
-
-
-
-
-
         },
         section4Fn:function(){
             
