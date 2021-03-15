@@ -12,6 +12,10 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/fonts.css">
 
+    <!-- palyfair fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+
     <!-- Icons Font Awesome 5 -->
     <script src="./icons/fontawesome.js"></script>
 
@@ -45,6 +49,8 @@
                                 </span>
                                 <span>
                                     <a href="#" class="lang-KR">KR<img src="./img/icon_lang.png" alt=""class="lang-change-icon"></a>
+                                </span>
+                                <span>
                                     <a href="#" class="lang-EN">EN</a>
                                 </span>
                             </div>
@@ -67,14 +73,14 @@
                                         <li>
                                             <a href="#" class="gnb-btn gnb-title-btn">
                                                 <span>RESERVATION
-                                                    <!-- <i class="title-btn-img"><img src="./img/icon_side_button.png" alt=""></i> -->
+                                                    <img src="./img/icon_side_button.png" alt="" class="title-btn-img">
                                                     <i class="gnb-line"></i>
                                                 </span>
                                             </a>
                                             <div class="lnb-wrap">
                                                 <div class="lnb-gap clearfix">
                                                     <div class="lnb-title lnb1-title">
-                                                        <a href="#" class="lnb-title-btn">RESERVATION</a>
+                                                        <span class="lnb-title-btn">RESERVATION</span>
                                                     </div>
                                                     <ul class="clearfix">
                                                         <li><a href="#" class="lnb-btn lnb0-btn1">ROOM</a></li>
@@ -92,12 +98,34 @@
                                             <div class="lnb-wrap">
                                                 <div class="lnb-gap clearfix">
                                                     <div class="lnb-title lnb2-title">
-                                                        <a href="#" class="lnb-title-btn">ROOMS<br><span>한눈에 보기</span></a>
+                                                        <span class="lnb-title-btn">ROOMS<br><i>한눈에 보기</i></span>
                                                     </div>
                                                     <ul class="clearfix">
-                                                        <li><a href="#" class="lnb-btn lnb1-btn1">ROOM</a></li>
-                                                        <li><a href="#" class="lnb-btn lnb1-btn2">KIDS</a></li>
-                                                        <li><a href="#" class="lnb-btn lnb1-btn3">SUITE</a></li>
+                                                        <li>
+                                                            <a href="#" class="lnb-btn lnb1-btn1">ROOM</a>
+                                                            <ul>
+                                                                <li><a href="#" class="lnb-btn-sub lnb1-btn1-sub1">SUPERIOR</a></li>
+                                                                <li><a href="#" class="lnb-btn-sub lnb1-btn1-sub2">DELUXE</a></li>
+                                                                <li><a href="#" class="lnb-btn-sub lnb1-btn1-sub3">PREMIER</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" class="lnb-btn lnb1-btn2">KIDS</a>
+                                                            <ul>
+                                                                <li><a href="#" class="lnb-btn-sub lnb1-btn2-sub1">KIDS SUPERIOR</a></li>
+                                                                <li><a href="#" class="lnb-btn-sub lnb1-btn2-sub2">KIDS DELUXE</a></li>
+                                                                <li><a href="#" class="lnb-btn-sub lnb1-btn2-sub3">KIDS SUITE</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" class="lnb-btn lnb1-btn3">SUITE</a>
+                                                            <ul>
+                                                                <li><a href="#" class="lnb-btn-sub lnb1-btn3-sub1">CORNER SUITE</a></li>
+                                                                <li><a href="#" class="lnb-btn-sub lnb1-btn3-sub2">EXECUTIVE SUITE</a></li>
+                                                                <li><a href="#" class="lnb-btn-sub lnb1-btn3-sub3">ROYAL SUITE</a></li>
+                                                                <li><a href="#" class="lnb-btn-sub lnb1-btn3-sub4">GRAND SUITE</a></li>
+                                                            </ul>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -107,7 +135,7 @@
                                             <div class="lnb-wrap">
                                                 <div class="lnb-gap clearfix">
                                                     <div class="lnb-title lnb3-title">
-                                                        <a href="#" class="lnb-title-btn">DINING<br><span>한눈에 보기</span></a>
+                                                        <span class="lnb-title-btn">DINING<br><i>한눈에 보기</i></span>
                                                     </div>
                                                     <ul class="clearfix">
                                                         <li><a href="#" class="lnb-btn lnb2-btn1">ARIA</a></li>
@@ -123,7 +151,7 @@
                                             <div class="lnb-wrap">
                                                 <div class="lnb-gap clearfix">
                                                     <div class="lnb-title lnb3-title">
-                                                        <a href="#" class="lnb-title-btn">OFFERS</a>
+                                                        <span class="lnb-title-btn">OFFERS</span>
                                                     </div>
                                                     <ul class="clearfix">
                                                         <li><a href="#" class="lnb-btn lnb3-btn1">PACKAGE</a></li>
@@ -137,10 +165,17 @@
                                             <div class="lnb-wrap">
                                                 <div class="lnb-gap clearfix">
                                                     <div class="lnb-title lnb5-title">
-                                                        <a href="#" class="lnb-title-btn">MEETING & WEDDING<br><span>한눈에 보기</span></a>
+                                                        <span class="lnb-title-btn">MEETING & WEDDING<br><i>한눈에 보기</i></span>
                                                     </div>
                                                     <ul class="clearfix">
-                                                        <li><a href="#" class="lnb-btn lnb4-btn1">MEETING</a></li>
+                                                        <li>
+                                                            <a href="#" class="lnb-btn lnb4-btn1">MEETING</a>
+                                                            <ul>
+                                                                <li><a href="#" class="lnb-btn-sub lnb4-btn1-sub1">BALLROOM</a></li>
+                                                                <li><a href="#" class="lnb-btn-sub lnb4-btn1-sub2">MEETING ROOM</a></li>
+                                                                <li><a href="#" class="lnb-btn-sub lnb4-btn1-sub3">BOARD ROOM</a></li>
+                                                            </ul>
+                                                        </li>
                                                         <li><a href="#" class="lnb-btn lnb4-btn2">WEDDING</a></li>
                                                     </ul>
                                                 </div>
@@ -154,7 +189,7 @@
                                             <div class="lnb-wrap">
                                                 <div class="lnb-gap clearfix">
                                                     <div class="lnb-title lnb6-title">
-                                                        <a href="#" class="lnb-title-btn">FACILITIES<br><span>한눈에 보기</span></a>
+                                                        <span class="lnb-title-btn">FACILITIES<br><i>한눈에 보기</i></span>
                                                     </div>
                                                     <ul class="clearfix">
                                                         <li><a href="#" class="lnb-btn lnb6-btn1">HEAVENLY POOL</a></li>
@@ -171,7 +206,7 @@
                                             <div class="lnb-wrap">
                                                 <div class="lnb-gap clearfix">
                                                     <div class="lnb-title lnb7-title">
-                                                        <a href="#" class="lnb-title-btn">ABOUT</a>
+                                                        <span class="lnb-title-btn">ABOUT</span>
                                                     </div>
                                                     <ul class="clearfix">
                                                         <li><a href="#" class="lnb-btn lnb7-btn1">ABOUT US</a></li>
@@ -214,13 +249,19 @@
                                     <div class="main-text-wrap">
                                         <a href="#">
                                             <span class="main-text1">Special Offer<i>Room Package</i></span>
-                                            <span class="main-text2">City Breaks!</span>
+                                            <span class="main-text2">
+                                                <span>City</span>
+                                                <span>Breaks!</span>
+                                            </span>
                                             <span class="main-text3">감각적인 시티뷰, 도심 속의 힐링. 호캉스를 알차게 잘 즐기는 방법!</span>
                                         </a>
                                     </div>
                                     <div class="mainBg-Btn-wrap">
                                         <span class="mainBg-prev"><a href="javascript:" class="prev-btn"><i></i></a></span>
-                                        <span class="mainBg-stop"><a href="javascript:" class="stop-btn"><i></i></a></span>
+                                        <span class="mainBg-stop-start">
+                                            <a href="javascript:" class="stop-btn"><i></i></a>
+                                            <a href="javascript:" class="start-btn"><i></i></a>
+                                        </span>
                                         <span class="mainBg-next"><a href="javascript:" class="next-btn"><i></i></a></span>
                                     </div>
                                 </div>
@@ -231,61 +272,184 @@
             </section>
             <!-- // section1 -->
             <section id="section2">
+                <div class="section2bg"></div>
                 <div class="wrap">
                     <div class="gap">
-                        <div class="container">
-                            <img src="./img/img_main02_01.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section id="section3">
-                <div class="wrap">
-                    <div class="gap">
-                        <div class="container">
-                            <div>
-                                <img src="./img/bg_dining.jpg" alt="">  
+                        <div class="container clearfix">
+                            <div class="slide-container">
+                                <div class="slide-view">
+                                    <ul class="slide-wrap clearfix">
+                                        <li class="slide slide0"></li>
+                                        <li class="slide slide1"></li>
+                                        <li class="slide slide2"></li>
+                                        <li class="slide slide3"></li>
+                                        <li class="slide slide4"></li>
+                                        <li class="slide slide0"></li>
+                                        <li class="slide slide1"></li>
+                                        <li class="slide slide2"></li>
+                                        <li class="slide slide3"></li>
+                                        <li class="slide slide4"></li>
+                                        <li class="slide slide0"></li>
+                                        <li class="slide slide1"></li>
+                                        <li class="slide slide2"></li>
+                                        <li class="slide slide3"></li>
+                                        <li class="slide slide4"></li>
+                                    </ul>
+                                    <div class="slide-Btn-wrap">
+                                        <span class="slide-prev"><a href="javascript:" class="prev-btn"><i></i></a></span>
+                                        <span class="slide-stop-start">
+                                            <a href="javascript:" class="stop-btn"><i></i></a>
+                                            <a href="javascript:" class="start-btn"><i></i></a>
+                                        </span>
+                                        <span class="slide-next"><a href="javascript:" class="next-btn"><i></i></a></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="room-content">
+                                <div class="content-gap">
+                                    <div class="room-box">
+                                        <h3>Revitalizing Space</h3>
+                                        <p>온전한 쉼과 재충전에 집중할 수 있는 더 없이 완벽한 공간</p>
+                                        <span class="rooms">ROOMS / SUITES / KIDS</span>
+                                        <a href="javascript:" class="room-btn">
+                                            <i class="room-whitebtn"></i>
+                                            <i class="room-blackbtn"></i>
+                                        </a>
+                                    </div>
+                                    <div class="earlybird-wrap">
+                                        <a href="javascript:" class="earlybird-btn">
+                                            <span class="early-title">package</span>
+                                            <span class="early-text">early bird</span>
+                                            <span class="early-date">2020.08.27 - 2021.09.01</span>
+                                            <span><img src="./img/Early 290X150.jpg" alt=""></span>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+            <!-- // section2 -->
+            <section id="section3">
+                <div class="section3bg"></div>
+                <div class="wrap">
+                    <div class="gap">
+                        <div class="container">
+                            <div class="dinning-content">
+                                <div class="dinning-gap">
+                                    <div class="dinning-box">
+                                        <h3>Handpicked Gourmet Experience</h3>
+                                        <p>최고만 엄선한 미식의 경험</p>
+                                        <span class="dinning">BUFFET / CHINESE / LOUNGE&BAR</span>
+                                        <a href="javascript:" class="dinning-btn">
+                                            <i class="dinning-whitebtn"></i>
+                                            <i class="dinning-blackbtn"></i>
+                                        </a>
+                                    </div>
+                                    <div class="promotion-wrap">
+                                        <a href="javascript:" class="promotion-btn">
+                                            <span class="promotion-title">PROMOTION</span>
+                                            <span class="promotion-text">Afternoon Tea Set Package</span>
+                                            <span class="promotion-date">2021.01.18 - 2021.12.31</span>
+                                            <span><img src="./img/josundeli.png" alt=""></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- // section3 -->
             <section id="section4">
                 <div class="wrap">
                     <div class="gap">
                         <div class="container">
-                            <img src="./img/img_facility01_01.jpg" alt="">
+                            <div class="facility-content">
+                                <div class="facility-gap">
+                                    <div class="facility-textbox">
+                                        <h3>Iconic Facilities</h3>
+                                        <p>POOL / SAUNA / FITNESS</p>
+                                        <a href="javascript:" class="facility-btn">
+                                            <i class="facility-whitebtn"></i>
+                                            <i class="facility-blackbtn"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="slide-container">
+                                    <div class="slide-view">
+                                        <ul class="slide-wrap clearfix">
+                                            <li class="slide slide0">
+                                                <div class="slide-gap">
+                                                    <div class="slide-text">
+                                                        <h3 class="title">6F POOL</h3>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="slide slide1">
+                                                <div class="slide-gap">
+                                                    <div class="slide-text">
+                                                        <h3 class="title">6F SAUNA</h3>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="slide slide2">
+                                                <div class="slide-gap">
+                                                    <div class="slide-text">
+                                                        <h3 class="title">6F FITNESS</h3>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
+            <!-- // section4 -->            
             <section id="section5">
                 <div class="wrap">
                     <div class="gap">
                         <div class="container">
-                            <img src="./img/bg_activity.jpg" alt="">
+                            <div class="Activity-gap">
+                                <div class="Activity-box">
+                                    <h3>Get Active</h3>
+                                    <p>몸과 마음에 활력을 더해 줄 다채로운 액티비티</p>
+                                    <span class="Activity">INDOOR ACTIVITY / OUTDOOR ACTIVITY</span>
+                                    <a href="javascript:" class="Activity-btn">
+                                        <i class="Activity-cleanbtn"></i>
+                                        <i class="Activity-whitebtn"></i>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
+            <!-- // section5 -->  
             <section id="section6">
                 <div class="wrap">
                     <div class="gap">
                         <div class="container">
-                            <img src="./img/bg_membership.jpg" alt="">
+
                         </div>
                     </div>
                 </div>
             </section>
+            <!-- // section6 -->  
             <section id="section7">
                 <div class="wrap">
                     <div class="gap">
                         <div class="container">
-                            <img src="./img/bg_wedding.jpg" alt="">
+                            
                         </div>
                     </div>
                 </div>
             </section>
+            <!-- // section7 -->  
             <ul class="main-indicator">
                 <li class="indicator indicator1 mouseon"><a href="#section1" class="mouseon">HOME</a></li>
                 <li class="indicator indicator2"><a href="#section2">ROOMS</a></li>
