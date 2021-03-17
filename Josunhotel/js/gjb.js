@@ -4,7 +4,8 @@
     var gjb = {
         init:function(){
             var taht = this;
-
+            
+            taht.scrollEventFn();
             taht.headerFn();
             taht.section1Fn();
             taht.section2Fn();
@@ -17,6 +18,71 @@
             taht.footerFn();
         },
 
+        scrollEventFn:function(){
+            var $win = $(window);
+            var scrollOld = 0;
+            var scrollNew = 0;
+            var result = null;
+            var $header = $('#header')
+            var $nav = $('#header #nav');
+            var $logo = $('#header #logo h1 a');
+
+            var scrollFooter = 0;
+            
+            $header.addClass('addShow');
+            
+            
+            function footerOnFn(){
+                scrollFooterOn = $win.scrollTop();
+                console.log(scrollFooterOn);
+            }
+
+
+            function scrollEventFn(){
+                scrollNew = $win.scrollTop();
+                var scroll = function(){
+                    if( scrollOld - scrollNew > 0 ){ result = 'Up'; }
+                    else{ result = 'Down'; }
+                    // result = scrollOld-scrollNew > 0 ? 'Up' : 'Down';
+                }
+                scroll();
+                console.log(result);
+                
+                if( scrollNew <= 0 ){   // 스크롤탑 0일때
+                    $header.removeClass('addHide');
+                    $nav.removeClass('mouseon');
+                    $logo.removeClass('addBlack');
+                    // $nav.removeClass('addLine');
+                }
+                else{
+                    if(result === 'Up'){    // 스크롤 올릴때
+                        $header.removeClass('');
+                        $header.addClass('');
+                        $nav.addClass('mouseon');
+                        $logo.addClass('addBlack');
+
+                    }
+                    if( result === 'Down' ){    // 스크롤 내릴때
+                        $header.addClass('addHide');
+                        $header.removeClass('addShow');
+                        $nav.addClass('mouseon');
+                        $logo.addClass('addBlack');
+                        // $nav.addClass('addLine');
+                    }
+                }
+                scrollOld = scrollNew;
+            }
+
+
+
+            $win.scroll(function(){
+                scrollEventFn();
+                footerOnFn();
+            });
+
+            
+
+        },
         headerFn:function(){
             var $nav = $('#header #nav');
             var $logo = $('#header #logo h1 a');
@@ -30,7 +96,7 @@
             var $langEN = $('#header .lang-EN');
 
             var $sideBtn = $('#header .side-btn-box .side-btn')
-            var $sideBtnText = $('#header .side-btn-box .side-btn .side-btn-text');
+            var $sideWrap = $('#header .side-btn-box .side-btn .side-wrap');
 
 
             // gnb에 마우스오버시 lnb보이게
@@ -38,19 +104,22 @@
             // gnb버튼에서 다른 gnb버튼으로 마우스 이동시 기존 lnb는 닫고 새로운 lnb가 보이게
             // gnb에 마우스오버시 nav 배경 흰색+lnb슬라이드다운
             // 배경이 흰색이면 글자색은 검정으로, 배경이 투명이면 글자색은 흰색으로
+            // 네비에 마우스 오버시 로고 검정, 네비가 닫힐시 흰색으로
+
 
             $nav.on({
                 mouseleave:function(){
                     $nav.removeClass('mouseon');
                     $lnbWrap.stop().slideUp(0);
-                    $logo.css({color:'#fff'});
+                    $logo.removeClass('addBlack');
                     $main.css({filter:'brightness(100%)'})
+                    // $nav.removeClass('addLine');
                 }
             });
             $gnbWrap.on({
                 mouseenter:function(){
                     $nav.addClass('mouseon');
-                    $logo.css({color:'#000'});
+                    $logo.addClass('addBlack');
                     $main.css({filter:'brightness(30%)'})
                 }
             });
@@ -64,6 +133,7 @@
             });
             $gnbWrap.on({
                 mouseleave:function(){
+                    $logo.removeClass('addBlack');
                     $lnbWrap.stop().slideUp(100);
                 }
             });
@@ -76,10 +146,10 @@
 
             $sideBtn.on({
                 mouseenter:function(){
-                    $sideBtnText.stop().slideDown(200);
+                    $sideWrap.stop().slideDown(200);
                 },
                 mouseleave:function(){
-                    $sideBtnText.stop().slideUp(200);
+                    $sideWrap.stop().slideUp(200);
                 }
             });
 
@@ -109,9 +179,10 @@
                 $mainBgSlide.css({width:$winW,height:$winH});
             }
             resizeFn();
+            setTimeout(resizeFn, 10);
 
             $window.resize(function(){
-                resizeFn();
+                setTimeout(resizeFn, 10);
             });
 
             // Background slide event
@@ -211,6 +282,21 @@
             var $roomWhiteBtn = $('#section2 .room-whitebtn');
             var $roomBlackBtn = $('#section2 .room-blackbtn');
 
+            var $window = $(window);
+            var $winW = $(window).width;
+            var $winH = $(window).height;
+            var $section2 = $('#section2');
+
+            function resizeFn(){
+                $winW = $(window).width();
+                $winH = $(window).height();
+                $section2.css({width:$winW,height:$winH});
+            }
+            resizeFn();
+            $window.resize(function(){
+                resizeFn();
+            });
+
             function section2SlideFn(){
                 $section2SlideWrap.stop().animate({left:-1050*$s2SlideCnt}, 300, 'easeOutCubic', function(){
                     if ( $s2SlideCnt > 4 ) { $s2SlideCnt = 0; }
@@ -261,23 +347,162 @@
         },
 
         section3Fn:function(){
+            var $dinningWhiteBtn = $('#section3 .dinning-whitebtn');
+            var $dinningBlackBtn = $('#section3 .dinning-blackbtn');
+
+            var $window = $(window);
+            var $winW = $(window).width;
+            var $winH = $(window).height;
+            var $section3 = $('#section3');
+
+            function resizeFn(){
+                $winW = $(window).width();
+                $winH = $(window).height();
+                $section3.css({width:$winW,height:$winH});
+            }
+            resizeFn();
+            $window.resize(function(){
+                resizeFn();
+            });
+
+            $dinningWhiteBtn.on({
+                mouseenter:function(){
+                    $dinningBlackBtn.addClass('mouseon');
+                }
+            });
+            $dinningBlackBtn.on({
+                mouseleave:function(){
+                    $dinningBlackBtn.removeClass('mouseon');
+                }
+            });
 
         },
 
         section4Fn:function(){
+            var $slide0 = $('#section4 .slide0');
+            var $slide1 = $('#section4 .slide1');
+            var $slide2 = $('#section4 .slide2');
+
+            var $facilityWhiteBtn = $('#section4 .facility-whitebtn');
+            var $facilityBlackBtn = $('#section4 .facility-blackbtn');
+
+            var $window = $(window);
+            var $winW = $(window).width;
+            var $winH = $(window).height;
+            var $section4 = $('#section4');
+
+            function resizeFn(){
+                $winW = $(window).width();
+                $winH = $(window).height();
+                $section4.css({width:$winW,height:$winH});
+            }
+            resizeFn();
+            $window.resize(function(){
+                resizeFn();
+            });
+
+            $facilityWhiteBtn.on({
+                mouseenter:function(){
+                    $facilityBlackBtn.addClass('mouseon');
+                }
+            });
+            $facilityBlackBtn.on({
+                mouseleave:function(){
+                    $facilityBlackBtn.removeClass('mouseon');
+                }
+            });
+
+            $slide0.on({
+                mouseenter:function(){
+                    $slide0.addClass('mouseon');
+                    $slide1.removeClass('mouseon');
+                    $slide2.removeClass('mouseon');
+                }
+            });
+
+            $slide1.on({
+                mouseenter:function(){
+                    $slide1.addClass('mouseon');
+                    $slide0.removeClass('mouseon');
+                    $slide2.removeClass('mouseon');
+                }
+            });
+
+            $slide2.on({
+                mouseenter:function(){
+                    $slide2.addClass('mouseon');
+                    $slide0.removeClass('mouseon');
+                    $slide1.removeClass('mouseon');
+                }
+            });
+
 
         },
 
         section5Fn:function(){
+            var $activityCleanbtn = $('#section5 .activity-cleanbtn');
+            var $activityWhiteBtn = $('#section5 .activity-whitebtn');
 
+            var $window = $(window);
+            var $winW = $(window).width;
+            var $winH = $(window).height;
+            var $section5 = $('#section5');
+
+            function resizeFn(){
+                $winW = $(window).width();
+                $winH = $(window).height();
+                $section5.css({width:$winW,height:$winH});
+            }
+            resizeFn();
+            $window.resize(function(){
+                resizeFn();
+            });
+
+            $activityCleanbtn.on({
+                mouseenter:function(){
+                    $activityWhiteBtn.addClass('mouseon');
+                }
+            });
+            $activityWhiteBtn.on({
+                mouseleave:function(){
+                    $activityWhiteBtn.removeClass('mouseon');
+                }
+            });
         },
 
         section6Fn:function(){
+            var $window = $(window);
+            var $winW = $(window).width;
+            var $winH = $(window).height;
+            var $section6 = $('#section6');
+
+            function resizeFn(){
+                $winW = $(window).width();
+                $winH = $(window).height();
+                $section6.css({width:$winW,height:$winH});
+            }
+            resizeFn();
+            $window.resize(function(){
+                resizeFn();
+            });
 
         },
 
         section7Fn:function(){
+            var $window = $(window);
+            var $winW = $(window).width;
+            var $winH = $(window).height;
+            var $section7 = $('#section7');
 
+            function resizeFn(){
+                $winW = $(window).width();
+                $winH = $(window).height();
+                $section7.css({width:$winW,height:$winH});
+            }
+            resizeFn();
+            $window.resize(function(){
+                resizeFn();
+            });
         },
 
         indicatorFn:function(){
