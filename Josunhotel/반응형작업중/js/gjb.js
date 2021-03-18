@@ -26,8 +26,6 @@
             var $header = $('#header')
             var $nav = $('#header #nav');
             var $logo = $('#header #logo .logo-wrap');
-            var $mobileBtn = $('#header .mobile-btn');
-            var $bar = $('#header .bar');
 
             var t = 0;
             var $footer = $('#footer');
@@ -54,8 +52,6 @@
                     $header.removeClass('addHide');
                     $nav.removeClass('mouseon');
                     $logo.removeClass('addBlack');
-                    // $bar.addClass('addWhite');
-                    $bar.removeClass('addBlack');
                     // $nav.removeClass('addLine');
                 }
                 else{
@@ -72,7 +68,6 @@
                         $header.removeClass('addShow');
                         $nav.addClass('mouseon');
                         $logo.addClass('addBlack');
-                        $bar.addClass('addBlack');
                         // $nav.addClass('addLine');
                     }
                 }
@@ -129,9 +124,6 @@
 
             var $langKR = $('#header .lang-KR');
             var $langEN = $('#header .lang-EN');
-
-            var $mobileBtn = $('#header .mobile-btn');
-            var $bar = $('#header .bar');
 
             var $sideBtnBox = $('#header .side-btn-box');
             var $sideBtn = $('#header .side-btn-box .side-btn')
@@ -195,12 +187,6 @@
                 }
             });
 
-            $mobileBtn.on({
-                click:function(){
-                    $bar.toggleClass('addMobile');
-                }
-            });
-            
         },
 
         section1Fn:function(){
