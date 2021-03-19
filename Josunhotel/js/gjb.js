@@ -90,9 +90,14 @@
             $win.scroll(function(){
                 if ( $(window).scrollTop() >= $('#section7').offset().top+1 ) {
                     $footer.addClass('addView');
-                    // $section7.addClass('addFixed');
                 }
             })
+
+            // $win.scroll(function(){
+            //     if ( $(window).scrollTop() >= $('#section6').offset().top ) {
+            //         console.log('섹션6을 지나야 작동함');
+            //     }
+            // })
 
             // $win.scroll(function(){
             //     if ( $(window).scrollTop() >= $('#section7').offset().top+1 ) {
@@ -110,12 +115,14 @@
             // })
             
 
-
             $win.scroll(function(){
                 scrollEventFn();
             });
 
+
             
+
+            // https://codepen.io/recordboy/pen/JBmvpp 휠이벤트 참고
 
         },
         headerFn:function(){

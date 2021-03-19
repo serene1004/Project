@@ -84,6 +84,7 @@
     #wrap #header .wrap .gap {margin: 0 auto;}
     #wrap #header .wrap .gap .container {width: 100%;}
     
+    /* 해당 컨텐츠들은 모바일메뉴시 모달창안으로 */
     #wrap #header .wrap .gap .container .header-box {display: none;}
     #wrap #header .wrap .gap .container .header-box .left-box {float: left;height: 21px;padding: 14.5px 0;}
     #wrap #header .wrap .gap .container .header-box .left-box > span {display: inline-block;}
@@ -104,7 +105,7 @@
     #wrap #header .wrap .gap .container .header-box .right-box ul li span {display: inline-block;width: 1px;height: 10px;background: #666;position: absolute;top: 40%;}
     
     /* header logo */
-    #wrap #header .wrap .gap .container #logo {position: absolute;z-index: 2;top: 0;left: 0;width: 118px;padding: 4px 0 4px 50px;}
+    #wrap #header .wrap .gap .container #logo {position: absolute;z-index: 2;top: 0;left: 0;width: 118px;padding: 4px 0 4px 30px;}
     #wrap #header .wrap .gap .container #logo h1 {text-indent: -2000px;overflow: hidden;display: none;}
     #wrap #header .wrap .gap .container #logo a {display: block;position: relative;overflow: hidden;}
     #wrap #header .wrap .gap .container #logo a .logo-white {display: inline-block;width: 118px;height: 42px;background: url(../img/bg_logo_grand.png) no-repeat;}
@@ -147,27 +148,22 @@
     #wrap #main .main-indicator {display: none;}
 
 
-    /* 섹션들 이미지 올리기 모바일화면으로 전환 */
-
     /* main section2 */
     #wrap #main #section2 .box .section2bg {background: #fff;}
     #wrap #main #section2 .box .wrap .gap .container {margin-top: 0;}
-    #wrap #main #section2 .box .wrap .gap .container .slide-container {float: none;position: relative;margin-top: 220px;margin-left: 60px;}
+    #wrap #main #section2 .box .wrap .gap .container .slide-container {float: none;position: relative;z-index: 1;margin-top: 425px;margin-left: 60px;width: 100%;}
     
-    #wrap #main #section2 .box .wrap .gap .container .room-content {float: none;position: absolute;top: 0;left: 0;display: block;width: 100%;}
-    #wrap #main #section2 .box .wrap .gap .container .room-content .content-gap .room-box {display: block;height: 150px;padding-bottom: 25px;}
+    #wrap #main #section2 .box .wrap .gap .container .room-content {float: none;position: absolute;z-index: 2;top: 0;left: 0;display: block;width: 100%;padding-top: 45px;width: 650px;}
+    #wrap #main #section2 .box .wrap .gap .container .room-content .content-gap .room-box {display: block;height: 170px;padding-bottom: 30px;}
+    #wrap #main #section2 .box .wrap .gap .container .room-content .content-gap .room-box h2 {display: block;margin-bottom: 15px;}
+    #wrap #main #section2 .box .wrap .gap .container .room-content .content-gap .room-box h3 {margin: 0 0 8px 0;}
     #wrap #main #section2 .box .wrap .gap .container .room-content .content-gap .room-box .rooms {margin: 10px 0;}
-    #wrap #main #section2 .box .wrap .gap .container .room-content .content-gap .room-box .room-btn {display: inline-block;margin-top: 0;margin-left: 250px;}
-    #wrap #main #section2 .box .wrap .gap .container .room-content .content-gap .room-box .room-btn .room-whitebtn {display: inline-block;background: url(../img/btn_view.png);width: 42px;height: 42px;position: relative;}
-    #wrap #main #section2 .box .wrap .gap .container .room-content .content-gap .room-box .room-btn .room-blackbtn {display: none;background: url(../img/btn_view.png);width: 84px;height: 42px;position: absolute;z-index: 2;top: 0;left: -42px;}
+    #wrap #main #section2 .box .wrap .gap .container .room-content .content-gap .room-box .room-btn {display: inline-block;margin-top: -60px;margin-left: 548px;}
 
-    
-    /* 아래태그들 정리 */
-    #wrap #main #section2 .box .wrap .gap .container .room-content .content-gap .earlybird-wrap {height: 270px;display: none;}
-    #wrap #main #section2 .box .wrap .gap .container .room-content .content-gap .earlybird-wrap .earlybird-btn .early-title {display: inline-block;font-size: 14px;border: 1px solid #000;padding: 7px 15px;margin-top: 3px;text-transform: uppercase;}
-    #wrap #main #section2 .box .wrap .gap .container .room-content .content-gap .earlybird-wrap .earlybird-btn .early-text {font-size: 20px;margin-top: 17px;line-height: 120%;;text-transform: uppercase;}
-    #wrap #main #section2 .box .wrap .gap .container .room-content .content-gap .earlybird-wrap .earlybird-btn .early-date {display: block;font-size: 15px;color: #666;line-height: 120%;margin: 8px 0 20px 0;}
+    #wrap #main #section2 .box .wrap .gap .container .room-content .content-gap .earlybird-wrap {height: 150px;display: block;position: relative;padding-bottom: 30px;}
+    #wrap #main #section2 .box .wrap .gap .container .room-content .content-gap .earlybird-wrap .earlybird-btn .early-title {margin-top: 0;}
     #wrap #main #section2 .box .wrap .gap .container .room-content .content-gap .earlybird-wrap .earlybird-btn > span {display: block;}
-    #wrap #main #section2 .box .wrap .gap .container .room-content .content-gap .earlybird-wrap .earlybird-btn > span > img {display: inline-block;width: 290px;height: 150px;}
+    #wrap #main #section2 .box .wrap .gap .container .room-content .content-gap .earlybird-wrap .earlybird-btn > span > img {position: absolute;top: 0;left: 300px;display: inline-block;width: 290px;}
+
 
 }
