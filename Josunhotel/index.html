@@ -242,7 +242,7 @@
                 <a href="javascript:" class="side-btn">
                     <span class="side-btn-img"><img src="./img/icon_side_button.png" alt=""></span>
                     <span class="side-wrap">
-                        <span class="side-btn-text">OPEN OFFERS</span>
+                        <span class="side-btn-open">OPEN OFFERS</span>
                     </span>    
                 </a>
             </div>
@@ -362,6 +362,7 @@
                                 <div class="dinning-content">
                                     <div class="dinning-gap">
                                         <div class="dinning-box">
+                                            <h2 class="hide">DINNING</h2>
                                             <h3>Handpicked Gourmet Experience</h3>
                                             <p>최고만 엄선한 미식의 경험</p>
                                             <span class="dinning">BUFFET / CHINESE / LOUNGE&BAR</span>
@@ -392,6 +393,7 @@
                         <div class="container">
                             <div class="facility-gap">
                                 <div class="facility-textbox">
+                                    <h2 class="hide">FACILITY</h2>
                                     <h3>Iconic Facilities</h3>
                                     <p>POOL / SAUNA / FITNESS</p>
                                     <a href="javascript:" class="facility-btn">
@@ -455,7 +457,8 @@
                                     <p>조선호텔앤리조트의 멤버십 프로그램 클럽조선은 품격있는 라이프스타일과 특별한 경험을 제안합니다.<br>
                                         클럽조선 회원이 되셔서 다채로운 혜택과 최상의 서비스를 누려보세요.</p>
                                     <a href="javascript:" class="membership-btn">
-                                        <span>VIEW MORE & JOIN</span>
+                                        <span class="membership-btn-text">VIEW MORE & JOIN</span>
+                                        <span class="membership-btn-block"></span>
                                     </a>
                                 </li>
                                 <li class="membership-right">
@@ -480,8 +483,14 @@
                             <p>인생의 특별한 순간, 이벤트, 컨퍼런스를<br>
                                 그랜드 조선 부산에서 준비해보세요.</p>
                             <div class="btn-wrap">
-                                <a href="javascript:" class="meeting-btn"><i>미팅 자세히 보기</i></a>
-                                <a href="javascript:" class="wedding-btn"><i>웨딩 자세히 보기</i></a>
+                                <a href="javascript:" class="meeting-btn">
+                                    <span class="meeting-btn-text">미팅 자세히 보기</span>
+                                    <span class="meeting-btn-block"></span>
+                                </a>
+                                <a href="javascript:" class="wedding-btn">
+                                    <span class="wedding-btn-text">웨딩 자세히 보기</span>
+                                    <span class="wedding-btn-block"></span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -567,23 +576,154 @@
             </div>
         </footer>
         <!-- // footer -->
+        <div class="offers-blind"></div>
         <div id="offers">
+            <div class="close-offers-wrap">
+                <a href="javascript:" class="close-offers-btn">
+                    <span class="close-offers-img"><img src="./img/icon_side_button.png" alt=""></span>
+                    <span class="close-wrap">
+                        <span class="close-offers">CLOSE OFFERS</span>
+                    </span>    
+                </a>
+            </div>
             <div class="wrap">
                 <div class="gap">
-                    <div class="container">
+                    <div class="container clearfix">
+                        <div class="close-btn-wrap">
+                            <a href="javascript:" class="close-btn"></a>
+                        </div>
                         <div class="side-left">
-                            <a href="javascript:">GO-TO OFFERS</a>
-                            <div class="side-package">
-                                <h2>Special Offers</h2>
+                            <a href="javascript:" class="go-offers">GO-TO OFFERS<i class="side-icon"></i></a>
+                            <h3>FEATURED PACKAGES</h3>
+                            <div class="package-btn-wrap">
+                                <a href="javascript:" class="package-prev-btn"><i></i></a>
+                                <span class="package-line"></span>
+                                <a href="javascript:" class="package-next-btn"><i></i></a>
                             </div>
-                            <div class="side-membership">
-                                <h3>MEMBERSHIP</h3>
+                            <div class="side-left-wrap">
+                                <div class="side-package">
+                                    <div class="slide-container">
+                                        <div class="slide-view">
+                                            <ul class="slide-wrap clearfix">
+                                                <li class="slide slide2">
+                                                    <div class="packgae-content">
+                                                        <div class="caption-gap">
+                                                            <a href="javascript:">
+                                                                <span class="caption-text">자세히 보기</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="package-text">
+                                                        <h3>Just Like a Holiday!</h3>
+                                                        <p>오션뷰에서 즐기는 브런치와 여유로운 시간들. 휴일처럼 느긋한 스테이를 누려보세요!</p>
+                                                        <span class="package-date">2021.01.25 - 2021.04.30</span>
+                                                    </div>
+                                                </li>
+                                                <li class="slide slide0">
+                                                    <div class="packgae-content">
+                                                        <div class="caption-gap">
+                                                            <a href="javascript:">
+                                                                <span class="caption-text">자세히 보기</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="package-text">
+                                                        <h3>More to Taste</h3>
+                                                        <p>싱그러운 봄, 미식의 향연.</p>
+                                                        <span class="package-date">2021.03.04 - 2021.03.31</span>
+                                                    </div>
+                                                </li>
+                                                <li class="slide slide1">
+                                                    <div class="packgae-content">
+                                                        <div class="caption-gap">
+                                                            <a href="javascript:">
+                                                                <span class="caption-text">자세히 보기</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="package-text">
+                                                        <h3>City Breaks!</h3>
+                                                        <p>감각적인 시티뷰, 도심 속의 힐링. 호캉스를 알차게 잘 즐기는 방법!</p>
+                                                        <span class="package-date">2021.02.22 - 2021.03.31</span>
+                                                    </div>
+                                                </li>
+                                                <li class="slide slide2">
+                                                    <div class="packgae-content">
+                                                        <div class="caption-gap">
+                                                            <a href="javascript:">
+                                                                <span class="caption-text">자세히 보기</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="package-text">
+                                                        <h3>Just Like a Holiday!</h3>
+                                                        <p>오션뷰에서 즐기는 브런치와 여유로운 시간들. 휴일처럼 느긋한 스테이를 누려보세요!</p>
+                                                        <span class="package-date">2021.01.25 - 2021.04.30</span>
+                                                    </div>
+                                                </li>
+                                                <li class="slide slide0">
+                                                    <div class="packgae-content">
+                                                        <div class="caption-gap">
+                                                            <a href="javascript:">
+                                                                <span class="caption-text">자세히 보기</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="package-text">
+                                                        <h3>More to Taste</h3>
+                                                        <p>싱그러운 봄, 미식의 향연.</p>
+                                                        <span class="package-date">2021.03.04 - 2021.03.31</span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="side-membership">
+                                    <h3>MEMBERSHIP</h3>
+                                    <p>그랜드 조선만의 포인트 혜택 및 특전을 제공하는 새로운 통합 멤버십 서비스
+                                        모든 회원님께 특별한 혜택 및 할인 서비스등 다양한 특전을 제공합니다.</p>
+                                    <a href="javascript:" class="side-membership-btn">
+                                        <span class="side-membership-btn-text">가입하기</span>
+                                        <span class="side-membership-btn-block"></span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div class="side-right">
-                            <h2>EVENTS TO REMEMBER</h2>
-                            <div class="side-event-dinning"></div>
-                            <div class="side-event-promotion"></div>
+                            <h3>EVENTS TO REMEMBER</h2>
+                            <div class="side-right-wrap"> 
+                                <div class="side-event-dinning">
+                                    <div class="side-dinning-img">
+                                        <div class="caption-gap">
+                                            <a href="javascript:">
+                                                <span class="caption-text">자세히 보기</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="side-dinning-text">
+                                        <h4>[F&B] ROMANTIC ARIA</h4>
+                                        <p>로맨틱 다이닝을 위한 추천 와인 4종</p>
+                                        <span class="side-dinning-date">2021.03.08 - 2021.03.31</span>
+                                    </div>
+                                </div>
+                                <div class="side-event-promotion">
+                                    <div class="side-event-promotion">
+                                        <div class="side-promotion-img">
+                                            <div class="caption-gap">
+                                                <a href="javascript:">
+                                                    <span class="caption-text">자세히 보기</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="side-promotion-text">
+                                            <h4>[F&B] 아리아 봄 프로모션</h4>
+                                            <p>제철 식재료를 활용한 봄 스페셜 메뉴들을 선보입니다</p>
+                                            <span class="side-promotion-date">2021.03.08 - 2021.05.31</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
