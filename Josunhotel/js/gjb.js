@@ -3,21 +3,22 @@
 
     var gjb = {
         init:function(){
-            var taht = this;
+            var that = this;
             
-            taht.scrollEventFn();
-            taht.headerFn();
-            taht.section1Fn();
-            taht.section2Fn();
-            taht.section3Fn();
-            taht.section4Fn();
-            taht.section5Fn();
-            taht.section6Fn();
-            taht.section7Fn();
-            taht.indicatorFn();
-            taht.footerFn();
-            taht.offersFn();
-            // taht.wheelEventFn();
+            that.scrollEventFn();
+            that.headerFn();
+            that.section1Fn();
+            that.section2Fn();
+            that.section3Fn();
+            that.section4Fn();
+            that.section5Fn();
+            that.section6Fn();
+            that.section7Fn();
+            that.indicatorFn();
+            that.footerFn();
+            that.offersFn();
+            that.galleryFn();
+            // that.wheelEventFn();
         },
 
         scrollEventFn:function(){
@@ -730,6 +731,266 @@
 
         },
 
+        galleryFn:function(){
+            var $galleryBtn = $('#gallery .gallery-btn');
+            var $galleryUl = $('#gallery .gallery-wrap ul');
+            var $galleryLi = $('#gallery .gallery-wrap li');
+            var $galleryContent = $('#gallery .gallery-wrap .gallery-content');
+            var n = $('#gallery gallery-wrap li').length;
+
+            var $winW = $(window).innerWidth()+6;
+            var cols = 5;
+            var rows = Math.ceil(n/cols);
+            var imgW = $winW/cols;
+            var imgH = imgW * 0.692708333;
+            var btnNum = 0;
+
+            $galleryContent.addClass('addZoom');    // 처음 강제 1회 실행
+
+            function galleryResizeFn(){
+                $winW = $(window).innerWidth()+6;
+
+                if( $winW > 1200 ){
+                    cols = 5;
+                }
+                else if( $winW > 980 ){
+                    cols = 4;
+                }
+                else if( $winW > 680 ){
+                    cols = 3;
+                }
+                else{
+                    cols = 2;
+                }
+
+                imgW = $winW/cols;
+                imgH = imgW * 0.692708333;
+
+                $galleryLi.css({width:imgW, height:imgH});
+
+                if( btnNum === 0 ){     // all
+                    n = 15;
+                    rows = Math.ceil(n/cols);
+                    $galleryUl.css({width:$winW, height:imgH*rows});
+                    $galleryLi.css({width:imgW, height:imgH});
+                    $galleryContent.removeClass('addZoom');
+
+                    if( cols === 5 ){
+                        $galleryLi.eq(0).stop().show().animate({left:imgW*0 ,top:imgH*0}, 500);
+                        $galleryLi.eq(1).stop().show().animate({left:imgW*1 ,top:imgH*0}, 500);
+                        $galleryLi.eq(2).stop().show().animate({left:imgW*2 ,top:imgH*0}, 500);
+                        $galleryLi.eq(3).stop().show().animate({left:imgW*3 ,top:imgH*0}, 500);
+                        $galleryLi.eq(4).stop().show().animate({left:imgW*4 ,top:imgH*0}, 500);
+                        $galleryLi.eq(5).stop().show().animate({left:imgW*0 ,top:imgH*1}, 500);
+                        $galleryLi.eq(6).stop().show().animate({left:imgW*1 ,top:imgH*1}, 500);
+                        $galleryLi.eq(7).stop().show().animate({left:imgW*2 ,top:imgH*1}, 500);
+                        $galleryLi.eq(8).stop().show().animate({left:imgW*3 ,top:imgH*1}, 500);
+                        $galleryLi.eq(9).stop().show().animate({left:imgW*4 ,top:imgH*1}, 500);
+                        $galleryLi.eq(10).stop().show().animate({left:imgW*0 ,top:imgH*2}, 500);
+                        $galleryLi.eq(11).stop().show().animate({left:imgW*1 ,top:imgH*2}, 500);
+                        $galleryLi.eq(12).stop().show().animate({left:imgW*2 ,top:imgH*2}, 500);
+                        $galleryLi.eq(13).stop().show().animate({left:imgW*3 ,top:imgH*2}, 500);
+                        $galleryLi.eq(14).stop().show().animate({left:imgW*4 ,top:imgH*2}, 500);
+                    }
+                    else if( cols === 4 ){
+                        $galleryLi.eq(0).stop().show().animate({left:imgW*0 ,top:imgH*0}, 500);
+                        $galleryLi.eq(1).stop().show().animate({left:imgW*1 ,top:imgH*0}, 500);
+                        $galleryLi.eq(2).stop().show().animate({left:imgW*2 ,top:imgH*0}, 500);
+                        $galleryLi.eq(3).stop().show().animate({left:imgW*3 ,top:imgH*0}, 500);
+                        $galleryLi.eq(4).stop().show().animate({left:imgW*0 ,top:imgH*1}, 500);
+                        $galleryLi.eq(5).stop().show().animate({left:imgW*1 ,top:imgH*1}, 500);
+                        $galleryLi.eq(6).stop().show().animate({left:imgW*2 ,top:imgH*1}, 500);
+                        $galleryLi.eq(7).stop().show().animate({left:imgW*3 ,top:imgH*1}, 500);
+                        $galleryLi.eq(8).stop().show().animate({left:imgW*0 ,top:imgH*2}, 500);
+                        $galleryLi.eq(9).stop().show().animate({left:imgW*1 ,top:imgH*2}, 500);
+                        $galleryLi.eq(10).stop().show().animate({left:imgW*2 ,top:imgH*2}, 500);
+                        $galleryLi.eq(11).stop().show().animate({left:imgW*3 ,top:imgH*2}, 500);
+                        $galleryLi.eq(12).stop().show().animate({left:imgW*0 ,top:imgH*3}, 500);
+                        $galleryLi.eq(13).stop().show().animate({left:imgW*1 ,top:imgH*3}, 500);
+                        $galleryLi.eq(14).stop().show().animate({left:imgW*2 ,top:imgH*3}, 500);
+                    }
+                    else if( cols === 3 ){
+                        $galleryLi.eq(0).stop().show().animate({left:imgW*0 ,top:imgH*0}, 500);
+                        $galleryLi.eq(1).stop().show().animate({left:imgW*1 ,top:imgH*0}, 500);
+                        $galleryLi.eq(2).stop().show().animate({left:imgW*2 ,top:imgH*0}, 500);
+                        $galleryLi.eq(3).stop().show().animate({left:imgW*0 ,top:imgH*1}, 500);
+                        $galleryLi.eq(4).stop().show().animate({left:imgW*1 ,top:imgH*1}, 500);
+                        $galleryLi.eq(5).stop().show().animate({left:imgW*2 ,top:imgH*1}, 500);
+                        $galleryLi.eq(6).stop().show().animate({left:imgW*0 ,top:imgH*2}, 500);
+                        $galleryLi.eq(7).stop().show().animate({left:imgW*1 ,top:imgH*2}, 500);
+                        $galleryLi.eq(8).stop().show().animate({left:imgW*2 ,top:imgH*2}, 500);
+                        $galleryLi.eq(9).stop().show().animate({left:imgW*0 ,top:imgH*3}, 500);
+                        $galleryLi.eq(10).stop().show().animate({left:imgW*1 ,top:imgH*3}, 500);
+                        $galleryLi.eq(11).stop().show().animate({left:imgW*2 ,top:imgH*3}, 500);
+                        $galleryLi.eq(12).stop().show().animate({left:imgW*0 ,top:imgH*4}, 500);
+                        $galleryLi.eq(13).stop().show().animate({left:imgW*1 ,top:imgH*4}, 500);
+                        $galleryLi.eq(14).stop().show().animate({left:imgW*2 ,top:imgH*4}, 500);
+                    }
+                    else{
+                        $galleryLi.eq(0).stop().show().animate({left:imgW*0 ,top:imgH*0}, 500);
+                        $galleryLi.eq(1).stop().show().animate({left:imgW*1 ,top:imgH*0}, 500);
+                        $galleryLi.eq(2).stop().show().animate({left:imgW*0 ,top:imgH*1}, 500);
+                        $galleryLi.eq(3).stop().show().animate({left:imgW*1 ,top:imgH*1}, 500);
+                        $galleryLi.eq(4).stop().show().animate({left:imgW*0 ,top:imgH*2}, 500);
+                        $galleryLi.eq(5).stop().show().animate({left:imgW*1 ,top:imgH*2}, 500);
+                        $galleryLi.eq(6).stop().show().animate({left:imgW*0 ,top:imgH*3}, 500);
+                        $galleryLi.eq(7).stop().show().animate({left:imgW*1 ,top:imgH*3}, 500);
+                        $galleryLi.eq(8).stop().show().animate({left:imgW*0 ,top:imgH*4}, 500);
+                        $galleryLi.eq(9).stop().show().animate({left:imgW*1 ,top:imgH*4}, 500);
+                        $galleryLi.eq(10).stop().show().animate({left:imgW*0 ,top:imgH*5}, 500);
+                        $galleryLi.eq(11).stop().show().animate({left:imgW*1 ,top:imgH*5}, 500);
+                        $galleryLi.eq(12).stop().show().animate({left:imgW*0 ,top:imgH*6}, 500);
+                        $galleryLi.eq(13).stop().show().animate({left:imgW*1 ,top:imgH*6}, 500);
+                        $galleryLi.eq(14).stop().show().animate({left:imgW*0 ,top:imgH*7}, 500);
+                    }
+
+                    $galleryContent.eq(0).addClass('addZoom');
+                    $galleryContent.eq(1).addClass('addZoom');
+                    $galleryContent.eq(2).addClass('addZoom');
+                    $galleryContent.eq(3).addClass('addZoom');
+                    $galleryContent.eq(4).addClass('addZoom');
+                    $galleryContent.eq(5).addClass('addZoom');
+                    $galleryContent.eq(6).addClass('addZoom');
+                    $galleryContent.eq(7).addClass('addZoom');
+                    $galleryContent.eq(8).addClass('addZoom');
+                    $galleryContent.eq(9).addClass('addZoom');
+                    $galleryContent.eq(10).addClass('addZoom');
+                    $galleryContent.eq(11).addClass('addZoom');
+                    $galleryContent.eq(12).addClass('addZoom');
+                    $galleryContent.eq(13).addClass('addZoom');
+                    $galleryContent.eq(14).addClass('addZoom');
+                }
+                else if( btnNum === 1 ){    // 0 5 6 10 11
+                    n = 5;
+                    rows = Math.ceil(n/cols);
+                    $galleryUl.css({width:$winW, height:imgH*rows});
+                    $galleryLi.css({width:imgW, height:imgH});
+                    $galleryContent.removeClass('addZoom');
+                    $galleryLi.eq(1).stop().hide();
+                    $galleryLi.eq(2).stop().hide();
+                    $galleryLi.eq(3).stop().hide();
+                    $galleryLi.eq(4).stop().hide();
+                    $galleryLi.eq(7).stop().hide();
+                    $galleryLi.eq(8).stop().hide();
+                    $galleryLi.eq(9).stop().hide();
+                    $galleryLi.eq(12).stop().hide();
+                    $galleryLi.eq(13).stop().hide();
+                    $galleryLi.eq(14).stop().hide();
+
+                    $galleryLi.eq(0).stop().show().animate({left:imgW*0 ,top:imgH*0}, 500);
+                    $galleryLi.eq(5).stop().show().animate({left:imgW*1 ,top:imgH*0}, 500);
+                    $galleryLi.eq(6).stop().show().animate({left:imgW*2 ,top:imgH*0}, 500);
+                    $galleryLi.eq(10).stop().show().animate({left:imgW*3 ,top:imgH*0}, 500);
+                    $galleryLi.eq(11).stop().show().animate({left:imgW*4 ,top:imgH*0}, 500);
+
+                    $galleryContent.eq(0).addClass('addZoom');
+                    $galleryContent.eq(5).addClass('addZoom');
+                    $galleryContent.eq(6).addClass('addZoom');
+                    $galleryContent.eq(10).addClass('addZoom');
+                    $galleryContent.eq(11).addClass('addZoom');
+                }
+                else if( btnNum === 2 ){    // 2 3 7
+                    n = 3;
+                    rows = Math.ceil(n/cols);
+                    $galleryUl.css({width:$winW, height:imgH*rows});
+                    $galleryLi.css({width:imgW, height:imgH});
+                    $galleryContent.removeClass('addZoom');
+                    $galleryLi.eq(0).stop().hide();
+                    $galleryLi.eq(1).stop().hide();
+                    $galleryLi.eq(4).stop().hide();
+                    $galleryLi.eq(5).stop().hide();
+                    $galleryLi.eq(6).stop().hide();
+                    $galleryLi.eq(8).stop().hide();
+                    $galleryLi.eq(9).stop().hide();
+                    $galleryLi.eq(10).stop().hide();
+                    $galleryLi.eq(11).stop().hide();
+                    $galleryLi.eq(12).stop().hide();
+                    $galleryLi.eq(13).stop().hide();
+                    $galleryLi.eq(14).stop().hide();
+
+                    $galleryLi.eq(2).stop().show().animate({left:imgW*0 ,top:imgH*0}, 500);
+                    $galleryLi.eq(3).stop().show().animate({left:imgW*1 ,top:imgH*0}, 500);
+                    $galleryLi.eq(7).stop().show().animate({left:imgW*2 ,top:imgH*0}, 500);
+                                        
+                    $galleryContent.eq(2).addClass('addZoom');
+                    $galleryContent.eq(3).addClass('addZoom');
+                    $galleryContent.eq(7).addClass('addZoom');
+                }
+                else if( btnNum === 3 ){    // 4 8 9 13 14
+                    n = 5;
+                    rows = Math.ceil(n/cols);
+                    $galleryUl.css({width:$winW, height:imgH*rows});
+                    $galleryLi.css({width:imgW, height:imgH});
+                    $galleryContent.removeClass('addZoom');
+                    $galleryLi.eq(0).stop().hide();
+                    $galleryLi.eq(1).stop().hide();
+                    $galleryLi.eq(2).stop().hide();
+                    $galleryLi.eq(3).stop().hide();
+                    $galleryLi.eq(5).stop().hide();
+                    $galleryLi.eq(6).stop().hide();
+                    $galleryLi.eq(7).stop().hide();
+                    $galleryLi.eq(10).stop().hide();
+                    $galleryLi.eq(11).stop().hide();
+                    $galleryLi.eq(12).stop().hide();
+                    
+                    $galleryLi.eq(4).stop().show().animate({left:imgW*0 ,top:imgH*0}, 500);
+                    $galleryLi.eq(8).stop().show().animate({left:imgW*1 ,top:imgH*0}, 500);
+                    $galleryLi.eq(9).stop().show().animate({left:imgW*2 ,top:imgH*0}, 500);
+                    $galleryLi.eq(13).stop().show().animate({left:imgW*3 ,top:imgH*0}, 500);
+                    $galleryLi.eq(14).stop().show().animate({left:imgW*4 ,top:imgH*0}, 500);
+                    
+                    $galleryContent.eq(4).addClass('addZoom');
+                    $galleryContent.eq(8).addClass('addZoom');
+                    $galleryContent.eq(9).addClass('addZoom');
+                    $galleryContent.eq(13).addClass('addZoom');
+                    $galleryContent.eq(14).addClass('addZoom');
+                }
+                else if( btnNum === 4 ){    // 1 12
+                    n = 2;
+                    rows = Math.ceil(n/cols);
+                    $galleryUl.css({width:$winW, height:imgH*rows});
+                    $galleryLi.css({width:imgW, height:imgH});
+                    $galleryContent.removeClass('addZoom');
+                    $galleryLi.eq(0).stop().hide();
+                    $galleryLi.eq(2).stop().hide();
+                    $galleryLi.eq(3).stop().hide();
+                    $galleryLi.eq(4).stop().hide();
+                    $galleryLi.eq(5).stop().hide();
+                    $galleryLi.eq(6).stop().hide();
+                    $galleryLi.eq(7).stop().hide();
+                    $galleryLi.eq(8).stop().hide();
+                    $galleryLi.eq(9).stop().hide();
+                    $galleryLi.eq(10).stop().hide();
+                    $galleryLi.eq(11).stop().hide();
+                    $galleryLi.eq(13).stop().hide();
+                    $galleryLi.eq(14).stop().hide();
+
+                    $galleryLi.eq(1).stop().show().animate({left:imgW*0 ,top:imgH*0}, 500);
+                    $galleryLi.eq(12).stop().show().animate({left:imgW*1 ,top:imgH*0}, 500);
+                    
+                    $galleryContent.eq(1).addClass('addZoom');
+                    $galleryContent.eq(12).addClass('addZoom');
+                }
+            }
+            
+            $(window).resize(function(){
+                galleryResizeFn();
+            });
+
+            $galleryBtn.each(function(idx){
+                $(this).on({
+                    click:function(){
+                        btnNum = idx;
+                        galleryResizeFn();
+                        $galleryBtn.removeClass('addNav');
+                        $(this).addClass('addNav');
+                    }
+                });
+            });
+
+
+        },
+
         wheelEventFn:function(){
             var $main = $('#main');
             var moveCnt = null;
@@ -775,6 +1036,7 @@
             };
 
         }
+
     }
 
     gjb.init();

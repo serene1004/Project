@@ -39,6 +39,12 @@
     /* main section5 */
     #wrap #main #section5 .wrap .gap {width: 93.33vw;}
 
+    /* main gallery */
+    #wrap #main #gallery .wrap .gap .container {padding: 60px 0;}
+    #wrap #main #gallery .wrap .gap .container .title {width: 93.33vw;margin: 0 60px;}
+    #wrap #main #gallery .wrap .gap .container .content #nav {width: 93.33vw;margin: 0 60px;}
+
+
     /* main section6 */
     #wrap #main #section6 .wrap .gap {width: 93.33vw;}
     #wrap #main #section6 .wrap .gap .container .membership-wrap .membership-left {width: 60vw;}
@@ -230,6 +236,23 @@
     #wrap #main #section5 .wrap .gap .container .activity-box p {margin: 10px 0;}
     #wrap #main #section5 .wrap .gap .container .activity-box .activity-btn {position: absolute;top: 130px;left: 370px;}
 
+    /* main gallery */
+    /* #wrap #main #gallery {width: 100%;background: #fff;position: relative;}
+    #wrap #main #gallery .wrap {width: 100%;}
+    #wrap #main #gallery .wrap .gap {margin: 0 auto;}
+    #wrap #main #gallery .wrap .gap .container {width: 100%;padding: 60px 0;}
+
+    #wrap #main #gallery .wrap .gap .container .title {width: 93.33vw;margin: 0 auto;padding: 50px 0;}
+    #wrap #main #gallery .wrap .gap .container .title h3 {font-size: 55px;font-family: 'Playfair Display';text-transform: uppercase;color:#000}
+    #wrap #main #gallery .wrap .gap .container .title h3::first-letter {font-size: 120%;}
+    #wrap #main #gallery .wrap .gap .container .title p {font-size: 20px;margin-top: 18px;font-weight: lighter;line-height: 180%;color:#000}
+
+    #wrap #main #gallery .wrap .gap .container .content {width: 100%;}
+    #wrap #main #gallery .wrap .gap .container .content #nav {width: 93.33vw;margin: 0 auto;}
+    #wrap #main #gallery .wrap .gap .container .content #nav .gallery-btn-wrap {margin-bottom: 40px;}
+    #wrap #main #gallery .wrap .gap .container .content #nav .gallery-btn-wrap li {display: inline-block;margin-right: 30px;}
+    #wrap #main #gallery .wrap .gap .container .content #nav .gallery-btn-wrap li .gallery-btn {font-size: 20px;color: #bbb;}
+    #wrap #main #gallery .wrap .gap .container .content #nav .gallery-btn-wrap li .gallery-btn.addNav {font-size: 20px;color: #000;} */
 
     /* main section6 */
     #wrap #main #section6 .wrap .gap {width: 93.33vw;}
