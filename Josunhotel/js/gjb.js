@@ -2,6 +2,7 @@
 ;(function($){
 
     var gjb = {
+        btn:0,
         init:function(){
             var that = this;
             
@@ -28,16 +29,20 @@
             var result = null;
             var $header = $('#header')
             var $nav = $('#header #nav');
-            var $logo = $('#header #logo .logo-wrap');
+            var $logo = $('#header #logo');
+            var $logoColor = $('#header #logo .logo-wrap');
             var $mobileBtn = $('#header .mobile-btn');
             var $bar = $('#header .bar');
+
+            var that = this;
 
             var t = 0;
             var $footer = $('#footer');
             var $section7 = $('#section7');
 
-
-            $header.addClass('addShow');    //  새로고침시 최상단의 헤더바가 다시나타나도록
+            $win.resize(function(){
+                scrollEventFn();
+            });
 
             function scrollEventFn(){
                 scrollNew = $win.scrollTop();
@@ -48,51 +53,79 @@
                 }
                 scroll();
                 // console.log(result);
-                
-                if( scrollNew <= 0 ){   // 스크롤탑 0일때
-                    $header.removeClass('addHide');
-                    $nav.removeClass('mouseon');
-                    $logo.removeClass('addBlack');
-                    // $bar.addClass('addWhite');
-                    $bar.removeClass('addBlack');
-                    // $nav.removeClass('addLine');
+
+                // pc화면일때 작동
+                if( $win.innerWidth() > 1200 ){
+
+                    if( scrollNew <= 0 ){  // 스크롤의 top=0 // 클래스 모두삭제.
+                        $header.removeClass('addHide');
+                        $nav.removeClass('mouseon');
+                        $logoColor.removeClass('addBlack');
+                    }
+                    else{
+                        if( result === 'Up' ){  // 화면 스크롤을 위로 올릴때
+                            if( that.btn === 1){    // 모바일 버튼이 클릭된 상태 // 
+    
+                            }
+                            else{   // 모바일 버튼이 클릭되지 않았을때 // 
+    
+                                t = 0;
+                            }
+                        }
+                        if( result === 'Down' ){    // 화면 스크롤을 아래로 내릴때
+                            if( that.btn === 1){    // 모바일 버튼이 클릭된 상태 // 
+    
+                            }
+                            else{   // 모바일 버튼이 클릭되지 않았을때 // 
+                                $header.addClass('addHide');
+                                $nav.addClass('mouseon');
+                                $logoColor.addClass('addBlack');
+                            }
+                        }
+                    }
+
                 }
+                // 모바일화면일때 작동
                 else{
-                    if(result === 'Up'){    // 스크롤 올릴때
-                        $header.removeClass('');
-                        $header.addClass('');
-                        $nav.addClass('mouseon');
-                        $logo.addClass('addBlack');
-                        $footer.removeClass('addView');
-                        t = 0;
+
+                    if( scrollNew <= 0 ){  // 스크롤의 top=0 // 클래스 모두삭제.
+                        $header.removeClass('addMobile');
+                        $logoColor.removeClass('addBlack');
+                        $bar.removeClass('addBlack');
                     }
-                    if( result === 'Down' ){    // 스크롤 내릴때
-                        $header.addClass('addHide');
-                        $header.removeClass('addShow');
-                        $nav.addClass('mouseon');
-                        $logo.addClass('addBlack');
-                        $bar.addClass('addBlack');
-                        // $nav.addClass('addLine');
+                    else{
+                        if( result === 'Up' ){  // 화면 스크롤을 위로 올릴때
+                            if( that.btn === 1){    // 모바일 버튼이 클릭된 상태 // 
+                                $header.addClass('addMobile');
+                                $logoColor.addClass('addBlack');
+                                $bar.addClass('addBlack');
+                            }
+                            else{   // 모바일 버튼이 클릭되지 않았을때 // 
+                                $header.addClass('addMobile');
+                                $logoColor.addClass('addBlack');
+                                $bar.addClass('addBlack');
+                                t = 0;
+                            }
+                        }
+                        if( result === 'Down' ){    // 화면 스크롤을 아래로 내릴때
+                            if( that.btn === 1){    // 모바일 버튼이 클릭된 상태 // 
+                                $header.addClass('addMobile');
+                                $logoColor.addClass('addBlack');
+                                $bar.addClass('addBlack');
+                            }
+                            else{   // 모바일 버튼이 클릭되지 않았을때 // 
+                                $header.addClass('addMobile');
+                                $logoColor.addClass('addBlack');
+                                $bar.addClass('addBlack');
+                            }
+                        }
                     }
+
                 }
                 scrollOld = scrollNew;
             }
 
-            
-            // console.log( '스크롤탑이 섹션7오프셋탑이랑 크거나같다',$(window).scrollTop() >= $('#section7').offset().top );
-            // console.log( '스크롤탑',$(window).scrollTop() );
-            // console.log( '섹션7 오프셋탑',$('#section7').offset().top );
-            // console.log( '푸터 오프셋탑',$('#footer').offset().top );
-
-            // console.log($('#section7').offset().top);
-
-            // $win.scroll(function(){
-            //     if ( $(window).scrollTop() >= $('#section7').offset().top+1 ) {
-            //         $footer.addClass('addView');
-            //     }
-            // })
-
-
+            // 푸터 슬라이드 업다운효과
             $win.scroll(function(){
                 if ( $(window).scrollTop() >= $('#section7').offset().top+1 ) {
                     if ( t === 0 ) {
@@ -116,8 +149,11 @@
 
         },
         headerFn:function(){
+            var $header = $('#header');
+            var $headerBox = $('#header .header-box');
             var $nav = $('#header #nav');
-            var $logo = $('#header #logo .logo-wrap');
+            var $logo = $('#header #logo');
+            var $logoColor = $('#header #logo .logo-wrap');
             var $gnbWrap = $('#header #nav .gnb-wrap');
             var $gnbBtn = $('#header #nav .gnb-wrap .gnb-btn');
             var $lnbWrap = $('#header #nav .gnb-wrap .lnb-wrap');
@@ -134,76 +170,163 @@
             var $sideBtn = $('#header .side-btn-box .side-btn')
             var $sideWrap = $('#header .side-btn-box .side-btn .side-wrap');
 
+            var pc = 0;
+            var mobile = 0;
+            var $win = $(window);
+            var $winW = $(window).width();
 
+            var that = this;
+
+
+            function pcFn(){
+                // $logo.css({position:'absolute', top:50, left: 0});
+                // $mobileBtn.css({display:'none'});
+
+                $nav.on({
+                    mouseleave:function(){
+                        $nav.removeClass('mouseon');
+                        $lnbWrap.stop().slideUp(0);
+                        $logoColor.removeClass('addBlack');
+                        $main.css({filter:'brightness(100%)'})
+                        // $nav.removeClass('addLine');
+                    }
+                });
+                $gnbWrap.on({
+                    mouseenter:function(){
+                        $nav.addClass('mouseon');
+                        $logoColor.addClass('addBlack');
+                        $main.css({filter:'brightness(30%)'})
+                    }
+                });
+                
+                $gnbBtn.on({
+                    mouseenter:function(){
+                        $nav.addClass('mouseon');
+                        $lnbWrap.stop().slideUp(100);
+                        $(this).next().stop().slideDown(300);
+                        $sideBtnBox.hide();
+                    }
+                });
+                $gnbWrap.on({
+                    mouseleave:function(){
+                        $logoColor.removeClass('addBlack');
+                        $lnbWrap.stop().slideUp(100);
+                        $sideBtnBox.show();
+                    }
+                });
+    
+                $langKR.on({
+                    click:function(){
+                        $langEN.toggle();
+                    }
+                });
+    
+                $sideBtn.on({
+                    mouseenter:function(){
+                        $sideWrap.stop().slideDown(200);
+                    },
+                    mouseleave:function(){
+                        $sideWrap.stop().slideUp(200);
+                    }
+                });
+            };
+            // pcFn끝!!!
+
+
+            // 버튼들에 마우스엔터 이벤트 전부제거
+            // 스크롤이벤트도 모바일메뉴에선 제거해야함
+
+            function mobileFn(){
+                $sideBtnBox.hide();
+                // $logo.css({position:'fixed', top:0, left: 0});
+                // $mobileBtn.css({position:'fixed', top:0, right: 20,width:50,height:50,display:'block'});
+
+                $nav.on({
+                    mouseleave:function(){
+                        $nav.removeClass('mouseon');
+                        $lnbWrap.stop().hide();
+                        $logoColor.addClass('addBlack');
+                        $main.css({filter:'brightness(100%)'})
+                    }
+                });
+                $gnbWrap.on({
+                    mouseenter:function(){
+                        $nav.removeClass('mouseon');
+                        $logoColor.addClass('addBlack');
+                        $main.css({filter:'brightness(100%)'})
+                    }
+                });
+                
+                $gnbBtn.on({
+                    mouseenter:function(){
+                        $nav.addClass('mouseon');
+                        $lnbWrap.stop().slideUp(100);
+                        $(this).next().stop().show();
+                        $sideBtnBox.hide();
+                    }
+                });
+                $gnbWrap.on({
+                    mouseleave:function(){
+                        $logoColor.addClass('addBlack');
+                        $lnbWrap.stop().hide();
+                        $sideBtnBox.hide();
+                    }
+                });
+    
+                $langKR.on({
+                    click:function(){
+                        $langEN.toggle();
+                    }
+                });
+            };
+            // mobileFn끝!!!
+
+            setTimeout(pcMobileFn,100);
+            $win.resize(function(){
+                pcMobileFn();
+            });
+            
+            function pcMobileFn(){
+                if($win.innerWidth() > 1200 ){
+                    pc = 1;
+                    mobile = 0;
+                    pcFn();
+                    that.btn = 0;
+
+                }
+                else{
+                    pc = 0;
+                    mobile = 1;
+                    mobileFn();
+                }
+            };
+
+            $mobileBtn.on({
+                click:function(){
+                    $bar.toggleClass('addMobile');
+                    $bar.toggleClass('addBlack');
+                    $nav.stop().slideToggle(0);
+                    $header.toggleClass('addMobile');
+                    $headerBox.toggleClass('addView');
+                    $logoColor.toggleClass('addBlack');
+                    return that.btn === 0 ? that.btn = 1 : that.btn = 0;
+                }
+            });
+        
             // gnb에 마우스오버시 lnb보이게
             // lnb영역으로 마우스들어가도 영역이 닫히지않도록
             // gnb버튼에서 다른 gnb버튼으로 마우스 이동시 기존 lnb는 닫고 새로운 lnb가 보이게
             // gnb에 마우스오버시 nav 배경 흰색+lnb슬라이드다운
             // 배경이 흰색이면 글자색은 검정으로, 배경이 투명이면 글자색은 흰색으로
             // 네비에 마우스 오버시 로고 검정, 네비가 닫힐시 흰색으로
-            // addLine를 넣어서 메인버튼하단부에 선을 그어서 영역나눔을 하는것에 대한 고민중.
             
-
-            $nav.on({
-                mouseleave:function(){
-                    $nav.removeClass('mouseon');
-                    $lnbWrap.stop().slideUp(0);
-                    $logo.removeClass('addBlack');
-                    $main.css({filter:'brightness(100%)'})
-                    // $nav.removeClass('addLine');
-                }
-            });
-            $gnbWrap.on({
-                mouseenter:function(){
-                    $nav.addClass('mouseon');
-                    $logo.addClass('addBlack');
-                    $main.css({filter:'brightness(30%)'})
-                }
-            });
-            
-            $gnbBtn.on({
-                mouseenter:function(){
-                    $nav.addClass('mouseon');
-                    $lnbWrap.stop().slideUp(100);
-                    $(this).next().stop().slideDown(300);
-                    $sideBtnBox.hide();
-                }
-            });
-            $gnbWrap.on({
-                mouseleave:function(){
-                    $logo.removeClass('addBlack');
-                    $lnbWrap.stop().slideUp(100);
-                    $sideBtnBox.show();
-                }
-            });
-
-            $langKR.on({
-                click:function(){
-                    $langEN.toggle();
-                }
-            });
-
-            $sideBtn.on({
-                mouseenter:function(){
-                    $sideWrap.stop().slideDown(200);
-                },
-                mouseleave:function(){
-                    $sideWrap.stop().slideUp(200);
-                }
-            });
-
-            $mobileBtn.on({
-                click:function(){
-                    $bar.toggleClass('addMobile');
-                }
-            });
             
         },
 
         section1Fn:function(){
             var $window = $(window);
-            var $winW = $(window).width;
-            var $winH = $(window).height;
+            var $winW = $(window).width();
+            var $winH = $(window).height();
             var $mainBgSlide = $('#section1 .mainBg-slide');
             var $mainBgSlideWrap = $('#section1 .mainBg-slide-wrap');
             var $mainBgSlideView = $('#section1 .mainBg-slide-view');
@@ -343,8 +466,8 @@
             var $roomBlackBtn = $('#section2 .room-blackbtn');
 
             var $window = $(window);
-            var $winW = $(window).width;
-            var $winH = $(window).height;
+            var $winW = $(window).width();
+            var $winH = $(window).height();
             var $section2 = $('#section2');
             var $slideW = $('#section2 .slide').innerWidth();
 
@@ -484,8 +607,8 @@
             var $dinningBlackBtn = $('#section3 .dinning-blackbtn');
 
             var $window = $(window);
-            var $winW = $(window).width;
-            var $winH = $(window).height;
+            var $winW = $(window).width();
+            var $winH = $(window).height();
             var $section3 = $('#section3');
 
             function resizeFn(){
@@ -512,6 +635,7 @@
         },
 
         section4Fn:function(){
+            var $slide = $('#section4 .slide');
             var $slide0 = $('#section4 .slide0');
             var $slide1 = $('#section4 .slide1');
             var $slide2 = $('#section4 .slide2');
@@ -520,9 +644,14 @@
             var $facilityBlackBtn = $('#section4 .facility-blackbtn');
 
             var $window = $(window);
-            var $winW = $(window).width;
-            var $winH = $(window).height;
+            var $winW = $(window).width();
+            var $winH = $(window).height();
             var $section4 = $('#section4');
+
+            // var s4ImgW = $winW;
+            // var s4ImgH = s4ImgW*0.785;
+            // $slide.css({width:s4ImgW, height:s4ImgH})
+            
 
             function resizeFn(){
                 $winW = $(window).width();
@@ -577,8 +706,8 @@
             var $activityWhiteBtn = $('#section5 .activity-whitebtn');
 
             var $window = $(window);
-            var $winW = $(window).width;
-            var $winH = $(window).height;
+            var $winW = $(window).width();
+            var $winH = $(window).height();
             var $section5 = $('#section5');
 
             function resizeFn(){
@@ -623,8 +752,8 @@
 
         section7Fn:function(){
             var $window = $(window);
-            var $winW = $(window).width;
-            var $winH = $(window).height;
+            var $winW = $(window).width();
+            var $winH = $(window).height();
             var $section7 = $('#section7');
 
             function resizeFn(){
@@ -669,6 +798,8 @@
             var $offerSlideView = $('#offers .slide-view');
             var offerCnt = 0;
 
+
+            
             $sideBtn.on({
                 click:function(){
                     $offers.animate({right:0},700, 'easeInOutQuad')
@@ -877,11 +1008,34 @@
                     $galleryLi.eq(13).stop().hide();
                     $galleryLi.eq(14).stop().hide();
 
-                    $galleryLi.eq(0).stop().show().animate({left:imgW*0 ,top:imgH*0}, 500);
-                    $galleryLi.eq(5).stop().show().animate({left:imgW*1 ,top:imgH*0}, 500);
-                    $galleryLi.eq(6).stop().show().animate({left:imgW*2 ,top:imgH*0}, 500);
-                    $galleryLi.eq(10).stop().show().animate({left:imgW*3 ,top:imgH*0}, 500);
-                    $galleryLi.eq(11).stop().show().animate({left:imgW*4 ,top:imgH*0}, 500);
+                    if( cols === 5 ){
+                        $galleryLi.eq(0).stop().show().animate({left:imgW*0 ,top:imgH*0}, 500);
+                        $galleryLi.eq(5).stop().show().animate({left:imgW*1 ,top:imgH*0}, 500);
+                        $galleryLi.eq(6).stop().show().animate({left:imgW*2 ,top:imgH*0}, 500);
+                        $galleryLi.eq(10).stop().show().animate({left:imgW*3 ,top:imgH*0}, 500);
+                        $galleryLi.eq(11).stop().show().animate({left:imgW*4 ,top:imgH*0}, 500);
+                    }
+                    else if( cols === 4 ){
+                        $galleryLi.eq(0).stop().show().animate({left:imgW*0 ,top:imgH*0}, 500);
+                        $galleryLi.eq(5).stop().show().animate({left:imgW*1 ,top:imgH*0}, 500);
+                        $galleryLi.eq(6).stop().show().animate({left:imgW*2 ,top:imgH*0}, 500);
+                        $galleryLi.eq(10).stop().show().animate({left:imgW*3 ,top:imgH*0}, 500);
+                        $galleryLi.eq(11).stop().show().animate({left:imgW*0 ,top:imgH*1}, 500);
+                    }
+                    else if( cols === 3 ){
+                        $galleryLi.eq(0).stop().show().animate({left:imgW*0 ,top:imgH*0}, 500);
+                        $galleryLi.eq(5).stop().show().animate({left:imgW*1 ,top:imgH*0}, 500);
+                        $galleryLi.eq(6).stop().show().animate({left:imgW*2 ,top:imgH*0}, 500);
+                        $galleryLi.eq(10).stop().show().animate({left:imgW*0 ,top:imgH*1}, 500);
+                        $galleryLi.eq(11).stop().show().animate({left:imgW*1 ,top:imgH*1}, 500);
+                    }
+                    else{
+                        $galleryLi.eq(0).stop().show().animate({left:imgW*0 ,top:imgH*0}, 500);
+                        $galleryLi.eq(5).stop().show().animate({left:imgW*1 ,top:imgH*0}, 500);
+                        $galleryLi.eq(6).stop().show().animate({left:imgW*0 ,top:imgH*1}, 500);
+                        $galleryLi.eq(10).stop().show().animate({left:imgW*1 ,top:imgH*1}, 500);
+                        $galleryLi.eq(11).stop().show().animate({left:imgW*0 ,top:imgH*2}, 500);
+                    }
 
                     $galleryContent.eq(0).addClass('addZoom');
                     $galleryContent.eq(5).addClass('addZoom');
@@ -908,9 +1062,26 @@
                     $galleryLi.eq(13).stop().hide();
                     $galleryLi.eq(14).stop().hide();
 
-                    $galleryLi.eq(2).stop().show().animate({left:imgW*0 ,top:imgH*0}, 500);
-                    $galleryLi.eq(3).stop().show().animate({left:imgW*1 ,top:imgH*0}, 500);
-                    $galleryLi.eq(7).stop().show().animate({left:imgW*2 ,top:imgH*0}, 500);
+                    if( cols === 5 ){
+                        $galleryLi.eq(2).stop().show().animate({left:imgW*0 ,top:imgH*0}, 500);
+                        $galleryLi.eq(3).stop().show().animate({left:imgW*1 ,top:imgH*0}, 500);
+                        $galleryLi.eq(7).stop().show().animate({left:imgW*2 ,top:imgH*0}, 500);
+                    }
+                    else if( cols === 4 ){
+                        $galleryLi.eq(2).stop().show().animate({left:imgW*0 ,top:imgH*0}, 500);
+                        $galleryLi.eq(3).stop().show().animate({left:imgW*1 ,top:imgH*0}, 500);
+                        $galleryLi.eq(7).stop().show().animate({left:imgW*2 ,top:imgH*0}, 500);
+                    }
+                    else if( cols === 3 ){
+                        $galleryLi.eq(2).stop().show().animate({left:imgW*0 ,top:imgH*0}, 500);
+                        $galleryLi.eq(3).stop().show().animate({left:imgW*1 ,top:imgH*0}, 500);
+                        $galleryLi.eq(7).stop().show().animate({left:imgW*2 ,top:imgH*0}, 500);
+                    }
+                    else{
+                        $galleryLi.eq(2).stop().show().animate({left:imgW*0 ,top:imgH*0}, 500);
+                        $galleryLi.eq(3).stop().show().animate({left:imgW*1 ,top:imgH*0}, 500);
+                        $galleryLi.eq(7).stop().show().animate({left:imgW*0 ,top:imgH*1}, 500);
+                    }
                                         
                     $galleryContent.eq(2).addClass('addZoom');
                     $galleryContent.eq(3).addClass('addZoom');
@@ -933,11 +1104,34 @@
                     $galleryLi.eq(11).stop().hide();
                     $galleryLi.eq(12).stop().hide();
                     
-                    $galleryLi.eq(4).stop().show().animate({left:imgW*0 ,top:imgH*0}, 500);
-                    $galleryLi.eq(8).stop().show().animate({left:imgW*1 ,top:imgH*0}, 500);
-                    $galleryLi.eq(9).stop().show().animate({left:imgW*2 ,top:imgH*0}, 500);
-                    $galleryLi.eq(13).stop().show().animate({left:imgW*3 ,top:imgH*0}, 500);
-                    $galleryLi.eq(14).stop().show().animate({left:imgW*4 ,top:imgH*0}, 500);
+                    if( cols === 5 ){
+                        $galleryLi.eq(4).stop().show().animate({left:imgW*0 ,top:imgH*0}, 500);
+                        $galleryLi.eq(8).stop().show().animate({left:imgW*1 ,top:imgH*0}, 500);
+                        $galleryLi.eq(9).stop().show().animate({left:imgW*2 ,top:imgH*0}, 500);
+                        $galleryLi.eq(13).stop().show().animate({left:imgW*3 ,top:imgH*0}, 500);
+                        $galleryLi.eq(14).stop().show().animate({left:imgW*4 ,top:imgH*0}, 500);
+                    }
+                    else if( cols === 4 ){
+                        $galleryLi.eq(4).stop().show().animate({left:imgW*0 ,top:imgH*0}, 500);
+                        $galleryLi.eq(8).stop().show().animate({left:imgW*1 ,top:imgH*0}, 500);
+                        $galleryLi.eq(9).stop().show().animate({left:imgW*2 ,top:imgH*0}, 500);
+                        $galleryLi.eq(13).stop().show().animate({left:imgW*3 ,top:imgH*0}, 500);
+                        $galleryLi.eq(14).stop().show().animate({left:imgW*0 ,top:imgH*1}, 500);
+                    }
+                    else if( cols === 3 ){
+                        $galleryLi.eq(4).stop().show().animate({left:imgW*0 ,top:imgH*0}, 500);
+                        $galleryLi.eq(8).stop().show().animate({left:imgW*1 ,top:imgH*0}, 500);
+                        $galleryLi.eq(9).stop().show().animate({left:imgW*2 ,top:imgH*0}, 500);
+                        $galleryLi.eq(13).stop().show().animate({left:imgW*0 ,top:imgH*1}, 500);
+                        $galleryLi.eq(14).stop().show().animate({left:imgW*1 ,top:imgH*1}, 500);
+                    }
+                    else{
+                        $galleryLi.eq(4).stop().show().animate({left:imgW*0 ,top:imgH*0}, 500);
+                        $galleryLi.eq(8).stop().show().animate({left:imgW*1 ,top:imgH*0}, 500);
+                        $galleryLi.eq(9).stop().show().animate({left:imgW*0 ,top:imgH*1}, 500);
+                        $galleryLi.eq(13).stop().show().animate({left:imgW*1 ,top:imgH*1}, 500);
+                        $galleryLi.eq(14).stop().show().animate({left:imgW*0 ,top:imgH*2}, 500);
+                    }
                     
                     $galleryContent.eq(4).addClass('addZoom');
                     $galleryContent.eq(8).addClass('addZoom');
@@ -965,8 +1159,22 @@
                     $galleryLi.eq(13).stop().hide();
                     $galleryLi.eq(14).stop().hide();
 
-                    $galleryLi.eq(1).stop().show().animate({left:imgW*0 ,top:imgH*0}, 500);
-                    $galleryLi.eq(12).stop().show().animate({left:imgW*1 ,top:imgH*0}, 500);
+                    if( cols === 5 ){
+                        $galleryLi.eq(1).stop().show().animate({left:imgW*0 ,top:imgH*0}, 500);
+                        $galleryLi.eq(12).stop().show().animate({left:imgW*1 ,top:imgH*0}, 500);
+                    }
+                    else if( cols === 4 ){
+                        $galleryLi.eq(1).stop().show().animate({left:imgW*0 ,top:imgH*0}, 500);
+                        $galleryLi.eq(12).stop().show().animate({left:imgW*1 ,top:imgH*0}, 500);
+                    }
+                    else if( cols === 3 ){
+                        $galleryLi.eq(1).stop().show().animate({left:imgW*0 ,top:imgH*0}, 500);
+                        $galleryLi.eq(12).stop().show().animate({left:imgW*1 ,top:imgH*0}, 500);
+                    }
+                    else{
+                        $galleryLi.eq(1).stop().show().animate({left:imgW*0 ,top:imgH*0}, 500);
+                        $galleryLi.eq(12).stop().show().animate({left:imgW*1 ,top:imgH*0}, 500);
+                    }
                     
                     $galleryContent.eq(1).addClass('addZoom');
                     $galleryContent.eq(12).addClass('addZoom');
@@ -976,6 +1184,7 @@
             $(window).resize(function(){
                 galleryResizeFn();
             });
+            
 
             $galleryBtn.each(function(idx){
                 $(this).on({
@@ -1012,7 +1221,7 @@
             
             var wheel = function(e){
                 if( e.originalEvent.wheelDelta < 0 ){
-                    if( moveIndex < 6 ){
+                    if( moveIndex < 7 ){
                         moveIndex += 1;
                         moving(moveIndex);
                     };
