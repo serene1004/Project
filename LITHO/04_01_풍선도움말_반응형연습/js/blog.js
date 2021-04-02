@@ -6,7 +6,6 @@
         },
         blogFn:function(){
             var $li = $('#blog .content-wrap > ul > li');
-            var $img = $('#blog .img-wrap img');
             var $imgW = $('#blog .img-wrap img').innerWidth();
             var $imgH = $('#blog .img-wrap img').innerHeight();
             var $h4 = $('.text-content h4');
@@ -18,9 +17,10 @@
             function resizeFn(){
                 $imgW = $('#blog .img-wrap img').innerWidth();
                 $imgH = $('#blog .img-wrap img').innerHeight();
-                $li.css({height:$imgH});
                 h4FontSize = $imgW * 0.042105263
                 pFontSize  = $imgW * 0.063157895
+                
+                $li.css({height:$imgH});
                 $h4.css({fontSize:h4FontSize});
                 $p.css({fontSize:pFontSize});
 
