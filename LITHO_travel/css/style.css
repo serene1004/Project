@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+/* Skip Menu */
+#skip {z-index: 10;position: fixed;top: 0;left: 0;width: 100%;text-align: center;}
+#skip a {display: block;line-height: 0;font-size: 0;}
+#skip a:focus {font-size: 20px;line-height: 30px;background: #fff;}
+
+/* #wrap */
+#wrap {width: 100%;}
