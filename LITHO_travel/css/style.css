@@ -6,4 +6,56 @@
 #skip a:focus {font-size: 20px;line-height: 30px;background: #fff;}
 
 /* #wrap */
-#wrap {width: 100%;}
+#wrap {width: 100%;position: relative;}
+
+/* header */
+#wrap #header {width: 100%;position: fixed;top: 0;left: 0;height: 80px;z-index: 3;}
+#wrap #header .wrap {width: 100%;height: 100%;border-bottom: 1px solid rgba(255,255,255,.1);}
+
+
+/* main */
+#wrap #main {width: 100%;position: relative;z-index: 2;}
+
+/* main section1 */
+#wrap #main #section1 {width: 100%;height: 969px;}
+#wrap #main #section1 .wrap {width: 100%;height: 100%;}
+#wrap #main #section1 .wrap .gap {width: 100%;height: 100%;}
+#wrap #main #section1 .wrap .gap .container {width: 100%;height: 100%;}
+
+#wrap #main #section1 .wrap .gap .container .slide-container {width: 100%;height: 100%;position: relative;}
+#wrap #main #section1 .wrap .gap .container .slide-container .slide-view {width: 100%;height: 100%;position: relative;}
+#wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap {width: 100%;height: 100%;position: relative;}
+#wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap .slide {position: absolute;top: 0;left: 0;width: 1903px;height: 100%;background: url(../img/home-travel-agency-slider-img01.jpg) no-repeat 50% 50%;background-size: cover;}
+#wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap .slide0 {z-index: 3;background-image: url(../img/home-travel-agency-slider-img01.jpg);}
+#wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap .slide1 {z-index: 2;background-image: url(../img/home-travel-agency-slider-img02.jpg);}
+#wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap .slide2 {z-index: 1;background-image: url(../img/home-travel-agency-slider-img03.jpg);}
+
+#wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap .slide .slide-gap {text-align: center;width: 585px;margin: 0 auto;padding: 319px 0;} /* 위아래 패딩값 조정 */
+#wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap .slide .slide-gap .slide-content {color: #fff;text-transform: uppercase;width: 555px;margin: 0 15px;}
+#wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap .slide .slide-gap .slide-content p {font-size: 16px;font-weight: 600;padding-bottom: 30px;letter-spacing: 3px;}
+#wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap .slide .slide-gap .slide-content h2 {font-size: 100px;font-weight: 800;padding-bottom: 40px;letter-spacing: -4px;text-shadow: 3px 3px 50px rgba(0, 0, 0, 1);}
+#wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap .slide .slide-gap .slide-content span {display: inline-block;border: 2px solid #000;background: #000;position: relative;overflow: hidden;transition: all .6s;}
+#wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap .slide .slide-gap .slide-content span:hover {margin-top: -5px;}
+#wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap .slide .slide-gap .slide-content span a {display: block;font-size: 13px;color: #fff;letter-spacing: 1px;padding: 14px 32px;position: relative;z-index: 2;transition: all .6s ease-in-out;}
+#wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap .slide .slide-gap .slide-content span:hover a {color: #000;}
+#wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap .slide .slide-gap .slide-content span i {position: absolute;z-index: 1;top: 0;left: -120%;width: 110%;height: 100%;background: #fff;transform: skewX(-20deg);transition: all .6s ease-in-out;}
+#wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap .slide .slide-gap .slide-content span:hover i {left: -5%;}
+
+
+
+#wrap #main #section2 {width: 100%;}
+#wrap #main #section3 {width: 100%;}
+#wrap #main #section4 {width: 100%;}
+#wrap #main #section5 {width: 100%;}
+#wrap #main #section6 {width: 100%;}
+#wrap #main #section7 {width: 100%;}
+#wrap #main #section8 {width: 100%;}
+#wrap #main #section9 {width: 100%;}
+#wrap #main #section10 {width: 100%;}
+
+
+
+
+
+/* footer */
+#wrap #footer {width: 100%;position: relative;z-index: 1;}
