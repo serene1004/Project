@@ -16,6 +16,8 @@
             this.section9Fn();
             this.section10Fn();
             this.footerFn();
+            this.smoothScrollFn();
+            this.demoModalFn();
         },
         scrollEventFn:function(){
 
@@ -1783,42 +1785,89 @@
             
         },
         footerFn:function(){
-            var $submitBtn = $('.submitBtn');
-            var $formEmail = $('#formEmail');
+            // 폼을 이용한 메일주소를 PHP(서버사이드스크립트언어) 비동기전송 AJAX
+            var $submitBtn = $('#submitBtn');
+            var $responseH3 = $('.response h3');
+            var $frmEmail = $('#frmEmail');
 
+            
             $submitBtn.on({
-                click:function(e){
-                    e.preventDefault();
-                    var formEmailValue = $('#formEmail').val();
-                    var formCodeValue = $('#formCode').val();
+                click:function(event){
+                    event.preventDefault(); // 전송(submit)버튼기능을 삭제해버림
+                    var frmEmailVal = $('#frmEmail').val();   // 폼 입력상자 value
+                    var frmCodeVal = $('#frmCode').val();     // 폼 입력상자 value
 
-                    if($formEmail===''){
-                        alert('메일주소를 입력하세요');
-                        $formEmail.focus();
-                        return false;
+                    // 유효성 검사
+                    if($frmEmail===''){
+                        alert('메일주소를 입력해');
+                        $frmEmail.focus();  // 포커스를 이동
+                        return false;   // 리턴(취소) 해버림
                     }
                     else{
+                        // AJAX 전송
                         $.ajax({
-                            url:'./response.php',
-                            type:'POST',
+                            url: './response.php',
+                            type: 'POST',
                             data:{
-                                email:formEmailValue,
-                                code:formCodeValue
+                                email:frmEmailVal,
+                                code:frmCodeVal
                             },
                             success:function(result){
-                                $formEmail.val('');
-                                $formEmail.focus();
+                                $frmEmail.val('');
+                                $responseH3.html(result);
+                                $frmEmail.focus();
                             },
-                            error:function(){
-                                alert('전송실패');
+                            error:function(msg){
+                                alert('전송실패. 확인바람');
+                                console.log(msg);
                             }
                         });
-                    }
 
+                    }
                 }
             });
 
+        },
+        smoothScrollFn:function(){
+            var $goTop = $('.go-top');
+            var $smoothBtn = $('.soothBtn');
+            var t = 0;
 
+            $smoothBtn.on({
+                click:function(e){
+                    e.preventDefault();
+                    var url = $(this).attr('href');
+                        $('html,body').stop().animate({scrollTop:$(url).offset().top}, 1000);
+                }
+            });
+
+            // 최상단에서 100픽셀이상 스크롤할경우 to-top버튼이 나타나도록, 맨위에선 안보이게
+            $(window).scroll(function(){
+                if($(this).scrollTop()>=100){
+                    if(t===0){
+                        t=1;
+                        $goTop.stop().fadeIn(1000);
+                    }
+                }
+                else{
+                    t=0;
+                    $goTop.stop().fadeOut(1000);
+                }
+            });
+
+        },
+        demoModalFn:function(){
+            // 모달창 사용 HTML overflow 감추기
+            // 데모사이트를 부드럽게 슬라이딩 애니메이션 제작
+            var $modalDemo = $('#modalDemo');
+            var $modalBtnwrap = $('.modal-btn-wrap');
+
+            $modalBtnwrap.on({
+                click:function(){
+                    $modalDemo.toggleClass('addModal');
+                    $modalBtnwrap.toggleClass('addModal');
+                }
+            });
 
 
         }
