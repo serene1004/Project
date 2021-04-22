@@ -1,1 +1,8 @@
 @charset "UTF-8";
+
+@media all and (max-width:1200px){
+    /* section2 */
+    #wrap #main #section2 .wrap .gap .container .content-wrap .content {width: 50%;padding-bottom: 30px;}
+    #wrap #main #section2 .wrap .gap .container .content-wrap .content .content-gap {width: 60%;margin: 0 auto;}
+
+}
