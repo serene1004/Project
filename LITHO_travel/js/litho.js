@@ -17,6 +17,8 @@
             that.section10Fn();
             that.section11Fn();
             that.footerFn();
+            that.goTopFn();
+            that.modalFn();
         },
         scrollEventFn:function(){
             var $win        = $(window);
@@ -341,13 +343,13 @@
                 $winW = $(window).innerWidth();
                 $contentW = $('#section4 .content').innerWidth();
                 
-                if($winW > 1200){
+                if($winW > 980){
                     cols = 4;
                 }
-                else if($winW > 980){
+                else if($winW > 600){
                     cols = 3;
                 }
-                else if($winW > 680){
+                else{
                     cols = 2;
                 }
 
@@ -883,6 +885,66 @@
         footerFn:function(){
 
         },
+        goTopFn:function(){
+            var $goTop = $('.go-top');
+            var $goTopBtn = $('.gotop-Btn');
+            var t = 0;
+
+            $goTopBtn.on({
+                click:function(e){
+                    e.preventDefault();
+                    var url = $(this).attr('href');
+                    if(!$('html,body').is(':animated')){
+                        $('html,body').stop().animate({scrollTop:$(url).offset().top}, 600);
+                    }
+                }
+            });
+
+
+            $(window).scroll(function(){
+                if($(this).scrollTop()>=100){
+                    if(t===0){
+                        t=1;
+                        $goTop.stop().fadeIn(400);
+                    }
+                }
+                else{
+                    t=0;
+                    $goTop.stop().fadeOut(400);
+                }
+            });
+
+        },
+        modalFn:function(){
+            var $modal     = $('#modal');
+            var $modalWrap = $('#modal .modal-btn-wrap');
+            var $demoBtn   = $('#modal .demo-btn');
+            var $closeBtn  = $('#modal .close-btn');
+            var t = 0;
+
+            $modalWrap.on({
+                click:function(){
+                    $modal.toggleClass('addModal');
+                    $modalWrap.toggleClass('addModal');
+                    $demoBtn.toggleClass('addModal');
+                    $closeBtn.toggleClass('addModal');
+                }
+            });
+
+            $(window).scroll(function(){
+                if($(this).scrollTop()>=100){
+                    if(t===0){
+                        t=1;
+                        $modalWrap.stop().fadeIn(400);
+                    }
+                }
+                else{
+                    t=0;
+                    $modalWrap.stop().fadeOut(400);
+                }
+            });
+
+        }
     }
 
     litho.init();
