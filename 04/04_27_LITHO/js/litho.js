@@ -903,10 +903,24 @@
         
         },
         section2Fn:function(){
+            var $li = $('#section2 li');
+            var t = 0;
+
+            $(window).scroll(function(){
+                if($(window).scrollTop() >= $('#section1').offset().top+500){
+                    if(t === 0){
+                        t = 1;
+                        $li.addClass('addScroll');
+                    }
+                }
+                if($(window).scrollTop() === 0){
+                    t = 0;
+                    $li.removeClass('addScroll');
+                }
+            });
 
         },
         section3Fn:function(){
-            
             var $slideWrap = $('#section3 .slide-wrap');
             var $nextBtn = $('#section3 .next-btn')
             var $prevBtn = $('#section3 .prev-btn')
@@ -924,6 +938,44 @@
             var $decoTitle = $('#section3 .deco-title');
             var x = 0;
             var y = 0;
+
+            var $decoTitle = $('#section3 .deco-title');
+            var $h5 = $('#section3 .content > h5');
+            var $h3 = $('#section3 .content > h3');
+            var $leftBox = $('#section3 .left-box');
+            var $rightBox = $('#section3 .right-box');
+            var t = 0;
+
+            $(window).scroll(function(){
+                if($(window).scrollTop() >= $('#section2').offset().top-150){
+                    if(t === 0){
+                        t = 1;
+                        $decoTitle.addClass('addScroll');
+                    }
+                }
+                if($(window).scrollTop() >= $('#section2').offset().top){
+                    if(t === 1){
+                        t = 2;
+                        $h5.addClass('addScroll');
+                        $h3.addClass('addScroll');
+                    }
+                }
+                if($(window).scrollTop() >= $('#section2').offset().top+300){
+                    if(t === 2){
+                        t = 3;
+                        $leftBox.addClass('addScroll');
+                        $rightBox.addClass('addScroll');
+                    }
+                }
+                if($(window).scrollTop() === 0){
+                    t = 0;
+                    $decoTitle.removeClass('addScroll');
+                    $h5.removeClass('addScroll');
+                    $h3.removeClass('addScroll');
+                    $leftBox.removeClass('addScroll');
+                    $rightBox.removeClass('addScroll');
+                }
+            });
 
             
             // 반응형 슬라이드
@@ -1125,6 +1177,21 @@
             var x = 0;
             var y = 0;
 
+            var $li = $('#section4 li');
+            var t = 0;
+
+            $(window).scroll(function(){
+                if($(window).scrollTop() >= $('#section3').offset().top+500){
+                    if(t === 0){
+                        t = 1;
+                        $li.addClass('addScroll');
+                    }
+                }
+                if($(window).scrollTop() === 0){
+                    t = 0;
+                    $li.removeClass('addScroll');
+                }
+            });
 
             // 마우스 무브(mousemove) 이벤트
             // 이미지를 마우스의 움직임에 의해서 상하좌우로 좌표이동을 이용한 애니메이션 효과
@@ -1167,7 +1234,21 @@
             var setId = null;
             var setId2 = null;
             
+            var $slideContainer = $('#section5 .slide-container');
+            var t = 0;
 
+            $(window).scroll(function(){
+                if($(window).scrollTop() >= $('#section4').offset().top+500){
+                    if(t === 0){
+                        t = 1;
+                        $slideContainer.addClass('addScroll');
+                    }
+                }
+                if($(window).scrollTop() === 0){
+                    t = 0;
+                    $slideContainer.removeClass('addScroll');
+                }
+            });
             
             function s5SlideFn(){
                 if ($s5Cnt>1){  // 2번째 이상 슬라이드는 -235를 더해준다.
@@ -1744,7 +1825,26 @@
                     prevSlideCntFn();
                     }
                 }
-            }
+            };
+
+            var $leftWrap = $('#section8 .left-wrap');
+            var $rightWrap = $('#section8 .right-wrap');
+            var t = 0;
+
+            $(window).scroll(function(){
+                if($(window).scrollTop() >= $('#section7').offset().top+300){
+                    if(t === 0){
+                        t = 1;
+                        $leftWrap.addClass('addScroll');
+                        $rightWrap.addClass('addScroll');
+                    }
+                }
+                if($(window).scrollTop() === 0){
+                    t = 0;
+                    $leftWrap.removeClass('addScroll');
+                    $rightWrap.removeClass('addScroll');
+                }
+            });
 
         },
         section9Fn:function(){
@@ -1776,7 +1876,34 @@
             $(window).resize(function(){
                 resizeFn();
             });
-            setTimeout(resizeFn, 100)
+            setTimeout(resizeFn, 100);
+
+            var $h4 = $('#section9 .title h4');
+            var $h2 = $('#section9 .title h2');
+            var $li = $('#section9 li');
+            var t = 0;
+
+            $(window).scroll(function(){
+                if($(window).scrollTop() >= $('#section8').offset().top-250){
+                    if(t === 0){
+                        t = 1;
+                        $h4.addClass('addScroll');
+                        $h2.addClass('addScroll');
+                    }
+                }
+                if($(window).scrollTop() >= $('#section8').offset().top){
+                    if(t === 1){
+                        t = 2;
+                        $li.addClass('addScroll');
+                    }
+                }
+                if($(window).scrollTop() === 0){
+                    t = 0;
+                    $h4.removeClass('addScroll');
+                    $h2.removeClass('addScroll');
+                    $li.removeClass('addScroll');
+                }
+            });
 
 
 
