@@ -81,8 +81,8 @@
 
     /* nav */
     #wrap #header .wrap .gap .container #nav {display: none;position: fixed;top: 80px;left: 0;width: 100%;height: 100%;overflow-y: auto;z-index: 10;}
-    #wrap #header .wrap .gap .container #nav > ul {padding-bottom: 12px;background: #fff;}
-    #wrap #header .wrap .gap .container #nav > ul > li {display: block;position: relative;}
+    #wrap #header .wrap .gap .container #nav > ul {background: #fff;}
+    #wrap #header .wrap .gap .container #nav > ul > li {display: block;border-top: 1px solid #ccc;}
     #wrap #header .wrap .gap .container #nav > ul > li .main-btn {font-size: 15px;color: #232323;margin: 0;padding: 10px 35px;transition: color 0s;text-align: left;}
     #wrap #header .wrap .gap .container #nav > ul > li .main-btn.addDown {color: #232323;}
     #wrap #header .wrap .gap .container #nav > ul > li .main-btn:hover {color: #232323;}
@@ -91,27 +91,27 @@
     #wrap #header .wrap .gap .container #nav > ul > li .sub {position: relative;top: 0;left: 0;width: 100%;margin-left: 0;background: #fff;border-radius: 0;}
     #wrap #header .wrap .gap .container #nav > ul > li .sub::before {display: none;}
     #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap {padding: 0 35px;}
-    #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap > ul {float: none;width: 100%;}
+    #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap > ul {float: none;width: 100%;padding-bottom: 10px;}
     #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap > ul > li {width: 100%;}
     #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap > ul > li > dl {margin: 0 15px;}
     #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap > ul > li > dl > dt {padding-bottom: 0;line-height: 200%;}
-    #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap > ul > li > dl > dd {padding: 0 0 3px 0;}
-    #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap > ul > li > dl > dd > a {color: #343434;font-size: 14px;}
-    #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap > ul > li > dl > dd > a:hover {color: #343434;}
+    #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap > ul > li > dl > dd {padding: 0;}
+    #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap > ul > li > dl > dd > a {color: #5c5c5c;font-size: 14px;line-height: 200%;}
+    #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap > ul > li > dl > dd > a:hover {color: #5c5c5c;}
 
     /* nav subsub */
     #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap > ul > li > dl > dd .sub-sub {position: relative;top: 0;left: 0;width: 100%;margin-left: 0;border-radius: 0;}
-    #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap > ul > li > dl > dd .sub-sub .sub-sub-gap {padding: 0;}
+    #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap > ul > li > dl > dd .sub-sub .sub-sub-gap {padding: 0 15px;}
     #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap > ul > li > dl > dd .sub-sub .sub-sub-gap > ul {width: 100%;}
-    #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap > ul > li > dl > dd .sub-sub .sub-sub-gap > ul > li {width: 100%;padding: 0 0 3px 0;}
+    #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap > ul > li > dl > dd .sub-sub .sub-sub-gap > ul > li {padding: 0;}
     #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap > ul > li > dl > dd .sub-sub .sub-sub-gap > ul > li > a {color: #828282;}
     #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap > ul > li > dl > dd .sub-sub .sub-sub-gap > ul > li > a:hover {color: #828282;}
 
     /* nav subsubsub */
     #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap > ul > li > dl > dd .sub-sub .sub-sub-gap > ul > li .sub-sub-sub {position: relative;top: 0;left: 0;margin-left: 0;width: 100%;border-radius: 0;}
-    #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap > ul > li > dl > dd .sub-sub .sub-sub-gap > ul > li .sub-sub-sub .sub-sub-sub-gap {padding: 0;}
+    #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap > ul > li > dl > dd .sub-sub .sub-sub-gap > ul > li .sub-sub-sub .sub-sub-sub-gap {padding: 0 15px;}
     #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap > ul > li > dl > dd .sub-sub .sub-sub-gap > ul > li .sub-sub-sub .sub-sub-sub-gap > ul {width: 100%;}
-    #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap > ul > li > dl > dd .sub-sub .sub-sub-gap > ul > li .sub-sub-sub .sub-sub-sub-gap > ul > li {width: 100%;padding: 0 0 3px 0;}
+    #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap > ul > li > dl > dd .sub-sub .sub-sub-gap > ul > li .sub-sub-sub .sub-sub-sub-gap > ul > li {width: 100%;padding: 0;}
     #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap > ul > li > dl > dd .sub-sub .sub-sub-gap > ul > li .sub-sub-sub .sub-sub-sub-gap > ul > li > a {font-size: 12px;color: #828282;}
     #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap > ul > li > dl > dd .sub-sub .sub-sub-gap > ul > li .sub-sub-sub .sub-sub-sub-gap > ul > li > a:hover {color: #828282;}
 
@@ -119,6 +119,7 @@
     #wrap #header .wrap .gap .container #nav > ul > li .sub7 .sub-gap > ul > li {float: left;width: 180px;margin-right: 15px;}
     #wrap #header .wrap .gap .container #nav > ul > li .sub7 .sub-gap > ul > li:nth-child(2) {width: 210px;}
     #wrap #header .wrap .gap .container #nav > ul > li .sub7 .sub-gap > ul > li:nth-child(3) {width: 210px;}
+    #wrap #header .wrap .gap .container #nav > ul > li .sub7 .sub-gap > ul > li > dl > dt {padding-top: 10px;}
     #wrap #header .wrap .gap .container #nav > ul > li .sub7 .sub-gap > ul > li > a {display: inline-block;}
     #wrap #header .wrap .gap .container #nav > ul > li .sub7 .sub-gap > ul > li > a img {width: auto;}
 
@@ -289,7 +290,7 @@
 @media all and (max-width:750px){
     /* nav sub7 img */
     #wrap #header .wrap .gap .container #nav > ul > li .sub7 .sub-gap > ul > li {float: left;width: 100%;margin-right: 0;}
-    #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap > ul > li > dl > dd > a {display: inline-block;width: 180px;color: #343434;font-size: 14px;}
+    #wrap #header .wrap .gap .container #nav > ul > li .sub7 .sub-gap > ul > li > dl > dd > a {display: inline-block;width: 180px;color: #5c5c5c;font-size: 14px;}
     #wrap #header .wrap .gap .container #nav > ul > li .sub7 .sub-gap > ul > li:nth-child(2) {width: 210px;padding-top: 10px;margin-right: 10px;}
     #wrap #header .wrap .gap .container #nav > ul > li .sub7 .sub-gap > ul > li:nth-child(3) {width: 210px;padding-top: 10px;}
     #wrap #header .wrap .gap .container #nav > ul > li .sub7 .sub-gap > ul > li > a img {width: auto;}
@@ -321,11 +322,18 @@
 }
 
 @media all and (max-width:600px){
+
+    /* nav */
+    #wrap #header .wrap .gap .container #nav > ul > li .main-btn {font-size: 14px;padding: 5px 35px;font-weight: normal;}
+    #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap > ul > li > dl > dt {font-weight: normal;}
+    #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap > ul > li > dl > dd > a {font-size: 13px;}
+    #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap > ul > li > dl > dd .sub-sub .sub-sub-gap > ul > li > a {font-size: 12px;}
+    #wrap #header .wrap .gap .container #nav > ul > li .sub .sub-gap > ul > li > dl > dd .sub-sub .sub-sub-gap > ul > li .sub-sub-sub .sub-sub-sub-gap > ul > li > a {font-size: 11px;}
+
     /* section1 */
     #wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap .slide .slide-gap .slide-content p {font-size: 13px;padding-bottom: 10px;}
     #wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap .slide .slide-gap .slide-content h2 {font-size: 60px;padding-bottom: 20px;}
-    /* #wrap #main #section1 .wrap .gap .container .slide-container .btn-wrap {top: 54%;} */
-    #wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap .slide .slide-gap .slide-content > span a {font-size: 12px;padding: 12px 24px;}
+    #wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap .slide .slide-gap .slide-content > span a {font-size: 12px;padding: 10px 20px;}
 
     /* section2 */
     #wrap #main #section2 .wrap .gap .container .content-wrap .content {width: 100%;padding-bottom: 30px;}
@@ -427,6 +435,11 @@
     /* aside */
     #wrap #header .wrap .gap .container #aside {display: none;}
 
+    /* section1 */
+    #wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap .slide .slide-gap .slide-content p {font-size: 12px;padding-bottom: 5px;font-weight: normal;letter-spacing: 1px;}
+    #wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap .slide .slide-gap .slide-content h2 {font-size: 40px;padding-bottom: 20px;}
+    #wrap #main #section1 .wrap .gap .container .slide-container .slide-view .slide-wrap .slide .slide-gap .slide-content > span a {font-size: 11px;padding: 8px 16px;} 
+
     /* section2 */
     #wrap #main #section2 .wrap .gap .container .content-wrap .content {padding-bottom: 15px;}
     #wrap #main #section2 .wrap .gap .container .content-wrap .content .content-gap {width: 65%;}
@@ -482,8 +495,8 @@
     #wrap #main #section8 .wrap .gap .container .content ul li:nth-child(1) > .content-gap > .content-wrap .title h2 {font-size: 20px;}
     #wrap #main #section8 .wrap .gap .container .content ul li:nth-child(1) > .content-gap > .content-wrap .title p {font-size: 13px;line-height: 180%;}
     #wrap #main #section8 .wrap .gap .container .content ul li .content-gap .content-wrap .caption .caption-gap {padding: 26px;}
-    #wrap #main #section8 .wrap .gap .container .content ul li .content-gap .content-wrap .caption .caption-gap .caption-wrap .caption-bottom {padding-top: 50%;}
-    #wrap #main #section8 .wrap .gap .container .content ul li .content-gap .content-wrap .caption .caption-gap .caption-wrap .caption-bottom p {font-size: 14px;width: 50%;}
+    #wrap #main #section8 .wrap .gap .container .content ul li .content-gap .content-wrap .caption .caption-gap .caption-wrap .caption-bottom {padding-top: 55%;}
+    #wrap #main #section8 .wrap .gap .container .content ul li .content-gap .content-wrap .caption .caption-gap .caption-wrap .caption-bottom p {font-size: 14px;width: 80%;}
     #wrap #main #section8 .wrap .gap .container .content ul li .content-gap .content-wrap .caption .caption-gap .caption-wrap .caption-bottom > span {bottom: -25px;width: 30px;height: 30px;}
     #wrap #main #section8 .wrap .gap .container .content ul li .content-gap .content-wrap:hover .caption .caption-gap .caption-wrap .caption-bottom > span {bottom: -5px;}
     #wrap #main #section8 .wrap .gap .container .content ul li .content-gap .content-wrap .caption .caption-gap .caption-wrap .caption-bottom > span > a {font-size: 12px;line-height: 29px;}
@@ -502,7 +515,26 @@
     #wrap #main #section11 .wrap .gap .container .title .left-title p {font-size: 13px;}
     #wrap #main #section11 .wrap .gap .container .title .right-title {padding-top: 10px;}
     #wrap #main #section11 .wrap .gap .container .title .right-title a {padding: 8px 10px;font-size: 11px;}
+    #wrap #main #section11 .wrap .gap .container .mail-box {height: 109px;margin-top: -130px;}
+    #wrap #main #section11 .wrap .gap .container .mail-box .box-gap {padding: 20px 30px;}
+    #wrap #main #section11 .wrap .gap .container .mail-box .box-gap .box-wrap h2 {font-size: 16px;padding-bottom: 5px;line-height: 180%;}
+    #wrap #main #section11 .wrap .gap .container .mail-box .box-gap .box-wrap .mail-form form .input-wrap input {font-size: 12px;text-indent: 15px;padding: 10px 0;}
+    #wrap #main #section11 .wrap .gap .container .mail-box .box-gap .box-wrap .mail-form form .submit-wrap {top: 5px;}
+    #wrap #main #section11 .wrap .gap .container .mail-box .box-gap .box-wrap .mail-form form .submit-wrap::before {left: -5px;}
+    #wrap #main #section11 .wrap .gap .container .mail-box .box-gap .box-wrap .mail-form form .submit-wrap button span i:nth-child(1) {font-size: 13px;}
+    #wrap #main #section11 .wrap .gap .container .mail-box .box-gap .box-wrap .mail-form form .submit-wrap button span i:nth-child(2) {font-size: 12px;}
 
+    /* footer */
+    #wrap #footer .wrap .gap .container .top-content ul li:nth-child(1) {padding-bottom: 10px;}
+    #wrap #footer .wrap .gap .container .top-content ul li:nth-child(2) {padding-bottom: 10px;}
+    #wrap #footer .wrap .gap .container .top-content ul li:nth-child(3) {padding-bottom: 10px;}
+    #wrap #footer .wrap .gap .container .top-content ul li:nth-child(4) {padding-bottom: 10px;}
+    #wrap #footer .wrap .gap .container .top-content ul li dl dt {font-size: 12px;padding-bottom: 5px;}
+    #wrap #footer .wrap .gap .container .top-content ul li dl dd a {font-size: 13px;line-height: 160%;}
+
+    #wrap #footer .wrap .gap .container .bottom-content .title {float: none;text-align: center;padding-top: 10px;}
+    #wrap #footer .wrap .gap .container .bottom-content .title h3 span {font-size: 12px;}
+    #wrap #footer .wrap .gap .container .bottom-content .title h3 a {font-size: 12px;}
 }
 
 @media all and (max-width:430px){
@@ -559,6 +591,15 @@
     #wrap #main #section11 .wrap .gap .container .content ul li .content-gap .content-wrap h3 {padding-top: 10px;}
     #wrap #main #section11 .wrap .gap .container .content ul li .content-gap .content-wrap h3 a {font-size: 14px;}
     #wrap #main #section11 .wrap .gap .container .content ul li .content-gap .content-wrap p {font-size: 13px;line-height: 180%;padding-top: 0;}
+    #wrap #main #section11 .wrap .gap .container .mail-box {height: 98px;margin-top: -125px;}
+    #wrap #main #section11 .wrap .gap .container .mail-box .box-gap {padding: 20px 20px;}
+    #wrap #main #section11 .wrap .gap .container .mail-box .box-gap .box-wrap h2 {font-size: 15px;}
+    #wrap #main #section11 .wrap .gap .container .mail-box .box-gap .box-wrap .mail-form form .input-wrap input {padding: 5px 0;}
+    #wrap #main #section11 .wrap .gap .container .mail-box .box-gap .box-wrap .mail-form form .submit-wrap {top: 0;right: 5px;}
+    #wrap #main #section11 .wrap .gap .container .mail-box .box-gap .box-wrap .mail-form form .submit-wrap::before {top: 3px;left: -5px;}
+    #wrap #main #section11 .wrap .gap .container .mail-box .box-gap .box-wrap .mail-form form .submit-wrap button span i:nth-child(1) {font-size: 13px;margin-right: 0;}
+    #wrap #main #section11 .wrap .gap .container .mail-box .box-gap .box-wrap .mail-form form .submit-wrap button span i:nth-child(2) {display: none;}
+
 }
 
 @media all and (max-width:380px){

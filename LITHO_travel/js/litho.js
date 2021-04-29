@@ -59,11 +59,11 @@
                 else{
                     if(result === 'Up'){
                         if(that.btn === 1){    // 모바일모드
-                            // $header.removeClass('addDown');
-                            // $header.removeClass('addUp');
-                            // $nav.stop().slideUp();
-                            // $bar.removeClass('addMobile');
-                            // that.btn = 0;
+                            $header.removeClass('addDown');
+                            $header.removeClass('addUp');
+                            $nav.stop().slideUp(0);
+                            $bar.removeClass('addMobile');
+                            that.btn = 0;
                         }
                         else{                   // pc모드
                             $header.addClass('addDown');
@@ -77,11 +77,11 @@
                     }
                     if(result === 'Down'){
                         if(that.btn === 1){    // 모바일모드
-                            // $header.removeClass('addDown');
-                            // $header.addClass('addUp');
-                            // $nav.stop().slideUp();
-                            // $bar.removeClass('addMobile');
-                            // that.btn = 0;
+                            $header.removeClass('addDown');
+                            $header.addClass('addUp');
+                            $nav.stop().slideUp(0);
+                            $bar.removeClass('addMobile');
+                            that.btn = 0;
                         }
                         else{                   // pc모드
                             $header.removeClass('addDown');
@@ -111,40 +111,45 @@
             var mobile     = 0;
             var that = this;
 
+
             function pcFn(){
-                $sub.css({display:'none'});
+                $sub.css({display:'none',height:'auto'});
                 $subSub.css({display:'none'});
                 $subSubSub.css({display:'none'});
                 $nav.css({display:'inline-block'});
                 $bar.removeClass('addMobile');
 
+                $mainBtn.off('click');
+                $subBtn.off('click');
+                $subSubBtn.off('click');
+
                 $mainBtn.on({
                     mouseenter:function(event){
                         event.preventDefault();
-                        $sub.hide();
-                        $(this).next().show();
+                        $sub.stop().hide();
+                        $(this).next().stop().show();
                     }
                 });
                 $subBtn.on({
                     mouseenter:function(event){
                         event.preventDefault();
-                        $subSub.hide();
-                        $(this).next().show();
+                        $subSub.stop().hide();
+                        $(this).next().stop().show();
                     }
                 });
                 $subSubBtn.on({
                     mouseenter:function(event){
                         event.preventDefault();
-                        $subSubSub.hide();
-                        $(this).next().show();
+                        $subSubSub.stop().hide();
+                        $(this).next().stop().show();
                     }
                 });
     
                 $nav.on({
                     mouseleave:function(event){
                         event.preventDefault();
-                        $sub.hide();
-                        $subSub.hide();
+                        $sub.stop().hide();
+                        $subSub.stop().hide();
                     }
                 });
             }
@@ -156,51 +161,87 @@
                 $subSubBtn.off('mouseenter');
                 $nav.off('mouseleave');
                 $bar.removeClass('addMobile');
+                $sub.css({height:'auto'});
 
+
+                // $sub 슬라이드업 이후 오는 $(this).next() 의 슬라이드토글로인해
+                // 메인버튼이 닫혀있는 상태에서 메인버튼 내부에서 슬라이드 토글이 발생하는것?으로 추정됨
+                // 버튼클릭시 addDown 클래스가 있을경우 슬라이드 업, 클래스 제거
+                // 버튼클릭시 addDown 클래스가 없을경우 슬라이드 다운, 클래스 부여
                 $mainBtn.on({
                     click:function(event){
                         event.preventDefault();
+                        $sub.css({height:'auto'});
                         $sub.stop().slideUp();
                         $subSub.stop().slideUp();
                         $subSubSub.stop().slideUp();
                         $(this).next().stop().slideToggle(400);
+                        console.log('메인버튼클릭');
+
+                        // if($(this).hasClass('addDown') === true){
+                        //     $sub.stop().slideUp();
+                        //     $subSub.stop().slideUp();
+                        //     $subSubSub.stop().slideUp();
+                        //     $mainBtn.removeClass('addDown');
+                        //     $subBtn.removeClass('addDown');
+                        //     $subSubBtn.removeClass('addDown');
+                        // }
+                        // else{
+                        //     $sub.stop().slideUp();
+                        //     $subSub.stop().slideUp();
+                        //     $subSubSub.stop().slideUp();
+                        //     $mainBtn.removeClass('addDown');
+                        //     $subBtn.removeClass('addDown');
+                        //     $subSubBtn.removeClass('addDown');
+                        //     $(this).next().stop().slideDown(400);
+                        //     $(this).addClass('addDown');
+                        // }
                     }
                 });
                 $subBtn.on({
                     click:function(event){
                         event.preventDefault();
+                        $sub.css({height:'auto'});
                         $subSub.stop().slideUp();
                         $subSubSub.stop().slideUp();
                         $(this).next().stop().slideToggle(400);
+
+                        // if($(this).hasClass('addDown') === true){
+                        //     $subSub.stop().slideUp();
+                        //     $subSubSub.stop().slideUp();
+                        //     $subBtn.removeClass('addDown');
+                        //     $subSubBtn.removeClass('addDown');
+                        // }
+                        // else{
+                        //     $subSub.stop().slideUp();
+                        //     $subSubSub.stop().slideUp();
+                        //     $subBtn.removeClass('addDown');
+                        //     $subSubBtn.removeClass('addDown');
+                        //     $(this).next().stop().slideDown(400);
+                        //     $(this).addClass('addDown');
+                        // }
                     }
                 });
                 $subSubBtn.on({
                     click:function(event){
                         event.preventDefault();
+                        $sub.css({height:'auto'});
                         $subSubSub.stop().slideUp();
                         $(this).next().stop().slideToggle(400);
+
+                        // if($(this).hasClass('addDown') === true){
+                        //     $subSubSub.stop().slideUp();
+                        //     $subSubBtn.removeClass('addDown');
+                        // }
+                        // else{
+                        //     $subSubSub.stop().slideUp();
+                        //     $subSubBtn.removeClass('addDown');
+                        //     $(this).next().stop().slideDown(400);
+                        //     $(this).addClass('addDown');
+                        // }
                     }
                 });
             }
-
-            $(window).resize(function(){
-                pcMobileFn();
-            });
-            setTimeout(pcMobileFn, 10);
-
-            function pcMobileFn(){
-                if($(window).innerWidth() > 980 ){
-                    pc = 1;
-                    mobile = 0;
-                    pcFn();
-                    that.btn = 0;
-                }
-                else{
-                    pc = 0;
-                    mobile = 1;
-                    mobileFn();
-                }
-            };
 
             $mobileBtn.on({
                 click:function(event){
@@ -210,10 +251,35 @@
                     $subSubSub.stop().slideUp();
                     $bar.toggleClass('addMobile');
                     $nav.stop().slideToggle(400);
-                    // console.log(that.btn);
+                    console.log('모바일버튼 클릭!',that.btn);
                     return that.btn === 0 ? that.btn = 1 : that.btn = 0;
                 }
             });
+
+            function pcMobileFn(){
+                if($(window).innerWidth() > 980 ){
+                    pc = 1;
+                    mobile = 0;
+                    pcFn();
+                    that.btn = 0;
+                    console.log('PC');
+                }
+                else{
+                    pc = 0;
+                    mobile = 1;
+                    mobileFn();
+                    console.log('MOBILE');
+                }
+            };
+            
+            $(window).resize(function(){
+                that.btn = 0;
+                $mainBtn.removeClass('addDown');
+                $subBtn.removeClass('addDown');
+                $subSubBtn.removeClass('addDown');
+                pcMobileFn();
+            });
+            setTimeout(pcMobileFn, 10);
 
             
         },
@@ -243,7 +309,7 @@
                     $winH = $(window).height();
                 }
                 else{
-                    $winH = 700;
+                    $winH = 600;
                 }
                 $slide.css({width:$winW,height:$winH});
                 $section1.css({width:$winW,height:$winH});
@@ -751,7 +817,7 @@
             var t = 0;
 
             function resizeFn(){
-                $ul.css({transform: 'perspective(0) translateZ(0) rotateY(0)'});
+                $ul.css({transform: 'transform: perspective('+ 1647 +'px) translateZ('+ -549 +'px) rotateY(0)'});
             }
             $(window).resize(function(){
                 resizeFn();
