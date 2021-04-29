@@ -386,7 +386,6 @@
             });
             
 
-
             $slideView.on({
                 mousedown:function(e){
                     touchD = true;
@@ -405,6 +404,18 @@
                         touchSwipeFn();
                         touchD = false;
                     }
+                },
+
+                touchstart:function(e){
+                    touchD = true;
+                    e.preventDefault();
+                    touchS = e.originalEvent.changedTouches[0].clientX;
+                },
+                touchend:function(e){
+                    touchD = false;
+                    e.preventDefault();
+                    touchE = e.originalEvent.changedTouches[0].clientX;
+                    touchSwipeFn();
                 }
             });
 
@@ -954,6 +965,18 @@
                         touchSwipeFn();
                         touchD = false;
                     }
+                },
+
+                touchstart:function(e){
+                    touchD = true;
+                    e.preventDefault();
+                    touchS = e.originalEvent.changedTouches[0].clientX;
+                },
+                touchend:function(e){
+                    touchD = false;
+                    e.preventDefault();
+                    touchE = e.originalEvent.changedTouches[0].clientX;
+                    touchSwipeFn();
                 }
             });
 
@@ -1173,6 +1196,18 @@
                         touchSwipeFn();
                         touchD = false;
                     }
+                },
+
+                touchstart:function(e){
+                    touchD = true;
+                    e.preventDefault();
+                    touchS = e.originalEvent.changedTouches[0].clientX;
+                },
+                touchend:function(e){
+                    touchD = false;
+                    e.preventDefault();
+                    touchE = e.originalEvent.changedTouches[0].clientX;
+                    touchSwipeFn();
                 }
             });
 
@@ -1341,6 +1376,18 @@
                         touchSwipeFn();
                         touchD = false;
                     }
+                },
+
+                touchstart:function(e){
+                    touchD = true;
+                    e.preventDefault();
+                    touchS = e.originalEvent.changedTouches[0].clientX;
+                },
+                touchend:function(e){
+                    touchD = false;
+                    e.preventDefault();
+                    touchE = e.originalEvent.changedTouches[0].clientX;
+                    touchSwipeFn();
                 }
             });
 
