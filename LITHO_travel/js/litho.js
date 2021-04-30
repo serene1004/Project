@@ -163,6 +163,12 @@
                 $bar.removeClass('addMobile');
                 $sub.css({height:'auto'});
 
+                // 클릭이벤트가 누적실행되는것을 방지하기위해
+                // 이벤트 삭제 후 이벤트 재등록
+                $mainBtn.off('click');
+                $subBtn.off('click');
+                $subSubBtn.off('click');
+
 
                 // $sub 슬라이드업 이후 오는 $(this).next() 의 슬라이드토글로인해
                 // 메인버튼이 닫혀있는 상태에서 메인버튼 내부에서 슬라이드 토글이 발생하는것?으로 추정됨
@@ -205,7 +211,6 @@
                         $subSub.stop().slideUp();
                         $subSubSub.stop().slideUp();
                         $(this).next().stop().slideToggle(400);
-
                         // if($(this).hasClass('addDown') === true){
                         //     $subSub.stop().slideUp();
                         //     $subSubSub.stop().slideUp();
