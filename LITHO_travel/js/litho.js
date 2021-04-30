@@ -225,20 +225,6 @@
                                 click = true;
                             }, 500)
                         }
-                        // if($(this).hasClass('addDown') === true){
-                        //     $subSub.stop().slideUp();
-                        //     $subSubSub.stop().slideUp();
-                        //     $subBtn.removeClass('addDown');
-                        //     $subSubBtn.removeClass('addDown');
-                        // }
-                        // else{
-                        //     $subSub.stop().slideUp();
-                        //     $subSubSub.stop().slideUp();
-                        //     $subBtn.removeClass('addDown');
-                        //     $subSubBtn.removeClass('addDown');
-                        //     $(this).next().stop().slideDown(400);
-                        //     $(this).addClass('addDown');
-                        // }
                     }
                 });
                 $subSubBtn.on({
@@ -254,17 +240,6 @@
                                 click = true;
                             }, 500)
                         }
-
-                        // if($(this).hasClass('addDown') === true){
-                        //     $subSubSub.stop().slideUp();
-                        //     $subSubBtn.removeClass('addDown');
-                        // }
-                        // else{
-                        //     $subSubSub.stop().slideUp();
-                        //     $subSubBtn.removeClass('addDown');
-                        //     $(this).next().stop().slideDown(400);
-                        //     $(this).addClass('addDown');
-                        // }
                     }
                 });
             }
@@ -279,7 +254,6 @@
                         $subSubSub.stop().slideUp();
                         $bar.toggleClass('addMobile');
                         $nav.stop().slideToggle(400);
-                        // console.log('모바일버튼 클릭!',that.btn);
                         
                         setTimeout(function(){
                             click = true;
@@ -295,13 +269,11 @@
                     mobile = 0;
                     pcFn();
                     that.btn = 0;
-                    // console.log('PC');
                 }
                 else{
                     pc = 0;
                     mobile = 1;
                     mobileFn();
-                    // console.log('MOBILE');
                 }
             };
             
@@ -513,7 +485,6 @@
             $imgBox.on({
                 mousemove:function(event){
                     // 사진의 중심이 기준이되서 마우스위치에따라서 상하좌우로 rotateXY값이 변화
-
                     // 북서 X:- Y:+    북 X:- Y:0   북동 X:- Y:-
                     // 서쪽 X:0 Y:+        센터     동쪽 X:0 Y:-
                     // 남서 X:+ Y:+    남 X:+ Y:0   남동 X:+ Y:-
@@ -521,25 +492,9 @@
                     // 북서 x:  y:    북동 x:  y:   북동 x:  y: 
                     // 서쪽 x:  y:    센터 x:  y:   동쪽 x:  y: 
                     // 남서 x:  y:    남동 x:  y:   남동 x:  y: 
-                    // if(event.clientX > 555, event.clientY < 350){
-                    //     y = y*-1;
-                    //     $content.css({transform:'perspective('+ 1110 +'px) rotateX('+ -20 +'deg) rotateY('+ -20 +'deg)'});
-                    // }
 
-                    // if(event.clientX < 555, event.clientY > 350){
-                    //     x = x*-1;
-                    //     $content.css({transform:'perspective('+ 1110 +'px) rotateX('+ 20 +'deg) rotateY('+ 20 +'deg)'});
-                    // }
-                    
                     // console.log('x:',event.clientX);
                     // console.log('y:',event.clientY);
-
-                    // console.log(event.clientX);
-                    // console.log(event.clientY);
-                    // console.log('X-Y : ',event.clientX-event.clientY);
-                    // console.log('Y-X : ',event.clientY-event.clientX);
-                    // console.log('Y+X : ',event.clientY+event.clientX);
-                    // console.log('-X-Y : ',-event.clientX-event.clientY);
 
                     x = event.clientX*0.05;
                     y = event.clientY*0.05;
@@ -549,7 +504,6 @@
                     // console.log('y:',y);
                     $('.pos').text('x= ' + x + ' / y= '+ y);
                     $imgGap.css({transform:'perspective(1000px) rotateX('+ y +'deg) rotateY('+ -x +'deg) scale3d(1,1,1)'});
-                    // 각도는 클라이언트값에 비례해서 증가 감소하게 설정하면될듯
                 }
             });
             
@@ -938,13 +892,6 @@
                 }
             });
 
-            // $stopPlay.on({
-            //     click:function(){
-            //         $stopBtn.toggleClass('addBtn');
-            //         $playBtn.toggleClass('addBtn');
-            //     }
-            // });
-
             $stopBtn.on({
                 click:function(){
                     $stopBtn.addClass('addBtn');
@@ -1100,8 +1047,6 @@
             var $slideW          = $slideContainerW/4;
             var $prevBtn         = $('#section7 .prev-btn');
             var $nextBtn         = $('#section7 .next-btn');
-            // var $imgH            = $('#section7 .content-img').height();
-            var $captionGap      = $('#section7 .caption-gap');
             var cnt              = 0;
             var touchS           = 0;
             var touchE           = 0;
@@ -1110,7 +1055,6 @@
             var setId2           = null;
             var timercnt         = 0;
             
-            // console.log($imgH);
 
             var $title = $('#section7 .title');
             var $slideContainer = $('#section7 .slide-container');
@@ -1144,7 +1088,6 @@
                     $slideView.css({width:$slideW*4})
                     $slideWrap.css({width:$slideW*15,marginLeft: -$slideW*5});
                     $slide.css({width:$slideW});
-                    // $captionGap.css({height:$imgH});
                 }
                 else if($(window).innerWidth() > 850){
                     $slideContainerW = $('#section7 .slide-container').innerWidth();
@@ -1152,7 +1095,6 @@
                     $slideView.css({width:$slideW*3})
                     $slideWrap.css({width:$slideW*15,marginLeft: -$slideW*5});
                     $slide.css({width:$slideW});
-                    // $captionGap.css({height:$imgH});
                 }
                 else if($(window).innerWidth() > 600){
                     $slideContainerW = $('#section7 .slide-container').innerWidth();
@@ -1160,7 +1102,6 @@
                     $slideView.css({width:$slideW*2})
                     $slideWrap.css({width:$slideW*15,marginLeft: -$slideW*5});
                     $slide.css({width:$slideW});
-                    // $captionGap.css({height:$imgH});
                 }
                 else{
                     $slideContainerW = $('#section7 .slide-container').innerWidth();
@@ -1168,7 +1109,6 @@
                     $slideView.css({width:$slideW*1})
                     $slideWrap.css({width:$slideW*15,marginLeft: -$slideW*5});
                     $slide.css({width:$slideW});
-                    // $captionGap.css({height:$imgH});
                 }
             }
 
