@@ -164,7 +164,7 @@
 
     /* section5 */
     #wrap #main #section5 .wrap .gap .container .content {width: 100%;}
-    #wrap #main #section5 .wrap .gap .container .content ul {width: 100%;height: 585px;position: relative;transform-style: none;transform: perspective(0) translateZ(0) rotateY(0);z-index: 1;}
+    #wrap #main #section5 .wrap .gap .container .content ul {width: 100%;height: 585px;position: relative;transform-style: flat;transform: perspective(0) translateZ(0) rotateY(0);z-index: 1;}
     #wrap #main #section5 .wrap .gap .container .content ul li {position: absolute;top: 0;left: 0;width: 100%;height: 100%;transition: none;}
     #wrap #main #section5 .wrap .gap .container .content ul li:nth-child(1) {transform: rotateY(0) translateZ(0);z-index: 3;}
     #wrap #main #section5 .wrap .gap .container .content ul li:nth-child(2) {transform: rotateY(0) translateZ(0);z-index: 2;}
