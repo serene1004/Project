@@ -110,6 +110,7 @@
             var pc         = 0;
             var mobile     = 0;
             var that = this;
+            var click = true;
 
 
             function pcFn(){
@@ -176,13 +177,19 @@
                 // 버튼클릭시 addDown 클래스가 없을경우 슬라이드 다운, 클래스 부여
                 $mainBtn.on({
                     click:function(event){
-                        event.preventDefault();
-                        $sub.css({height:'auto'});
-                        $sub.stop().slideUp();
-                        $subSub.stop().slideUp();
-                        $subSubSub.stop().slideUp();
-                        $(this).next().stop().slideToggle(400);
-                        console.log('메인버튼클릭');
+                        if(click === true){
+                            click = false;
+                            event.preventDefault();
+                            $sub.css({height:'auto'});
+                            $sub.stop().slideUp();
+                            $subSub.stop().slideUp();
+                            $subSubSub.stop().slideUp();
+                            $(this).next().stop().slideToggle(400);
+
+                            setTimeout(function(){
+                                click = true;
+                            }, 500)
+                        }
 
                         // if($(this).hasClass('addDown') === true){
                         //     $sub.stop().slideUp();
@@ -206,11 +213,18 @@
                 });
                 $subBtn.on({
                     click:function(event){
-                        event.preventDefault();
-                        $sub.css({height:'auto'});
-                        $subSub.stop().slideUp();
-                        $subSubSub.stop().slideUp();
-                        $(this).next().stop().slideToggle(400);
+                        if(click === true){
+                            click = false;
+                            event.preventDefault();
+                            $sub.css({height:'auto'});
+                            $subSub.stop().slideUp();
+                            $subSubSub.stop().slideUp();
+                            $(this).next().stop().slideToggle(400);
+
+                            setTimeout(function(){
+                                click = true;
+                            }, 500)
+                        }
                         // if($(this).hasClass('addDown') === true){
                         //     $subSub.stop().slideUp();
                         //     $subSubSub.stop().slideUp();
@@ -229,10 +243,17 @@
                 });
                 $subSubBtn.on({
                     click:function(event){
-                        event.preventDefault();
-                        $sub.css({height:'auto'});
-                        $subSubSub.stop().slideUp();
-                        $(this).next().stop().slideToggle(400);
+                        if(click === true){
+                            click = false;
+                            event.preventDefault();
+                            $sub.css({height:'auto'});
+                            $subSubSub.stop().slideUp();
+                            $(this).next().stop().slideToggle(400);
+                            
+                            setTimeout(function(){
+                                click = true;
+                            }, 500)
+                        }
 
                         // if($(this).hasClass('addDown') === true){
                         //     $subSubSub.stop().slideUp();
@@ -250,14 +271,21 @@
 
             $mobileBtn.on({
                 click:function(event){
-                    event.preventDefault();
-                    $sub.stop().slideUp();
-                    $subSub.stop().slideUp();
-                    $subSubSub.stop().slideUp();
-                    $bar.toggleClass('addMobile');
-                    $nav.stop().slideToggle(400);
-                    console.log('모바일버튼 클릭!',that.btn);
-                    return that.btn === 0 ? that.btn = 1 : that.btn = 0;
+                    if(click === true){
+                        click = false;
+                        event.preventDefault();
+                        $sub.stop().slideUp();
+                        $subSub.stop().slideUp();
+                        $subSubSub.stop().slideUp();
+                        $bar.toggleClass('addMobile');
+                        $nav.stop().slideToggle(400);
+                        // console.log('모바일버튼 클릭!',that.btn);
+                        
+                        setTimeout(function(){
+                            click = true;
+                        }, 500)
+                        return that.btn === 0 ? that.btn = 1 : that.btn = 0;
+                    }
                 }
             });
 
@@ -267,13 +295,13 @@
                     mobile = 0;
                     pcFn();
                     that.btn = 0;
-                    console.log('PC');
+                    // console.log('PC');
                 }
                 else{
                     pc = 0;
                     mobile = 1;
                     mobileFn();
-                    console.log('MOBILE');
+                    // console.log('MOBILE');
                 }
             };
             
