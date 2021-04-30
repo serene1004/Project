@@ -300,11 +300,14 @@
             var $prevBtn   = $('#section1 .prev-btn');
             var $nextBtn   = $('#section1 .next-btn'); 
             var cnt        = 0;
+            var next       = [];
+            var prev       = [];
+
             var touchS     = 0;
             var touchE     = 0;
             var touchD     = false;
-            var next       = [];
-            var prev       = [];
+            var touchYstart = 0;
+            var touchYend = 0;
 
             function resizeFn(){
                 $winW = $(window).width();
@@ -396,12 +399,21 @@
                     touchD = true;
                     e.preventDefault();
                     touchS = e.clientX;
+                    touchYstart = e.clientY;
                 },
                 mouseup:function(e){
                     touchD = false;
                     e.preventDefault();
                     touchE = e.clientX;
+                    touchYend = e.clientY;
                     touchSwipeFn();
+
+                    if( touchYstart-touchYend < -50 ){
+                        
+                    }
+                    if( touchYstart-touchYend > 50 ){
+                      $('html,body').stop().animate({scrollTop: $('#section2').offset().top }, 600);
+                    } 
                 },
                 mouseleave:function(e){
                     if(touchD === true){
@@ -415,12 +427,21 @@
                     touchD = true;
                     e.preventDefault();
                     touchS = e.originalEvent.changedTouches[0].clientX;
+                    touchYstart = e.originalEvent.changedTouches[0].clientY;
                 },
                 touchend:function(e){
                     touchD = false;
                     e.preventDefault();
                     touchE = e.originalEvent.changedTouches[0].clientX;
+                    touchYend = e.originalEvent.changedTouches[0].clientY;
                     touchSwipeFn();
+
+                    if( touchYstart-touchYend < -50 ){
+                        
+                      }
+                      if( touchYstart-touchYend > 50 ){
+                        $('html,body').stop().animate({scrollTop: $('#section2').offset().top }, 600);
+                      }     
                 }
             });
 
