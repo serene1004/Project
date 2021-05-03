@@ -1444,6 +1444,10 @@
             var $li = $('#section11 li');
             var t = 0;
 
+            var $submitBtn =  $('#submitBtn');
+            var $response =  $('.response h3');
+            var $formEmail = $('#formEmail');
+
             $(window).scroll(function(){
                 if($(window).scrollTop() >= $('#section10').offset().top-200){
                     if(t === 0){
@@ -1468,6 +1472,39 @@
                     $mailBox.removeClass('addScroll');
                 }
             });
+
+            $submitBtn.on({
+                click:function(event){
+                    event.preventDefault();
+                    var formEmailValue  =  $('#formEmail').val();
+
+                    if($formEmail===''){
+                        alert('이메일주소를 입력하세요');
+                        $formEmail.focus();
+                        return false;
+                    }
+                    else{
+                        $.ajax({
+                            url: './response.php',
+                            type: 'POST',
+                            data: {
+                                email:formEmailValue
+                            },
+                            success: function(result){
+                                $formEmail.val('');
+                                $response.html( result );
+                                $formEmail.focus();
+                            },
+                            error: function(msg){
+                                alert('전송실패');
+                                console.log(msg);
+                            }
+                        });
+                    }
+
+                }
+            })
+            
         },
         footerFn:function(){
 

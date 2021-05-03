@@ -17,7 +17,7 @@
     $sql = "insert into email_table (email) values ('$email')";
     $result = mysqli_Query($connect, $sql);
 
-    echo 'Transfer Successful';
+    echo 'You have successfully sent your Email Address';
 
     mysqli_close($connect);
 

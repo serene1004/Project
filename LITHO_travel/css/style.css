@@ -710,6 +710,11 @@
 #wrap #main #section11 .wrap .gap .container .mail-box .box-gap .box-wrap .mail-form form .submit-wrap button span i:nth-child(1) {display: inline-block;font-size: 16px;color: #212529;margin-right: 5px;}
 #wrap #main #section11 .wrap .gap .container .mail-box .box-gap .box-wrap .mail-form form .submit-wrap button span i:nth-child(2) {display: inline-block;font-size: 13px;color: #212529;}
 
+#wrap #main #section11 .wrap .gap .container .mail-box .box-gap .box-wrap .mail-form form .response {padding-top: 10px;}
+#wrap #main #section11 .wrap .gap .container .mail-box .box-gap .box-wrap .mail-form form .response h3 {font-size: 13px;text-indent: 15px;}
+
+
+
 #wrap #main #section11 .wrap .gap .container .title {padding-bottom: 6%;}
 #wrap #main #section11 .wrap .gap .container .title .left-title {float: left;opacity: 0;transition: all 1s;}
 #wrap #main #section11 .wrap .gap .container .title.addScroll .left-title {opacity: 1;}
