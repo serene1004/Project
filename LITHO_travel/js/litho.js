@@ -1479,7 +1479,7 @@
                     var formEmailValue  =  $('#formEmail').val();
 
                     if($formEmail===''){
-                        alert('이메일주소를 입력하세요');
+                        alert('Please enter your email address');
                         $formEmail.focus();
                         return false;
                     }
@@ -1496,7 +1496,7 @@
                                 $formEmail.focus();
                             },
                             error: function(msg){
-                                alert('전송실패');
+                                alert('Please check your email address');
                                 console.log(msg);
                             }
                         });
