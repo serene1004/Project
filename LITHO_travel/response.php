@@ -1,4 +1,4 @@
-<?php
+<?
 
     $servername = 'localhost';
     $username   = 'serene';
@@ -9,9 +9,16 @@
     mysqli_set_charset($connect, 'utf8');
 
     if(!$connect){
-        die('접속실패');
+        die('Connection failed');
     }
 
-?>
+    $email = $_POST['email'];
 
-<!-- serene.dothome.co.kr/litho/header.php -->
+    $sql = "insert into email_table (email) values ('$email')";
+    $result = mysqli_Query($connect, $sql);
+
+    echo 'Transfer Successful';
+
+    mysqli_close($connect);
+
+?>
