@@ -28,6 +28,9 @@
             // var fastTimer = $('.digital-timer i');
             // var txt3 = '';
 
+            var y = 0;
+            var m = 0;
+
             function timerFn(){
                 today  = new Date();
                 hour   = today.getHours();
@@ -44,15 +47,8 @@
                 else{date=date;}
 
                 day   = today.getDay();
-                if(day===0){day='일요일';}
-                else if(day===1){day='월요일';}
-                else if(day===2){day='화요일';}
-                else if(day===3){day='수요일';}
-                else if(day===4){day='목요일';}
-                else if(day===5){day='금요일';}
-                else if(day===6){day='토요일';}
 
-                txt = year +'-'+ month +'-'+ date +'-'+ day;
+                txt = year +'-'+ month +'-'+ date +'-'+ yoil[day];
 
                 timerImg02.css({transform:'rotate('+ second*6 +'deg)'});
                 timerImg03.css({transform:'rotate('+ minute*6 +'deg)'});
@@ -84,6 +80,7 @@
                 timerFn();
                 digitalFn();
             }, 1000);
+            timerFn();
 
             // setInterval(function(){
             //     today  = new Date();
@@ -95,16 +92,88 @@
             //     fastTimer.html(txt3);
             // },10)
 
-            var lastDate = null;
+            var col = null;
             var firstDay = null;
+            var lastDate = null;
+            var prevlastDate = null;
+            var cnt = null;
         
-            firstDay = new Date('2021-6-1').getDay();
-            lastDate = new Date(2021, 6, 0).getDate();
+            function calenderFn(y, m){
+                col = null;
+                prevlastDate = null;
+                cnt = null;
 
-            for(var i=1; i<=lastDate; i++){
-                var day = new Date('2021-6-'+i).getDay();
-                console.log(i +'일 ' + yoil[day]);
+                $('.calender table caption').html( y +'년'+ m +'월');
+
+                firstDay = new Date(y +'-'+ m +'-'+ 1).getDay();
+                col = firstDay;
+                prevlastDate = new Date(y,m-1, 0).getDate();
+                lastDate = new Date(y, m, 0).getDate();
+
+
+                // 이번달 화면일경우에만
+                // 이전, 다음달일경우 리무브
+                if(m == (today.getMonth()+1) && y== today.getFullYear()){
+                    $('td').eq(firstDay-1+today.getDate()).addClass('today');
+                }
+
+    
+                for(var i=1; i<=lastDate; i++){
+                    if(col!==null){
+                        $('td').eq(col).html(i);
+                        col++;
+
+                    }
+                }
+                
+                for(var i=firstDay-1; i>=0; i--){
+                    // console.log(prevlastDate);
+                    $('td').eq(i).html(prevlastDate).addClass('prev-month');
+                    prevlastDate--;
+                }
+
+                for(var i=col; i<=$('td').length; i++){
+                    cnt++;
+                    $('td').eq(i).html(cnt).addClass('next-month');
+                }
+
+                // 토요일에 글자색 파란색주기
+                for(var i=6; i<=$('td').length; i+=7){
+                    $('td').eq(i).addClass('sat');
+                }
+
+                // 일요일에 글자색 빨간색주기
+                for(var i=0; i<=$('td').length; i+=7){
+                    $('td').eq(i).addClass('sun');
+                }
+                // console.log(y, m);
             }
+            calenderFn(year, month);
+            
+
+            y = year;
+            m = month;
+
+            $('.prev-btn').on({
+                click:function(){
+                    m--;
+                    if(m<1){m=12;y--;}
+                    $('td').removeClass('prev-month');
+                    $('td').removeClass('next-month');
+                    $('td').removeClass('today');
+                    calenderFn(y, m);
+                }
+            })
+            $('.next-btn').on({
+                click:function(){
+                    m++;
+                    if(m>12){m=1;y++;}
+                    $('td').removeClass('prev-month');
+                    $('td').removeClass('next-month');
+                    $('td').removeClass('today');
+                    calenderFn(y, m);
+                }
+            })
 
         }
         
