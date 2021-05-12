@@ -1,3 +1,3 @@
 ### STUDY ###
 
-05-10 homework 주소록만들기
+베리숲마을 http://yongdam.koweb1.gethompy.com/
