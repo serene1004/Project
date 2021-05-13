@@ -22,7 +22,7 @@
             var pageGroup = Math.ceil(totalPageNum/pageNumList);    // 3 페이지 그룹이 나옴
 
 
-            var cnt = 1;
+            var cnt = 0;
 
             // JSON 데이터파일의 정보를 tbody에 출력
             // 출력방법은 글번호의 내림차순으로
@@ -98,8 +98,8 @@
                                 // cnt 가 증가하고 i의 시작값이 0이 아닌 변수로. 변수*cnt 가되면될듯
                                 txt = '';
                                 $tBody.html(txt);
-                                cnt++;
-                                for(var i=cnt*(pageNumList); i<list*(cnt+1); i++){
+                                cnt+=10;
+                                for(var i=cnt*pageNumList; i<list+(cnt*pageNumList); i++){
                                     txt += '<tr>';
                                     for(var j=0; j<4; j++){
                                         txt += '<td>' + a[i][j] + '</td>';
@@ -109,6 +109,16 @@
                                 $tBody.html(txt);
                             }
                         });
+
+                        // 이거는 한페이지씩 넘어감
+                        // cnt++;
+                        // for(var i=cnt*pageNumList; i<list*(cnt+1); i++){
+                        //     txt += '<tr>';
+                        //     for(var j=0; j<4; j++){
+                        //         txt += '<td>' + a[i][j] + '</td>';
+                        //     }
+                        //     txt += '</tr>';
+                        // }
 
 
                     },
