@@ -41,6 +41,8 @@
 
             var $nowPage = $('#section1 .now-page');
             var $totalPage = $('#section1 .total-page');
+            var $plus = $('#section1 .plus');
+            var $market = $('#section1 .market');
             
 
             $nowPage.html(cnt+1);
@@ -174,6 +176,13 @@
                 }
             }
 
+            $plus.on({
+                click:function(){
+                    $(this).toggleClass('addClick');
+                    $market.toggleClass('addClick');
+                }
+            });
+
             
         },
         section2Fn:function(){
@@ -191,12 +200,6 @@
             var $nextBtn = $('#section2 .next-btn');
             var cnt = 0;
 
-            var TouchS      = 0;
-            var TouchE      = 0;
-            var TouchDelta  = false;
-            var TouchYstart = 0;
-            var TouchYend   = 0;
-
             var $slideArea  = $('#section2 .slide-area');
             var $leftSlide  = $('#section2 .left-slide .slide');
             var $leftSlideW = $leftSlide.innerWidth();
@@ -208,6 +211,10 @@
 
             var $nowPage = $('#section2 .now-page');
             var $totalPage = $('#section2 .total-page');
+
+            var $plus = $('#section1 .plus');
+            var $market = $('#section1 .market');
+            var t = 0;
 
             $nowPage.html(cnt+1);
             $totalPage.html($leftSlide.length);
@@ -238,7 +245,7 @@
 
             function centerSlideFn(){
                 if(btn === false){
-                    $centerSlide.stop().animate({opacity:0}, 600, function(){
+                    $centerSlide.stop().animate({opacity:0}, 550, function(){
                         if(cnt===2){
                             $centerSlide.eq(3).stop().animate({opacity:1});
                         }
@@ -313,12 +320,29 @@
                 }
             });
 
+            $(window).scroll(function(){
+                if($(window).scrollTop() >= $('#section2').offset().top){
+                    if(t === 0){
+                        t = 1;
+                        $plus.addClass('addScroll');
+                        $market.addClass('addScroll');
+                    }
+                }
+                if($(window).scrollTop() === $('#section1').offset().top){
+                    t = 0;
+                    $plus.removeClass('addScroll');
+                    $market.removeClass('addScroll');
+                }
+            });
+
 
         },
         section3Fn:function(){
             var $winW  = $(window).width();
             var $winH  = $(window).height();
             var $section3 = $('#section3');
+            var $img = $('#section3 .img-box img');
+            var t = 0;
 
             function resizeFn(){
                 $winW = $(window).width();
@@ -332,8 +356,22 @@
             });
             setTimeout(resizeFn, 100);
 
+            $(window).scroll(function(){
+                if($(window).scrollTop() >= $('#section3').offset().top){
+                    if(t === 0){
+                        t = 1;
+                        $img.addClass('addAni');
+                    }
+                }
+                if($(window).scrollTop() === $('#section2').offset().top){
+                    t = 0;
+                    $img.removeClass('addAni');
+                }
+            });
+
         },
         footerFn:function(){
+
 
         },
         mouseWheelFn:function(){
@@ -342,6 +380,16 @@
             var wheelDelta = 0;
             var cnt = 0;
 
+            var $goTopBtn = $('#footer .gotop-btn');
+
+            $goTopBtn.on({
+                click:function(event){
+                    event.preventDefault();
+                    cnt=0;
+                    var url = $(this).attr('href');
+                    $('html,body').stop().animate({scrollTop:$(url).offset().top}, 800);
+                }
+            });
 
             $main.on('mousewheel DOMMouseScroll',function(event){
                 event.preventDefault();
@@ -358,7 +406,7 @@
                         cnt++;
                         if(cnt>=3){
                             cnt=3;
-                            $('html,body').stop().animate({scrollTop:$section.eq(cnt-1).offset().top+200}, 800);
+                            $('html,body').stop().animate({scrollTop:$section.eq(cnt-1).offset().top+200}, 800, 'swing');
                         }
                         else{
                             $('html,body').stop().animate({scrollTop:$section.eq(cnt).offset().top}, 800, 'swing');
@@ -371,7 +419,7 @@
                     }
                 }
             });
-
+            
 
         }
         
