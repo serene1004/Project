@@ -167,6 +167,15 @@
 #wrap #main #section1 .wrap .gap .container .left-box .slide-container .btn-wrap .count-wrap h4 .now-page   {color: #9ad8ff;margin-right: 10px;}
 #wrap #main #section1 .wrap .gap .container .left-box .slide-container .btn-wrap .count-wrap h4 .total-page {color: #fff;margin-left: 10px;}
 
+/* section1 slide-progressbar */
+#wrap #main #section1 .wrap .gap .container .left-box .slide-container .progress-bar {position: absolute;z-index: 2;bottom: 0;left: 50%;margin-left: -150px;width: 1px;height: 150px;background: rgba(255, 255, 255, .5);overflow: hidden;}
+#wrap #main #section1 .wrap .gap .container .left-box .slide-container .progress-bar .bar {position: absolute;z-index: 1;top: -30px;left: 0;width: 1px;height: 30px;background: #fff;}
+#wrap #main #section1 .wrap .gap .container .left-box .slide-container .progress-bar.addAni .bar {transform: translateY(180px);animation: progressbar 5s;}
+@keyframes progressbar {
+    0% {transform: translateY(0);}
+  100% {transform: translateY(180px);}
+}
+
 
 /* section1 right-menu-area */
 #wrap #main #section1 .wrap .gap .container .right-box {float: left;width: 34.9%;height: 100%;position: relative;overflow: hidden;}
@@ -466,7 +475,7 @@
 #wrap #main #footer .wrap .gap .container {width: 100%;position: relative;}
 
 /* main footer info */
-#wrap #main #footer .wrap .gap .container .info {width: 100%;}
+#wrap #main #footer .wrap .gap .container .info {width: 100%;position: relative;z-index: 1;}
 #wrap #main #footer .wrap .gap .container .info ul {float: left;}
 #wrap #main #footer .wrap .gap .container .info ul li {display: inline-block;padding: 30px 0;margin-right: 40px}
 #wrap #main #footer .wrap .gap .container .info ul li a {display: block;font-size: 15px;color: #fff;font-weight: 300;line-height: 120%;}
@@ -495,7 +504,7 @@
 #wrap #main #footer .wrap .gap .container .familysite .family-list li a {display: inline-block;color: #fff;font-size: 13px;font-weight: 300;text-indent: 10px;}
 
 /* main footer go-top */
-#wrap #main #footer .wrap .gap .container #go-top {position: absolute;top: 0;left: 50%;width: 100px;height: 100px;background: #2979ca;margin-left: -50px;}
+#wrap #main #footer .wrap .gap .container #go-top {position: absolute;z-index: 2;top: 0;left: 50%;width: 100px;height: 100px;background: #2979ca;margin-left: -50px;}
 #wrap #main #footer .wrap .gap .container #go-top .gotop-btn {display: block;width: 100%;height: 100%;text-align: center;position: relative;}
 #wrap #main #footer .wrap .gap .container #go-top .gotop-btn i {background: url(../img/sp_com.png) no-repeat;background-position: -162px 0px;width: 30px;height: 8px;position: absolute;top: 10px;left: 50%;transform: rotate(90deg);transform-origin: 0 100%;margin-left: -4px;}
 #wrap #main #footer .wrap .gap .container #go-top .gotop-btn span {display: block;padding-top: 60px;font-size: 15px;color: #fff;font-weight: 500;}
