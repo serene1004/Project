@@ -7,41 +7,103 @@
             this.cookieFn();
         },
         cookieFn:function(){
-            var start = 0;
-            var end = 0;
+            var start  = null;
+            var end = null;
+            var regexp = / /g; //모든 공백 space    g전체 공백 검색
+            var regexp = /\s/g; //문자열에 포함된 모든 공백 space \s  g전체 공백 검색
 
-            // 2-1
+
+            //2-1 
             function getCookieFn(name){
-                start = 0;
-                end = document.cookie.indexOf('=');
-                
-                if(document.cookie.slice(start, end) === name){
-                    start = document.cookie.indexOf('=')+1;
-                    return document.cookie.slice(start);    // no
-                }
-                return '';  // 쿠키값을 못찾으면 ''을 리턴시킴
-                
+                console.log( document.cookie );
+                // 문자열 중간 안에 포함된 공백 처리 => //공백제거(삭제)
+                // popup_20210526_01=no; popup_20210526_02=no; popup_20210526_04=no; popup_20210526_05=no; popup_20210526_03=no
+                // 멀티쿠키는 ; 구분자 이용 배열 처리
+                // replace('공백문자', ''); 공백문자 제거(치환)
+                var cookie = document.cookie.replace(regexp,"").split(';'); //세미콜론기준으로 나누어 배열에 저장
+                    console.log( cookie );
+
+
+                    for(i in cookie){ //배열 값 반복 출력
+                        cookie[i] = cookie[i].trim(); //trim() 맨앞 맨뒤 공백만처리
+                        console.log( cookie[i] ); //배열 값
+                    
+                    // 배열 두번째 부터 첫칸의 공백처리 => trim() 맨앞 맨뒤 공백만처리
+                    // popup_20210526_01=no
+                    // popup_20210526_02=no
+                    // popup_20210526_04=no
+                    // popup_20210526_05=no
+                    // popup_20210526_03=no
+
+
+                        start = 0;
+                        end  = cookie[i].indexOf('='); //0 ~                 
+                            
+                        console.log( cookie[i].slice(start, end) );
+
+                        // if( cookie[i].slice(start, end) == name ){
+                        //     start = cookie[i].indexOf('=');                
+                        //     return  cookie[i].slice(start+1); //no
+                        // }
+
+                        // return ''; //쿠키를 못 찾으면
+
+                    } //for 
+
             }
 
-            // 2-2
-            function openPopFn(){
-                var isCookie = getCookieFn('popup_20210526');
+            //2-2 
+            function openPop01Fn(){
+                var isCookie = getCookieFn('popup_20210526_01');                
 
-                if(isCookie !== 'no'){
-                    window.open('popup_20210526.html', 'popup_20210526', 'width=400, height=600, top=0, left=0');
-                }
+                    if( isCookie != 'no' ){
+                        window.open("popup_20210526_01.html","popup_20210526_01","width=400, height=500,top=0,left=0");                    
+                        // window.open("popup_20210526.html","popup_20210526_02","width=500, height=800,top=0,left=0");                    
+                        // window.open("popup_20210526.html","popup_20210526_03","width=500, height=800,top=0,left=0");                    
+                        // window.open("popup_20210526.html","popup_20210526_04","width=500, height=800,top=0,left=0");                    
+                        // window.open("popup_20210526.html","popup_20210526_05","width=500, height=800,top=0,left=0");                    
+                    }
             }
-            openPopFn();
+            openPop01Fn();
+
+            function openPop02Fn(){
+                var isCookie = getCookieFn('popup_20210526_02');                
+
+                    if( isCookie != 'no' ){                  
+                        window.open("popup_20210526_02.html","popup_20210526_02","width=400, height=500,top=20,left=20");                                      
+                    }
+            }
+            openPop02Fn();
+
+            function openPop03Fn(){
+                var isCookie = getCookieFn('popup_20210526_03');                
+
+                    if( isCookie != 'no' ){               
+                        window.open("popup_20210526_03.html","popup_20210526_03","width=400, height=500,top=40,left=40");                                
+                    }
+            }
+            openPop03Fn();
+
+            function openPop04Fn(){
+                var isCookie = getCookieFn('popup_20210526_04');                
+
+                    if( isCookie != 'no' ){                   
+                        window.open("popup_20210526_04.html","popup_20210526_04","width=400, height=500,top=60,left=60");                                   
+                    }
+            }
+            openPop04Fn();
+
+            function openPop05Fn(){
+                var isCookie = getCookieFn('popup_20210526_05');                
+
+                    if( isCookie != 'no' ){                   
+                        window.open("popup_20210526_05.html","popup_20210526_05","width=400, height=500,top=80,left=80");                    
+                    }
+            }
+            openPop05Fn();
             
-            // function openPop01Fn(){
-            //     var isCookie = getCookieFn('popup_20210526_01');
 
-            //     if(isCookie !== 'no'){
-            //         window.open('popup_20210526.html', 'popup_20210526_01', 'width=400, height=600, top=30, left=30');
-            //     }
-            // }
-            // openPop01Fn();
-
+            
         },
         analogTimerFn:function(){
             var today   = null;
