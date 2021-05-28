@@ -11,15 +11,14 @@
 #wrap #main #section1 .wrap .gap .container .sub-content .sub-nav ul li a {display: block;font-size: 17px;color: #8d8d8d;padding: 30px 45px;position: relative;z-index: 2;}
 #wrap #main #section1 .wrap .gap .container .sub-content .sub-nav ul li.addClick a {color: #fff;}
 #wrap #main #section1 .wrap .gap .container .sub-content .sub-nav ul li i {display: none;position: absolute;z-index: 1;top: -25px;left: -5%;width: 110%;height: 125px;background: #2275c8;}
-#wrap #main #section1 .wrap .gap .container .sub-content .sub-nav ul li.addClick i {display: block;}
+#wrap #main #section1 .wrap .gap .container .sub-content .sub-nav ul li.addClick i {display: block;box-shadow: 0 5px 30px rgba(34, 117, 200, .6);}
 #wrap #main #section1 .wrap .gap .container .sub-content .sub-nav ul li i img {width: 50px;position: absolute;bottom: 0;right: 10px;}
 
 #wrap #main #section1 .wrap .gap .container .sub-content .content-nav {max-width: 1200px;margin: 0 auto;padding-top: 110px;position: relative;}
 #wrap #main #section1 .wrap .gap .container .sub-content .content-nav ul {width: 100%;text-align: center;}
 #wrap #main #section1 .wrap .gap .container .sub-content .content-nav ul li {float: left;width: 50%;}
-#wrap #main #section1 .wrap .gap .container .sub-content .content-nav ul li a {display: block;height: 60px;line-height: 60px;font-size: 16px;color: #555;background-color: #fbfbfb;border: 1px solid #ebebeb;border-right: 0;box-sizing: border-box;}
+#wrap #main #section1 .wrap .gap .container .sub-content .content-nav ul li a {display: block;height: 60px;line-height: 60px;font-size: 16px;color: #555;background-color: #fbfbfb;border: 1px solid #ebebeb;box-sizing: border-box;}
 #wrap #main #section1 .wrap .gap .container .sub-content .content-nav ul li a.addClick {color: #090f33;font-weight: 600;border: 2px solid #090f33;background-color: #fff;box-shadow: 0 0 15px rgba(0, 0, 0, .3);}
-#wrap #main #section1 .wrap .gap .container .sub-content .content-nav ul li:last-child a {border-right: 1px solid #ebebeb;}
 
 #wrap #main #section1 .wrap .gap .container .sub-content .content-table {max-width: 1200px;margin: 0 auto;padding: 50px 0 100px 0;position: relative;}
 #wrap #main #section1 .wrap .gap .container .sub-content .content-table h2 {color: #222;font-size: 30px;font-weight: 600;padding: 20px 0;}

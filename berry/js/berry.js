@@ -69,7 +69,7 @@
                         }
                         $sub.stop().slideUp(500);
                         $(this).next().stop().slideToggle(500);
-    
+
                     },
                     mouseenter:function(){
                         if(idx === 0){
