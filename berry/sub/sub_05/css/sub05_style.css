@@ -37,18 +37,18 @@
 #wrap #main #section1 .wrap .gap .container .sub-content .content-table > ul > p {color: #444;font-size: 16px;padding: 15px 0 30px 0;}
 
 
-#wrap #main #section1 .wrap .gap .container .sub-content .content-table table {width: 100%;}
-#wrap #main #section1 .wrap .gap .container .sub-content .content-table table thead {width: 100%;text-align: center;border: 1px solid #444758;box-sizing: border-box;}
-#wrap #main #section1 .wrap .gap .container .sub-content .content-table table thead th {color: #fff;font-weight: 400;background-color: #090f33;padding: 24px 15px;box-sizing: border-box;border-bottom: 1px solid #444758;border-right: 1px solid #444758;}
+#wrap #main #section1 .wrap .gap .container .sub-content .content-table > table {width: 100%;}
+#wrap #main #section1 .wrap .gap .container .sub-content .content-table > table thead {width: 100%;text-align: center;border: 1px solid #444758;box-sizing: border-box;}
+#wrap #main #section1 .wrap .gap .container .sub-content .content-table > table thead th {color: #fff;font-weight: 400;background-color: #090f33;padding: 24px 15px;box-sizing: border-box;border-bottom: 1px solid #444758;border-right: 1px solid #444758;}
 
-#wrap #main #section1 .wrap .gap .container .sub-content .content-table table tbody {width: 100%;border: 1px solid #dbdbdb;box-sizing: border-box;}
-#wrap #main #section1 .wrap .gap .container .sub-content .content-table table tbody th {color: #111;font-size: 15px;font-weight: 600;padding: 24px 15px;text-align: center;background: #f5f5f5;border-bottom: 1px solid #dbdbdb;}
-#wrap #main #section1 .wrap .gap .container .sub-content .content-table table tbody td {padding: 24px 15px;border-bottom: 1px solid #dbdbdb;border-left: 1px solid #dbdbdb;}
-#wrap #main #section1 .wrap .gap .container .sub-content .content-table table tbody td > ul {width: 100%;}
-#wrap #main #section1 .wrap .gap .container .sub-content .content-table table tbody td > ul > li {list-style: '-';margin-left: 10px;}
-#wrap #main #section1 .wrap .gap .container .sub-content .content-table table tbody td > ul > li p {font-size: 15px;color: #333;font-weight: 300;line-height: 180%;margin-left: 10px;}
+#wrap #main #section1 .wrap .gap .container .sub-content .content-table > table tbody {width: 100%;border: 1px solid #dbdbdb;box-sizing: border-box;}
+#wrap #main #section1 .wrap .gap .container .sub-content .content-table > table tbody th {color: #111;font-size: 15px;font-weight: 600;padding: 24px 15px;text-align: center;background: #f5f5f5;border-bottom: 1px solid #dbdbdb;}
+#wrap #main #section1 .wrap .gap .container .sub-content .content-table > table tbody td {padding: 24px 15px;border-bottom: 1px solid #dbdbdb;border-left: 1px solid #dbdbdb;}
+#wrap #main #section1 .wrap .gap .container .sub-content .content-table > table tbody td > ul {width: 100%;}
+#wrap #main #section1 .wrap .gap .container .sub-content .content-table > table tbody td > ul > li {list-style: '-';margin-left: 10px;}
+#wrap #main #section1 .wrap .gap .container .sub-content .content-table > table tbody td > ul > li p {font-size: 15px;color: #333;font-weight: 300;line-height: 180%;margin-left: 10px;}
 
-#wrap #main #section1 .wrap .gap .container .sub-content .content-table table tbody td > p {font-size: 15px;color: #333;font-weight: 300;line-height: 180%;margin-left: 20px;padding-top: 20px;}
-#wrap #main #section1 .wrap .gap .container .sub-content .content-table table tbody td > p strong {display: inline-block;padding: 3px 10px;border: 1px solid #000;box-sizing: border-box;margin-right: 10px;}
+#wrap #main #section1 .wrap .gap .container .sub-content .content-table > table tbody td > p {font-size: 15px;color: #333;font-weight: 300;line-height: 180%;margin-left: 20px;padding-top: 20px;}
+#wrap #main #section1 .wrap .gap .container .sub-content .content-table > table tbody td > p strong {display: inline-block;padding: 3px 10px;border: 1px solid #000;box-sizing: border-box;margin-right: 10px;}
 
-#wrap #main #section1 .wrap .gap .container .sub-content .content-table table tbody td > span {display: block;font-size: 15px;color: #333;font-weight: 300;line-height: 180%;}
+#wrap #main #section1 .wrap .gap .container .sub-content .content-table > table tbody td > span {display: block;font-size: 15px;color: #333;font-weight: 300;line-height: 180%;}

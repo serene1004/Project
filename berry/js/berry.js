@@ -309,6 +309,10 @@
                 }, 1000);
             }
 
+            // If the script that makes the change to DOM is in the same thread, for some reason the change will not apply until the thread is finished.
+            // So going by your way, the browser will see as if nothing has happened because the 'animate' class is removed and added in the same thread.
+            // DOM을 변경하는 스크립트가 동일한 스레드에 있는 경우, 어떤 이유로 인해 스레드가 완료될 때까지 변경 내용이 적용되지 않습니다.
+            // 따라서 브라우저는 'animate' 클래스가 제거되고 동일한 스레드에 추가되기 때문에 아무 일도 일어나지 않은 것처럼 보이게 됩니다.
             function progressFn(){
                 $progressbar.removeClass('addAni');
                 setTimeout(function(){
@@ -544,27 +548,24 @@
             $main.on('mousewheel DOMMouseScroll',function(event){
                 event.preventDefault();
 
-                if(event.originalEvent.wheelDelta){
+                if (event.originalEvent.wheelDelta) {
                     wheelDelta = event.originalEvent.wheelDelta;
-                }
-                else{    // 파이어폭스
+                } else {    // 파이어폭스
                     wheelDelta = event.detail*-1
                 }
 
-                if (!$('html,body').is(':animated')){
-                    if(wheelDelta < 0){
+                if (!$('html,body').is(':animated')) {
+                    if(wheelDelta < 0) {
                         cnt++;
-                        if(cnt>=3){
+                        if (cnt>=3) {
                             cnt=3;
                             $('html,body').stop().animate({scrollTop:$section.eq(cnt-1).offset().top+200}, 800, 'swing');
-                        }
-                        else{
+                        } else {
                             $('html,body').stop().animate({scrollTop:$section.eq(cnt).offset().top}, 800, 'swing');
                         }
-                    }
-                    else{
+                    } else {
                         cnt--;
-                        if(cnt<0){cnt=0;}
+                        if (cnt<0) {cnt=0;}
                         $('html,body').stop().animate({scrollTop:$section.eq(cnt).offset().top}, 800, 'swing');
                     }
                 }

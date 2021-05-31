@@ -40,8 +40,8 @@
 
                             a[idx][0] = obj.no;
                             a[idx][1] = obj.title;
-                            a[idx][2] = obj.date;
-                            a[idx][3] = obj.name;
+                            a[idx][2] = obj.name;
+                            a[idx][3] = obj.date;
 
                         });
 
@@ -135,7 +135,7 @@
                                     groupEndNum = totalPageNum;
                                 }
                                 for (var i=gruopStartNum; i<groupEndNum; i++) {
-                                    if (i%pageNumList===2) {
+                                    if (i%pageNumList===1) {
                                         txt += '<li><a href="#" class="page-btn addPage">'+ (i+1) +'</a></li>'
                                     } else {
                                         txt += '<li><a href="#" class="page-btn">'+ (i+1) +'</a></li>'
@@ -144,7 +144,7 @@
                                 $pageBox.html(txt);
                                 $pageBtn = $('.page-box li .page-btn');
     
-                                startNum = parseInt($pageBtn.eq(2).text()-1)*list;
+                                startNum = parseInt($pageBtn.eq(1).text()-1)*list;
                                 endNum = startNum+list;
                             
                                 if(endNum > total){

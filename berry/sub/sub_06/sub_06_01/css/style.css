@@ -10,14 +10,15 @@
 #wrap #main #section1 .wrap .gap .container .sub-content .content-table .notice-board > table > tbody td:nth-child(2) {text-align: left;text-indent: 15px;cursor: pointer;transition: all .6s;}
 #wrap #main #section1 .wrap .gap .container .sub-content .content-table .notice-board > table > tbody td:nth-child(2):hover {color: #f15b6d;}
 
-#wrap #main #section1 .wrap .gap .container .sub-content .content-table .notice-board > table > tbody td:nth-child(2) > a {position: absolute;top: 9px;right: 15px;width: 36px;height: 36px;border: 1px solid #ddd;transition: all .6s;}
+#wrap #main #section1 .wrap .gap .container .sub-content .content-table .notice-board > table > tbody td:nth-child(2) > a {position: absolute;top: 9px;right: 15px;width: 36px;height: 36px;border: 1px solid #ddd;overflow: hidden;transition: all .6s;}
 #wrap #main #section1 .wrap .gap .container .sub-content .content-table .notice-board > table > tbody td:nth-child(2) > a:hover {border-color: #f15b6d;}
-#wrap #main #section1 .wrap .gap .container .sub-content .content-table .notice-board > table > tbody td:nth-child(2) > a > i {display: inline-block;background: #ddd;position: absolute;transition: all .6s;}
+#wrap #main #section1 .wrap .gap .container .sub-content .content-table .notice-board > table > tbody td:nth-child(2) > a > i {display: inline-block;background: #ddd;position: absolute;z-index: 2;transition: all .6s;}
 #wrap #main #section1 .wrap .gap .container .sub-content .content-table .notice-board > table > tbody td:nth-child(2) > a > i:nth-child(1) {width: 14px;height: 2px;top: 17px;left: 11px;}
 #wrap #main #section1 .wrap .gap .container .sub-content .content-table .notice-board > table > tbody td:nth-child(2) > a > i:nth-child(2) {width: 2px;height: 14px;top: 11px;left: 17px;}
-#wrap #main #section1 .wrap .gap .container .sub-content .content-table .notice-board > table > tbody td:nth-child(2) > a:hover > i {background: #f15b6d;}
+#wrap #main #section1 .wrap .gap .container .sub-content .content-table .notice-board > table > tbody td:nth-child(2) > a:hover > i {background: #f15b6d;transform: rotate(-180deg);}
 
-#wrap #main #section1 .wrap .gap .container .sub-content .content-table .notice-board > .btn-wrap {padding: 30px 0;position: relative;border-bottom: 1px dashed #ddd;}
+
+#wrap #main #section1 .wrap .gap .container .sub-content .content-table .notice-board > .btn-wrap {padding: 30px 0;position: relative;border-bottom: 1px dashed #ddd;text-align: center;}
 #wrap #main #section1 .wrap .gap .container .sub-content .content-table .notice-board > .btn-wrap > span {display: inline-block;border: 1px solid #25282d;background: #41464e;position: relative;overflow: hidden;transition: all .6s;}
 #wrap #main #section1 .wrap .gap .container .sub-content .content-table .notice-board > .btn-wrap > span > a {display: block;font-size: 14px;color: #fff;letter-spacing: 1px;padding: 12px 24px;position: relative;z-index: 2;transition: all .6s ease-in-out;}
 #wrap #main #section1 .wrap .gap .container .sub-content .content-table .notice-board > .btn-wrap > span:hover > a {color: #060c30;}
