@@ -8,6 +8,7 @@
             that.section2Fn();
             that.section3Fn();
             that.footerFn();
+            that.cookieFn();
             that.mouseWheelFn();
         },
 
@@ -532,6 +533,33 @@
             });
 
 
+        },
+        cookieFn:function(){
+            var start = 0;
+            var end = 0;
+
+            // 2-1
+            function getCookieFn(name){
+                start = 0;
+                end = document.cookie.indexOf('=');
+                
+                if(document.cookie.slice(start, end) === name){
+                    start = document.cookie.indexOf('=')+1;
+                    return document.cookie.slice(start);    // no
+                }
+                return '';  // 쿠키값을 못찾으면 ''을 리턴시킴
+                
+            }
+
+            // 2-2
+            function openPopFn(){
+                var isCookie = getCookieFn('popup');
+
+                if(isCookie !== 'no'){
+                    window.open('popup.html', 'popup', 'width=400, height=600, top=100, left=1050');
+                }
+            }
+            openPopFn();
 
 
         },

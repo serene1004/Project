@@ -164,6 +164,7 @@
 .title > ul > li:nth-of-type(7).addScroll {transition-delay: 1.2s;}
 .title > ul > li:nth-of-type(8).addScroll {transition-delay: 1.4s;}
 .title > ul > li:nth-of-type(9).addScroll {transition-delay: 1.6s;}
+.title > ul > li:nth-of-type(10).addScroll {transition-delay: 1.8s;}
 .title > ul > li > p {font-size: 15px;color: #fff;font-weight: 300;margin-left: 10px;}
 
 .title > .btn-wrap {position: absolute;top: 0;left: 300px;width: 150px;height: 30px;opacity: 0;transition: all 1s;}
