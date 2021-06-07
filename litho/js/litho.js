@@ -982,6 +982,7 @@
             // 1. 반응형함수
             function reponseFn(){
                 $slideW = $('#section3 .slide').innerWidth();
+                $slideWrap.css({marginLeft:-$slideW*4})
                 section3SlideFn();
             }
             reponseFn();    // <<< 로딩시 실행
@@ -1113,7 +1114,7 @@
                 setId = setInterval(nextSlideCountFn, 4000);
                 // console.log('할당된 메모리 번지 번호 ',setId); // 할당 후
             }
-            autoPlay(); // 로딩시 4초후 4초간격으로 실행
+            // autoPlay(); // 로딩시 4초후 4초간격으로 실행
 
             // 타이머함수 만들기
             // 이벤트(클릭, 터치) 발생 시 애니메이션 일시정지
@@ -1926,7 +1927,7 @@
                     // 유효성 검사
                     if($frmEmail===''){
                         alert('메일주소를 입력하세요');
-                        $frmEmail.focus();  // 포커스를 이동
+                        $('#frmEmail').focus();  // 포커스를 이동
                         return false;   // 리턴(취소) 해버림
                     }
                     else{

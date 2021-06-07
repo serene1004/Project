@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+@media all and (max-width:1600px){
+    #wrap #footer .wrap .gap .container > ul > li:nth-child(1) .content-gap .content {text-align: center;}
+    #wrap #footer .wrap .gap .container > ul > li:nth-child(3) .content-gap .content {text-align: center;}
+}
+
 @media all and (max-width:1500px){
     /* 섹션9 */
     #wrap #main #section9 .wrap .gap .container .content ul li {float: left;width: 50%;}
@@ -7,7 +12,7 @@
 }
 
 @media all and (max-width:1320px){
-    
+
     /* 섹션3 */
     #wrap #main #section3 {padding: 11.59vw 0 9.84vw 0;}
     #wrap #main #section3 .wrap .gap .container .deco-title {display: none;}
@@ -15,7 +20,8 @@
     #wrap #main #section3 .wrap .gap .container .content .slide-box ul .left-box {float: left;width: 22.19vw;}
 
     #wrap #main #section3 .wrap .gap .container .content .slide-box ul .right-box {float: left;width: 66.43vw;}
-
+    
+    #wrap #modalDemo {display: none;}
 }
 
 @media all and (max-width:1200px){
@@ -30,8 +36,8 @@
     #wrap #main #section7 .wrap .gap .container .content ul li .content-gap .content-wrap .title-wrap .title-gap .title h2 {font-size: 20px;line-height: 120%;width: 80%;}
     #wrap #main #section7 .wrap .gap .container .content ul li .content-gap .content-wrap .title-wrap .title-gap .title div {padding-top: 20px;}
 
-        /* 섹션10 */
-        #wrap #main #section10 .wrap .gap .container .content {height: 260px;}
+    /* 섹션10 */
+    #wrap #main #section10 .wrap .gap .container .content {height: 260px;}
 
 }
 
@@ -179,7 +185,7 @@
     #wrap #main #section2 .wrap .gap .container > ul > li .content-gap .content > h3 {padding-bottom: 15px;}
     #wrap #main #section2 .wrap .gap .container > ul > li .content-gap .content > p:nth-child(2) {margin-bottom: 15px;margin-right: 15px;}
 
-    #wrap #main #section2 .wrap .gap .container > ul > li .content-gap .content .img-box {position: relative;}
+    #wrap #main #section2 .wrap .gap .container > ul > li .content-gap .content .img-box {position: relative;width: 50%;margin: 0 auto;}
     
 
     /* 섹션3 */
@@ -270,9 +276,10 @@
     
 
     /* 섹션3 슬라이드 */
+    #wrap #main #section3 .wrap .gap .container .content .slide-box ul .right-box {margin: 0 auto;}
     #wrap #main #section3 .wrap .gap .container .content .slide-box ul .right-box .box-gap .content-box .slide-container .slide-view {width: calc(50%*2);}
-    #wrap #main #section3 .wrap .gap .container .content .slide-box ul .right-box .box-gap .content-box .slide-container .slide-view .slide-wrap {width: calc(100%*12);margin-left: calc(-50%*4);}
-    #wrap #main #section3 .wrap .gap .container .content .slide-box ul .right-box .box-gap .content-box .slide-container .slide-view .slide-wrap .slide {width: 50vw;}
+    #wrap #main #section3 .wrap .gap .container .content .slide-box ul .right-box .box-gap .content-box .slide-container .slide-view .slide-wrap {width: calc(100%*12);margin-left: calc(-100%*4);}
+    #wrap #main #section3 .wrap .gap .container .content .slide-box ul .right-box .box-gap .content-box .slide-container .slide-view .slide-wrap .slide {width: 98vw;}
 
     /* 섹션7 */
     #wrap #main #section7 .wrap .gap .container .content ul {height: 1000px;}
@@ -281,6 +288,14 @@
     #wrap #main #section7 .wrap .gap .container .content ul li:nth-child(1) .content-gap {border-top: 0;height: 100%;}
     #wrap #main #section7 .wrap .gap .container .content ul li:nth-child(2) .content-gap {border-right: 0;border-top: 0;height: 100%;}
     #wrap #main #section7 .wrap .gap .container .content ul li:nth-child(4) .content-gap {border-right: 0;height: 100%;}
+
+    /* footer */
+    #wrap #footer .wrap .gap .container > ul {width: 100%;display: flex;flex-direction: column;align-items: center;}
+    #wrap #footer .wrap .gap .container > ul > li {float: left;width: 80%;padding: 10px 0;}
+    #wrap #footer .wrap .gap .container > ul > li:nth-child(2) {width: 80%;}
+    #wrap #footer .wrap .gap .container > ul > li:nth-child(2) .content-gap .content .form-wrap form .input-wrap {width: 80%;margin: 0 auto;}
+
+    #wrap #footer .wrap .gap .container > ul > li:nth-child(3) .content-gap .content .social-wrap > li {display: inline-block;margin-left: 0;margin: 0 10px;}
 
 }
 
@@ -372,7 +387,7 @@
     #wrap #main #section2 .wrap .gap .container > ul > li .content-gap .content > p {line-height: 175%;}
     #wrap #main #section2 .wrap .gap .container > ul > li .content-gap .content > p:nth-child(2) {margin-bottom: 15px;}
 
-    #wrap #main #section2 .wrap .gap .container > ul > li .content-gap .content .img-box {position: relative;}
+    #wrap #main #section2 .wrap .gap .container > ul > li .content-gap .content .img-box {position: relative;width: 80%;}
 
 
     /* 섹션3 */
@@ -382,12 +397,12 @@
     #wrap #main #section3 .wrap .gap .container .content .slide-box ul .left-box .box-gap .content-box {height: 25vw;}
     #wrap #main #section3 .wrap .gap .container .content .slide-box ul .left-box .box-gap .content-box > h4 {padding-top: 4vw;margin-bottom: 2vw;font-size: 2vw}
     #wrap #main #section3 .wrap .gap .container .content .slide-box ul .left-box .box-gap .content-box > h2 {font-size: 4vw;}
-    #wrap #main #section3 .wrap .gap .container .content .slide-box ul .left-box .box-gap .content-box > div {position: relative;;}
+    #wrap #main #section3 .wrap .gap .container .content .slide-box ul .left-box .box-gap .content-box > div {position: relative;}
 
     /* 섹션3 슬라이드 */
     #wrap #main #section3 .wrap .gap .container .content .slide-box ul .right-box .box-gap .content-box .slide-container .slide-view {width: calc(100%*1);}
     #wrap #main #section3 .wrap .gap .container .content .slide-box ul .right-box .box-gap .content-box .slide-container .slide-view .slide-wrap {width: calc(100%*12);margin-left: calc(-100%*4);}
-    #wrap #main #section3 .wrap .gap .container .content .slide-box ul .right-box .box-gap .content-box .slide-container .slide-view .slide-wrap .slide {width: 100vw;}
+    #wrap #main #section3 .wrap .gap .container .content .slide-box ul .right-box .box-gap .content-box .slide-container .slide-view .slide-wrap .slide {width: 96vw;}
 
 
     /* 섹션4 오른쪽박스 */
