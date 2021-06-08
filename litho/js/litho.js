@@ -1849,6 +1849,7 @@
 
         },
         section9Fn:function(){
+            var $contentGap  = $('#section9 .content-gap');
             var $contentWrap  = $('#section9 .content-wrap');
             var $imgWrapW     = $('#section9 .content-wrap .img-wrap').innerWidth();  // 왼쪽 이미지박스
             var $h3           = $('#section9 .content-wrap .caption-wrap h3 > a');
@@ -1895,14 +1896,14 @@
                 if($(window).scrollTop() >= $('#section8').offset().top){
                     if(t === 1){
                         t = 2;
-                        $li.addClass('addScroll');
+                        $contentGap.addClass('addScroll');
                     }
                 }
                 if($(window).scrollTop() === 0){
                     t = 0;
                     $h4.removeClass('addScroll');
                     $h2.removeClass('addScroll');
-                    $li.removeClass('addScroll');
+                    $contentGap.removeClass('addScroll');
                 }
             });
 
