@@ -51,24 +51,24 @@
                         $a.removeClass('addAni');
                         $(this).addClass('addAni');
                         if (idx === 0) {
-                            $section1.css({background: 'url(./img/main2.jpg) no-repeat 50% 50%', backgroundSize: 'cover'});
+                            // $section1.css({background: 'url(./img/main2.jpg) no-repeat 50% 50%', backgroundSize: 'cover'});
                             $profile.removeClass('addAni');
                             $skills.removeClass('addAni');
                             $progressbar.removeClass('addAni');
                         } else if (idx === 1) {
-                            $section1.css({background: 'url(./img/main3.jpg) no-repeat 50% 50%', backgroundSize: 'cover'});
+                            // $section1.css({background: 'url(./img/main3.jpg) no-repeat 50% 50%', backgroundSize: 'cover'});
                             $profile.removeClass('addAni');
                             $skills.removeClass('addAni');
                             $progressbar.removeClass('addAni');
                         } else if (idx === 2) {
-                            $section1.css({background: 'url(./img/main1.jpg) no-repeat 50% 50%', backgroundSize: 'cover'});
+                            // $section1.css({background: 'url(./img/main1.jpg) no-repeat 50% 50%', backgroundSize: 'cover'});
                             $profile.addClass('addAni');
                             $skills.addClass('addAni');
                             setTimeout(function(){
                                 $progressbar.addClass('addAni');
                             }, 2000)
                         } else if (idx === 3) {
-                            $section1.css({background: 'url(./img/main5.jpg) no-repeat 50% 50%', backgroundSize: 'cover'});
+                            // $section1.css({background: 'url(./img/main5.jpg) no-repeat 50% 50%', backgroundSize: 'cover'});
                             $profile.removeClass('addAni');
                             $skills.removeClass('addAni');
                             $progressbar.removeClass('addAni');
@@ -79,9 +79,11 @@
 
             $span.on({
                 mouseenter:function(){
-                    $arrow.css({display:'none'});
                     $(this).children(0).css({display:'block'});
                     $(this).children(2).css({display:'block'});
+                },
+                mouseleave:function(){
+                    $arrow.css({display:'none'});
                 }
             });
 
