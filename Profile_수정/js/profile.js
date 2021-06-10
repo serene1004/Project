@@ -1,4 +1,4 @@
-;(function($){
+(function($){
 
     var profile = {
         init:function(){
@@ -13,14 +13,23 @@
             var $winW  = $(window).width();
             var $winH  = $(window).height();
             var $section1 = $('#section1');
+            var $introBox = $('#section1 .intro-box');
+            var $introBoxH1 = $('#section1 .intro-box > h1');
+            var $introBoxP = $('#section1 .intro-box > p');
+            var $introBoxSpan = $('#section1 .intro-box > span');
+            var $intro = $('#section1 .intro');
             var $cube = $('#wrap .cube');
+            var $cubeTopSpan = $('#wrap .cube .top > span');
+            var $weather = $('#section1 .weather');
+            var $timeA = $('#section1 .weather .time li > a');
+            var $middayImg = $('#section1 .weather .midday img');
             var x = 0;
             var y = 0;
             var $a = $('#section1 .link-wrap > span > a');
-            var $span = $('#section1 .link-wrap > span');
-            var $arrow = $('#section1 .link-wrap > span > i');
             var $profile = $('#section1 .profile > ul > li');
+            var $profileA = $('#section1 .profile > ul > li > a');
             var $skills = $('#section1 .skills > ul > li');
+            var $skillsP = $('#section1 .skills > ul > li > p');
             var $progressbar = $('#section1 .skills .progress-bar');
             
 
@@ -37,11 +46,20 @@
 
             $section1.on({
                 mousemove:function(event){
-
                     x = event.clientX*0.095;
                     y = event.clientY*0.2;
-
                     $cube.css({transform:'perspective(600px) rotateX('+ (y-90) +'deg) rotateY('+ (x-90) +'deg) scale3d(1,1,1)'});
+
+                    $middayImg.eq(2).css({transform:'translateX('+ event.clientX +'px) translateY('+ event.clientY +'px) rotate(-60deg)'})
+                },
+                click:function(){
+                    $intro.addClass('addAni');
+                    $introBoxH1.hide(0);
+                    $introBoxP.hide(0);
+                    $introBoxSpan.hide(0);
+                    setTimeout(function(){
+                        $introBox.hide(0);
+                    }, 1500)
                 }
             });
 
@@ -73,20 +91,68 @@
                             $skills.removeClass('addAni');
                             $progressbar.removeClass('addAni');
                         }
+                    },
+                    click:function(){
+                        if (idx === 0) {
+                            $cubeTopSpan.toggleClass('addClick');
+                        }
                     }
                 });
             });
 
-            $span.on({
-                mouseenter:function(){
-                    $(this).children(0).css({display:'block'});
-                    $(this).children(2).css({display:'block'});
-                },
-                mouseleave:function(){
-                    $arrow.css({display:'none'});
-                }
+            $timeA.each(function(idx){
+                $(this).on({
+                    click:function(){
+                        $timeA.removeClass('addClick')
+                        $(this).addClass('addClick');
+                        if (idx === 0) {
+                            $section1.removeClass('addClick');
+                            $timeA.removeClass('addColor');
+                            $weather.removeClass('addClick');
+                            $profile.removeClass('addColor');
+                            $skillsP.removeClass('addColor');
+                            $profileA.removeClass('addColor');
+                            $a.removeClass('addColor');
+                        }   else if (idx === 1) {
+                            $section1.addClass('addClick');
+                            $timeA.addClass('addColor');
+                            $weather.addClass('addClick');
+                            $profile.addClass('addColor');
+                            $skillsP.addClass('addColor');
+                            $profileA.addClass('addColor');
+                            $a.addClass('addColor');
+                        }
+                    }
+                });
             });
 
+            // timer
+            var today  = null;
+            var hour   = null;
+            var minute = null;
+            var second = null;
+            var txt = '';
+
+            function timerFn(){
+                today  = new Date();
+                hour   = today.getHours();
+                if(hour<10){hour='0'+hour;}
+                else{hour=hour;}
+
+                minute = today.getMinutes();
+                if(minute<10){minute='0'+minute;}
+                else{minute=minute;}
+
+                second = today.getSeconds();
+                if(second<10){second='0'+second;}
+                else{second=second;}
+
+                txt = hour + ' : ' + minute + ' : ' + second + '';
+                $a.eq(0).html(txt);
+            }
+            setInterval(function(){
+                timerFn();
+            }, 1000);
 
             
         },
@@ -293,11 +359,11 @@
                     click:function(event){
                         event.preventDefault();
                         if (idx === 0) {
-                            cnt=1;
+                            cnt=0;
                         } else if (idx === 1) {
-                            cnt=2;
+                            cnt=0;
                         } else if (idx === 3) {
-                            cnt=4;
+                            cnt=1;
                         }
                         var url = $(this).attr('href');
                         $('html,body').stop().animate({scrollTop:$(url).offset().top}, 800);

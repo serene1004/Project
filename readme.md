@@ -1,3 +1,4 @@
 ### STUDY ###
 
-베리숲마을 http://yongdam.koweb1.gethompy.com/
+Vue 살짝 공부해보는중
+http://serene.dothome.co.kr/ 프로필 수정중
