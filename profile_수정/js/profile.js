@@ -192,13 +192,14 @@
                 $winW = $(window).width();
                 $winH  = $(window).height();
 
-                $section2.css({width:$winW,height:$winH})
+                $section2.css({width:$winW,height:$winH});
             }
 
             $(window).resize(function(){
                 resizeFn();
             });
             setTimeout(resizeFn, 100);
+
 
             $(window).scroll(function(){
                 if($(window).scrollTop() >= $('#section2').offset().top){
